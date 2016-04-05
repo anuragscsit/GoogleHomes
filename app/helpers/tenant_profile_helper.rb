@@ -1,0 +1,2 @@
+module TenantProfileHelper
+end

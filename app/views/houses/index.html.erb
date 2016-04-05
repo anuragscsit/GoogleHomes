@@ -1,0 +1,60 @@
+<div>
+  <div class="container mt40">
+    <div class="search-form row">
+    <form class="">
+      <div class="select-option col-sm-3">
+        <i class="ti-angle-down"></i>
+        <select>
+          <option selected="" value="Default">Select City</option>
+          <option value="Small">Indore</option>
+          <option value="Medium">Bhopal</option>
+          <option value="Larger">Jabalpur</option>
+        </select>
+      </div>
+      <div class="col-sm-4" id="input-location"><i class="ti-location-pin "></i>
+        <input type="text" name="name" id="search-location" placeholder="location" />
+      </div>  
+      <div class="select-option col-sm-3">
+        <i class="ti-angle-down"></i>
+        <select>
+          <option selected="" value="Default">Looking for</option>
+          <option value="Small">Boy</option>
+          <option value="Medium">Girl</option>
+        </select>
+      </div>
+      <div class="col-sm-2">
+        <input type="submit" value="Search" class=""/>
+      </div>  
+    </form>
+  </div>
+  </div>
+  <hr/>
+</div>
+<div>
+	<div class="row">
+   <div class="col-sm-6">
+    <h3>list of houses</h3>
+  </div>
+  <div id="map" class="col-sm-6"></div>
+</div>
+<div class="row"></div>
+</div>
+<script type="text/javascript">
+	handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers([
+    {
+      "lat": 22.73,
+      "lng": 75.82,
+      
+      "infowindow": "hello!"
+    }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.map.centerOn(markers[0]);
+    handler.getMap().setZoom(12);
+  });
+
+  $("#search-location").geocomplete();
+
+</script>

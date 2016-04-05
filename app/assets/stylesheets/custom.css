@@ -1,0 +1,17 @@
+/*****************INDEX-PAGE****************/
+#input-location i{position: absolute;margin-left: 5px;font-size: 16px;color: #747171;margin-top: 17px;}
+
+
+/*****************SignIn-Page****************/
+
+
+
+/*****************SignUp-Page****************/
+
+/*Houses*/
+#map{height: 500px; border: #000 solid 1px;}
+
+
+/******Profile Page*******/
+.bg-custom{background-color: rgba(195, 189, 176, 0.77);}
+.after-radio{position: absolute;margin-left: 10px;}
