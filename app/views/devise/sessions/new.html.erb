@@ -1,0 +1,24 @@
+<section class="cover fullscreen image-bg overlay">
+  <div class="background-image-holder">
+      <%#= image_tag "home12.jpg", alt: "image", class: "background-image"%>
+  </div>
+  <div class="container v-align-transform">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2">
+            <div class="feature bordered text-center">
+                <h4 class="uppercase">Login Here</h4>
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <%= f.email_field :email, autofocus: true, placeholder: 'Email' %>
+                   <%= f.password_field :password, autocomplete: "off", placeholder: 'Password' %>
+                   <%= f.submit "Sign In" %>
+                <% end %>
+                <p class="mb0">Forgot your password?
+                    <a id="forgot-password" href="/users/password/new">Click here to reset</a>
+                </p>
+            </div>
+        </div>
+    </div>
+      <!--end of row-->
+  </div>
+    <!--end of container-->
+</section>

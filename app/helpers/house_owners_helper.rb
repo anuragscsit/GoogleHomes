@@ -1,0 +1,2 @@
+module HouseOwnersHelper
+end
