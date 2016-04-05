@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 *.rbc
 capybara-*.html
 .rspec
@@ -48,4 +48,4 @@ bower.json
 /log/*
 !/log/.keep
 /tmp
->>>>>>> Initial Commit.
+
