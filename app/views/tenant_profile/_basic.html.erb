@@ -1,19 +1,16 @@
 
-<div class="col-sm-12">
-  <h4>Basic</h4>
-
   <div class="row">
     <div class="col-sm-6">
       <p class="lead">
         Fill your basic details
       </p>
       <div class="input-with-label text-left">
-        <span>First Name</span>
-        <input type="text">
+        <label>Date of birth</label>
+        <%= f.text_field :DOB, placeholder: 'DOB' %>
       </div>
       <div class="input-with-label text-left">
-        <span>Last name</span>
-        <input type="text">
+        <span>Father's Name</span>
+        <%= f.text_field :father_name, placeholder: 'Father Name' %>
       </div>
       <div class="row">
         <h5 class="uppercase">Sex</h5>
@@ -34,20 +31,41 @@
       </div>
       <div class="input-with-label text-left">
         <span>Permanent Address</span>
-        <textarea placeholder="Permanent Address" rows="3"></textarea>
+        <label>Address</label>
+        <%= f.text_field :p_address, placeholder: 'Address line 1' %>
+      </div>  
+      <div class="input-with-label text-left">
+        <label>Address</label>
+        <%= f.text_field :p_city, placeholder: 'City' %>
+      </div>
+      <div class="input-with-label text-left">
+        <label>Address</label>
+        <%= f.text_field :p_state, placeholder: 'State' %>
+      </div>
+      <div class="input-with-label text-left">
+        <label>Address</label>
+        <%= f.text_field :p_pincode, placeholder: 'pincode' %>
       </div>      
     </div>
     <div class="col-sm-6">
-      <h4 class="uppercase mb16">Option Inputs</h4>
-       <div class="select-option">
-        <i class="ti-angle-down"></i>
-        <select>
-          <option selected="" value="Default">Select An Option</option>
-          <option value="Small">Small</option>
-          <option value="Medium">Medium</option>
-          <option value="Larger">Large</option>
-        </select>
+      <div class="input-with-label text-left">
+        <span>Permanent Address</span>
+        <label>Address</label>
+        <%= f.text_field :c_address, placeholder: 'Address line 1' %>
+      </div>  
+      <div class="input-with-label text-left">
+        <label>Address</label>
+        <%= f.text_field :c_city, placeholder: 'City' %>
       </div>
+      <div class="input-with-label text-left">
+        <label>Address</label>
+        <%= f.text_field :c_state, placeholder: 'State' %>
+      </div>
+      <div class="input-with-label text-left">
+        <label>Address</label>
+        <%= f.text_field :p_pincode, placeholder: 'pincode' %>
+      </div>      
+      
       <!--end select-->
       <form class="mb24">
         <span>Would you like to Susbscribe googleHomes newsletters</span>

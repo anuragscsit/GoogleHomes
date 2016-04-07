@@ -1,7 +1,11 @@
-<section>
-	<h1>Tenants#dashboard</h1>
-	<div>
-		
+<section class="custom-section">
+	<h3>Tenants#dashboard</h3>
+	<div class="container">
+		<p>name: <%=@tenant.full_name%> </p>
+		<p>father_name:<%= @tenant_profile.father_name%></p>
+		<p>email:<%=@tenant.email%></p>
+		<p>contact_number:<%=@tenant.contact_number%></p>
+		<p>address:<%= @tenant_profile.full_address%></p>
 		
 	</div>
 </section>

@@ -1,2 +1,8 @@
 <h1>Tenant Profile</h1>
-<%= link_to 'Update Profile',  edit_tenant_tenant_profile_path(tenant_id: current_user.id)%>
+<%# if !current_user.tenant_profile.valid? %>
+<p class="alert alert-warning">
+	Your profile is incomplete. Please fill out more of your
+
+	<%= link_to 'Update Profile',  edit_tenant_tenant_profile_path(tenant_id: current_user.id, id: current_user.tenant_profile.id)%>
+</p>
+<%#end%>
