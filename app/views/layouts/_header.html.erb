@@ -20,6 +20,7 @@
         <ul class="menu">
           
           <li><%= link_to 'Browse Houses', houses_path%></li>
+          <li><%= link_to 'For Owner', home_owner_path%></li>
           <li><a href="#">Success stories</a></li>
           <li><%= link_to 'Log in', new_user_session_path%></li>
           <!-- <li><#%= link_to 'Log in', new_owner_session_path%></li> -->
@@ -68,6 +69,7 @@
        
         <div class="module widget-handle language right">
           <ul class="menu">
+            <li><%= link_to 'For Owner', home_owner_path%></li>
             <li>
                  <%= link_to 'Profile',  house_owner_path(current_user)%>
             </li>

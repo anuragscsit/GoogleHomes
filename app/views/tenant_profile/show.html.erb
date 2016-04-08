@@ -1,0 +1,29 @@
+<h1>Tenant Profile</h1>
+<%# if !current_user.tenant_profile.valid? %>
+<p class="alert alert-warning">
+	Your profile is incomplete. Please fill out more of your
+
+	<%= link_to 'Update Profile',  edit_tenant_tenant_profile_path(tenant_id: current_user.id, id: current_user.tenant_profile.id)%>
+</p>
+<%#end%>
+<section class="custom-section">
+	<div class="container">
+		<h3>Tenants#profile</h3>
+		<div class="col-sm-6">
+			<p>name: <%=@tenant.full_name%> </p>
+			<p>father_name:<%= @tenant_profile.father_name%></p>
+			<p>Gender: <%=@tenant_profile.sex%> </p>
+			<p>Bio: <%=@tenant_profile.bio%> </p>
+			<p>email:<%=@tenant.email%></p>
+			<p>Occupation: <%=@tenant_profile.occupation%> </p>
+			<p>Working Place: <%=@tenant_profile.work_place%> </p>
+			<p>contact_number:<%=@tenant.contact_number%></p>
+			<p>Permanent Address:<%=@tenant_profile.full_permamnent_address%></p>
+			<p>Permanent Address:<%= @tenant_profile.full_corespondence_address%></p>
+			<p>contact_number:<%=@tenant.contact_number%></p>
+		</div>
+		<div class="col-sm-6">
+			<%= link_to 'Update Profile',  edit_tenant_tenant_profile_path(tenant_id: current_user.id, id: current_user.tenant_profile.id)%>
+		</div>
+	</div>	
+</section>

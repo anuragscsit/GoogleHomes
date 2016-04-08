@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'tenants/profile'
 
   get 'home/index'
+  get 'home/owner'
 
   devise_for :tenants, skip: [:sessions]
   devise_for :house_owners, skip: [:sessions]
