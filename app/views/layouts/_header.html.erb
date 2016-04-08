@@ -46,13 +46,16 @@
       <% if user_signed_in? && current_user.class.name == 'Tenant' %>
         <div class="module widget-handle language right">
           <ul class="menu">
-             <li>
-                <%= link_to 'Profile',  tenant_path(current_user)%>
-            </li>
+            <li>                   
+              <%= link_to "Dashboard", dashboard_tenants_path%>
+            </li> 
             <li class="">
                   Settings <span class="caret"></span>
                 <ul>
-                    <li><%=current_user.email%></li>
+                                    
+                  <li>                   
+                    <%= link_to current_user.first_name,  tenant_path(current_user)%>
+                  </li>
                     <li>
                       <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
                   </li>
@@ -71,8 +74,7 @@
             <li class="">
               
               <%=current_user.email%> <span class="caret"></span>
-              <ul class>
-                
+              <ul class>               
                 <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>

@@ -16,5 +16,6 @@
 //= require jquery.geocomplete
 //= require underscore
 //= require gmaps/google
+//= require char-count
 
 //= require_tree .

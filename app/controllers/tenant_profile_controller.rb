@@ -2,10 +2,14 @@ class TenantProfileController < ApplicationController
 	before_filter :authenticate_tenant!
   def edit
   	@user = current_tenant
+     @city  = City.all
+      @state  = State.all
     @tenant_profile = current_tenant.tenant_profile
   end
   def update
     @user = current_tenant
+    @city  = City.all
+     @state  = State.all
      @tenant_profile = TenantProfile.find(params[:id])
     if @tenant_profile.update_attributes(profile_params)
       redirect_to dashboard_tenants_path
@@ -13,6 +17,13 @@ class TenantProfileController < ApplicationController
       render 'edit'
     end
   end
+  def show
+
+    @tenant = current_user
+    @tenant_profile = current_user.tenant_profile
+   
+  end
+    
 
   private
   def profile_params

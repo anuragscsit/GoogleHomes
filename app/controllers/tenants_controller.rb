@@ -13,6 +13,8 @@ class TenantsController < ApplicationController
   end
 
   def show
+    @tenant = current_user
+     @tenant_profile = current_user.tenant_profile
   end
 
 end
