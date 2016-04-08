@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407140602) do
+ActiveRecord::Schema.define(version: 20160408121424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,12 +30,10 @@ ActiveRecord::Schema.define(version: 20160407140602) do
     t.string   "c_city"
     t.string   "c_state"
     t.integer  "c_pincode"
+    t.integer  "house_owner_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.integer  "house_owner_id"
   end
-
-  add_index "house_owner_profiles", ["house_owner_id"], name: "index_house_owner_profiles_on_house_owner_id", using: :btree
 
   create_table "house_owners", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -65,6 +63,8 @@ ActiveRecord::Schema.define(version: 20160407140602) do
 
   create_table "tenant_profiles", force: :cascade do |t|
     t.date     "DOB"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "sex"
     t.text     "bio"
     t.string   "occupation"
@@ -78,12 +78,8 @@ ActiveRecord::Schema.define(version: 20160407140602) do
     t.string   "c_city"
     t.string   "c_state"
     t.integer  "c_pincode"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
     t.integer  "tenant_id"
   end
-
-  add_index "tenant_profiles", ["tenant_id"], name: "index_tenant_profiles_on_tenant_id", using: :btree
 
   create_table "tenants", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -126,5 +122,4 @@ ActiveRecord::Schema.define(version: 20160407140602) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "house_owner_profiles", "house_owners"
 end
