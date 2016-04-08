@@ -1,8 +1,6 @@
-<div class="bg-custom">
-	<div class="container">
-		<h3 class="mb0">Edit your profile</h3> 
-	</div>
-	<section class="pt12">
+<section class="bg-custom">
+	<h3 class="mb0">Edit your profile</h3> 
+	<div class="section-edit">
 		<div class="container">
 			<div class="row">
 				<%= form_for [@user, @tenant_profile] do |f| %>
@@ -36,116 +34,98 @@
 								<%= f.text_field :father_name, placeholder: 'Father Name' %>
 							</div>
 							<div class="row">
-								<h5 class="uppercase">Sex</h5>
-									<!-- <div class="col-sm-6">
-										<div class="radio-option checked">
-											<div class="inner"></div>
-											<input name="radio" value="Male" type="radio">
+								<div class="col-sm-12">
+									<h5>Gender</h5>
+									<span class="radio">
+										<label for="sex">
+											<%= f.radio_button :sex, true%>
+											Male</label>
+										</span>
+										<span class="radio">
+											<label for="sex">
+												<%= f.radio_button :sex, false%>
+												Female</label>
+											</span>
 										</div>
-										<span class="after-radio">Male</span>
 									</div>
-									<div class="col-sm-6">
-										<div class="radio-option">
+									<div id="bio-textarea">
+										<label>Short bio</label>
+										<%= f.text_area :bio, maxlength: 140%>
+										<p>Characters remaining: <span class='status'></span></p>
+									</div> 
+									<div class="input-with-label text-left">
+										<label>Occupation</label>
+										<%= f.text_field :occupation, placeholder: 'occupation' %>
+									</div>
+									<div class="input-with-label text-left">
+										<label>Work place</label>
+										<%= f.text_field :work_place, placeholder: 'work place' %>
+									</div>
+									<div class="mb24">
+										<span>Would you like to Susbscribe googleHomes newsletters</span>
+										<div class="checkbox-option pull-right">
 											<div class="inner"></div>
-											<input name="radio" value="Female" type="radio">
+											<input name="checkbox" value="Checkbox" type="checkbox">
 										</div>
-										<span class="after-radio">Female</span> -->
-
-										<div class="col-sm-12">
-											<h5>Gender</h5>
-											<span class="radio">
-												<label for="sex">
-													<%= f.radio_button :sex, true%>
-													Male</label>
-												</span>
-												<span class="radio">
-													<label for="sex">
-														<%= f.radio_button :sex, false%>
-														Female</label>
-													</span>
-												</div>
-											</div>
-											<div id="bio-textarea">
-												<label>Short bio</label>
-												<%= f.text_area :bio, maxlength: 140%>
-												<p>Characters remaining: <span class='status'></span></p>
-											</div> 
-											<div class="input-with-label text-left">
-												<label>Occupation</label>
-												<%= f.text_field :occupation, placeholder: 'occupation' %>
-											</div>
-											<div class="input-with-label text-left">
-												<label>Work place</label>
-												<%= f.text_field :work_place, placeholder: 'work place' %>
-											</div>
-											<div class="mb24">
-												<span>Would you like to Susbscribe googleHomes newsletters</span>
-												<div class="checkbox-option pull-right">
-													<div class="inner"></div>
-													<input name="checkbox" value="Checkbox" type="checkbox">
-												</div>
-											</div>
-										</div>
-
-										<div class="col-sm-6">
-											<div>
-												<label>Permanent Address</label>
-												<%= f.text_field :c_address, placeholder: 'Address line 1' %>
-											</div>  
-
-											<div>
-												<label>City</label>
-												<div class="select-option">
-													<i class="ti-angle-down"></i>
-													<%=f.select :c_city, options_for_select(@city.all.collect {|c| [ c.name, c.name ] })%>
-												</div>
-											</div>
-											<div>
-												<label>State</label>
-												<div class="select-option">
-													<i class="ti-angle-down"></i>
-													<%=f.select :c_state, options_for_select(@state.all.collect {|s| [ s.name, s.name ] })%>
-												</div>
-											</div>
-											<div class="input-with-label text-left">
-												<label>Pincode</label>
-												<%= f.text_field :p_pincode, placeholder: 'pincode' %>
-											</div>      
-											<div>
-											<label>Current Address</label>
-												<%= f.text_field :p_address, placeholder: 'Address line 1' %>
-											</div>  
-											<div>
-												<label>City</label>
-												<div class="select-option">
-													<i class="ti-angle-down"></i>
-													<%=f.select :p_city, options_for_select(@city.all.collect {|c| [ c.name, c.name ] })%>
-												</div>
-											</div>
-											<div>
-												<label>State</label>
-												<div class="select-option">
-													<i class="ti-angle-down"></i>
-													<%=f.select :p_state, options_for_select(@state.all.collect {|s| [ s.name, s.name ] })%>
-												</div>
-											</div>
-											<div class="input-with-label text-left">
-												<label>Pincode</label>
-												<%= f.text_field :p_pincode, placeholder: 'pincode' %>
-											</div> 
-											<!--end select-->
-
-
-
-											<input value="Submit Button" type="submit">
-										</div>
-									</div>					
+									</div>
 								</div>
-								<% end %>
-							</div>
 
+								<div class="col-sm-6">
+									<div>
+										<label>Permanent Address</label>
+										<%= f.text_field :c_address, placeholder: 'Address line 1' %>
+									</div>  
+
+									<div>
+										<label>City</label>
+										<div class="select-option">
+											<i class="ti-angle-down"></i>
+											<%=f.select :c_city, options_for_select(@city.all.collect {|c| [ c.name, c.name ] })%>
+										</div>
+									</div>
+									<div>
+										<label>State</label>
+										<div class="select-option">
+											<i class="ti-angle-down"></i>
+											<%=f.select :c_state, options_for_select(@state.all.collect {|s| [ s.name, s.name ] })%>
+										</div>
+									</div>
+									<div class="input-with-label text-left">
+										<label>Pincode</label>
+										<%= f.text_field :p_pincode, placeholder: 'pincode' %>
+									</div>      
+									<div>
+										<label>Current Address</label>
+										<%= f.text_field :p_address, placeholder: 'Address line 1' %>
+									</div>  
+									<div>
+										<label>City</label>
+										<div class="select-option">
+											<i class="ti-angle-down"></i>
+											<%=f.select :p_city, options_for_select(@city.all.collect {|c| [ c.name, c.name ] })%>
+										</div>
+									</div>
+									<div>
+										<label>State</label>
+										<div class="select-option">
+											<i class="ti-angle-down"></i>
+											<%=f.select :p_state, options_for_select(@state.all.collect {|s| [ s.name, s.name ] })%>
+										</div>
+									</div>
+									<div class="input-with-label text-left">
+										<label>Pincode</label>
+										<%= f.text_field :p_pincode, placeholder: 'pincode' %>
+									</div> 
+									<!--end select-->
+									<input value="Submit Button" type="submit">
+								</div>
+							</div>					
 						</div>
-					</section>
-					<script type="text/javascript">
-						$('#bio-textarea textarea').show_char_limit({ status_element: '#bio-textarea .status', status_style: 'chars_left' } );
-					</script>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</section>		
+		<script type="text/javascript">
+			$('#bio-textarea textarea').show_char_limit({ status_element: '#bio-textarea .status', status_style: 'chars_left' } );
+		</script>
