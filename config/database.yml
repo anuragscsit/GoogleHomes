@@ -82,5 +82,4 @@ test:
 production:
   <<: *default
   database: GoogleHomesSti_production
-  username: GoogleHomes
-  password: <%= ENV['GOOGLEHOMES_DATABASE_PASSWORD'] %>
+  
