@@ -12,10 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require jquery.geocomplete
-//= require underscore
-//= require gmaps/google
+//= require selectize
+//= require cocoon
+//= require bootstrap.min
+//= require flickr
+//= require flexslider.min
+//= require masonry.min
+//= require spectragram.min
+//= require countdown.min
+//= require smooth-scroll.min
 //= require char-count
+//= require scripts
+//= require parallax
+//= ytplayer.min
 
-//= require_tree .
