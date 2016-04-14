@@ -1,11 +1,72 @@
 <section class="custom-section">
 	<div class="container">
-		<h3>Tenants#dashboard</h3>
+		<div class="dashboard-header">
+			<div class="row">
+			<div class="col-sm-3">
+				<%=image_tag "vent5.jpg", class:"img-responsive",height:'200',width:'100%'%>
+			</div>
+			<div class="col-sm-9">
+					<h3>STILL PAYING YOUR RENT?</h3>
+					<p> Share your Referral Code <span style="color:#47b475;">CWWIYG </span> with your friends. If your friend uses your referral code while booking, you get 7 days of stay absolutely FREE! And your friend gets 7 days.
+					If you help us fill the last bed in your house, you get a flat Rs 5,000 OFF your next month’s rent. </p>
+			</div>
+		</div>
+		</div>
+		
+		</br>
+		<div class="row">
+		<div class="col-sm-3 sidebar-left-custom">
+				<div class="widget">
+					<h6 class="title">Blog Categories</h6>
+					<hr>
+					<ul class="link-list uppercase">
+						<li>
+							<div class="li-dashboard"><span>Profile</span>
+						</li>						
+						<li>
+							<div class="li-dashboard"><span>My Payments</span>
+						</li>
+						<li>
+							<div class="li-dashboard"><span>My wishlists</span>
+						</li>
+						<li>
+							<div class="li-dashboard "><span>My credits</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-9">
+			</div>
+		</div>		
+	</div>	
+	</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h3>Tenants#dashboard</h3>
 		<div class="col-sm-6">
 			<p>name: <%=@tenant.full_name%> </p>
 			<p>father_name:<%= @tenant_profile.father_name%></p>
 			<p>Gender: <%=@tenant_profile.sex%> </p>
 			<p>Bio: <%=@tenant_profile.bio%> </p>
+			<p>DOB: <%=@tenant_profile.DOB%> </p>
 			<p>email:<%=@tenant.email%></p>
 			<p>Occupation: <%=@tenant_profile.occupation%> </p>
 			<p>Working Place: <%=@tenant_profile.work_place%> </p>
@@ -15,8 +76,5 @@
 			<p>contact_number:<%=@tenant.contact_number%></p>
 		</div>
 		<div class="col-sm-6">
-			<%= link_to 'Update Profile',  edit_tenant_tenant_profile_path(tenant_id: current_user.id, id: current_user.tenant_profile.id)%>
-		</div>
-	</div>	
-</section>
-
+			<%#= link_to 'Update Profile',  edit_tenant_tenant_profile_path(tenant_id: current_user.id, id: current_user.tenant_profile.id)%>
+		</div> -->
