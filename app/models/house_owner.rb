@@ -6,6 +6,6 @@ class HouseOwner < User
   has_one :house_owner_profile
 
   def full_name
-    first_name + "" + last_name
+    "#{first_name} #{last_name}"
   end
 end

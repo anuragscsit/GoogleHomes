@@ -23,11 +23,16 @@ Rails.application.routes.draw do
     get 'profile', :to => "profile#edit"
   resources :houses
   resources :tenants do
-    get 'dashboard', on: :collection
-     resources :tenant_profile
+    collection do 
+      get :payments
+      get :dashboard
+    end
+    resources :tenant_profile
   end
   resources :house_owners do
-   get 'dashboard', on: :collection
+   collection do 
+      get :dashboard
+    end
     resources :house_owner_profile
   end
   # Example of regular route:

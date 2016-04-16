@@ -5,7 +5,7 @@ class Tenant < User
   #        :recoverable, :rememberable, :trackable, :validatable
   has_one :tenant_profile
   def full_name
-    first_name + " " + last_name
+    "#{first_name} #{last_name}"
   end
   
 end

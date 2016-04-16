@@ -1,2 +1,34 @@
-<h1>House owner profile</h1>
-<%= link_to 'Update Profile',  edit_house_owner_house_owner_profile_path(house_owner_id: current_user.id)%>
+<div class="container-fluid">
+	
+
+	<h1>House owner profile</h1>
+	<%= link_to 'Update Profile',  edit_house_owner_house_owner_profile_path(house_owner_id: current_user.id)%>
+	<%# if !current_user.tenant_profile.valid? %>
+	<p class="alert alert-warning">
+		Your profile is incomplete. Please fill out more of your
+
+		<%= link_to 'Update Profile',   edit_house_owner_house_owner_profile_path(house_owner_id: current_user.id, id: current_user.house_owner_profile.id)%>
+	</p>
+</div>
+<%#end%>
+<section class="custom-section">
+	<div class="container">
+		<h3>House owner#profile</h3>
+		<div class="col-sm-6">
+			<p>name: <%=@house_owner.full_name%> </p>
+			<p>Gender: <%=@house_owner_profile.sex%> </p>
+			<p>Bio: <%=@house_owner_profile.bio%> </p>
+			<p>DOB: <%=@house_owner_profile.DOB%> </p>
+			<p>email:<%=@house_owner.email%></p>
+			<p>Occupation: <%=@house_owner_profile.occupation%> </p>
+			<p>Working Details: <%=@house_owner_profile.work_detail%> </p>
+			<p>contact_number:<%=@house_owner.contact_number%></p>
+			<p>Permanent Address:<%=@house_owner_profile.full_permamnent_address%></p>
+			<p>Permanent Address:<%= @house_owner_profile.full_corespondence_address%></p>
+			<p>contact_number:<%=@house_owner.contact_number%></p>
+		</div>
+		<div class="col-sm-6">
+			<%= link_to 'Update Profile',  edit_house_owner_house_owner_profile_path(house_owner_id: current_user.id, id: current_user.house_owner_profile.id)%>
+		</div>
+	</div>	
+</section>

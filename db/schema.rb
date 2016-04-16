@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408132626) do
+ActiveRecord::Schema.define(version: 20160416144103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,8 +37,9 @@ ActiveRecord::Schema.define(version: 20160408132626) do
     t.string   "c_state"
     t.integer  "c_pincode"
     t.integer  "house_owner_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "subscription",   default: false
   end
 
   create_table "house_owners", force: :cascade do |t|
@@ -75,8 +76,8 @@ ActiveRecord::Schema.define(version: 20160408132626) do
 
   create_table "tenant_profiles", force: :cascade do |t|
     t.date     "DOB"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "sex"
     t.text     "bio"
     t.string   "occupation"
@@ -91,6 +92,7 @@ ActiveRecord::Schema.define(version: 20160408132626) do
     t.string   "c_state"
     t.integer  "c_pincode"
     t.integer  "tenant_id"
+    t.boolean  "subscription", default: true
   end
 
   create_table "tenants", force: :cascade do |t|

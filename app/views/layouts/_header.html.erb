@@ -70,13 +70,16 @@
         <div class="module widget-handle language right">
           <ul class="menu">
             <li><%= link_to 'For Owner', home_owner_path%></li>
-            <li>
-                 <%= link_to 'Profile',  house_owner_path(current_user)%>
+            <li>                   
+              <%= link_to "Dashboard", house_owners_dashboard_path%>
             </li>
             <li class="">
               
-              <%=current_user.email%> <span class="caret"></span>
-              <ul class>               
+              <%=current_user.first_name%> <span class="caret"></span>
+              <ul class>   
+                <li>                   
+                    <%= link_to current_user.first_name,  house_owner_path(current_user)%>
+                  </li>            
                 <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>

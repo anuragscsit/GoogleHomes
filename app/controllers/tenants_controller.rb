@@ -1,5 +1,6 @@
 class TenantsController < ApplicationController
 	before_filter :authenticate_tenant!
+   respond_to :html, :js
   def dashboard
   	
     @tenant = current_user
@@ -15,6 +16,9 @@ class TenantsController < ApplicationController
   def show
     @tenant = current_user
      @tenant_profile = current_user.tenant_profile
+  end
+  
+  def payments    
   end
 
 end
