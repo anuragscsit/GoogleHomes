@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160417051654) do
+ActiveRecord::Schema.define(version: 20160417183343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,8 +65,23 @@ ActiveRecord::Schema.define(version: 20160417051654) do
     t.string   "house_lat"
     t.string   "house_lang"
     t.string   "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "type",                  default: "1BHK"
+    t.string   "house_for",             default: "boys"
+    t.integer  "no_of_rooms",           default: 1
+    t.integer  "bed",                   default: 1
+    t.integer  "rent_per_room",         default: 1
+    t.integer  "rent_per_bed",          default: 3000
+    t.string   "food_preference",       default: "none"
+    t.text     "livingroom_amenities",  default: [],                  array: true
+    t.text     "bedroom_amenities",     default: [],                  array: true
+    t.text     "bathroom_amenities",    default: [],                  array: true
+    t.text     "kitchen_amenities",     default: [],                  array: true
+    t.text     "house_image",           default: [],                  array: true
+    t.string   "distance_from_station"
+    t.integer  "visit_count",           default: 0
+    t.integer  "house_owner_id"
   end
 
   create_table "states", force: :cascade do |t|
