@@ -16,6 +16,8 @@
 		<h3>House owner#profile</h3>
 		<div class="col-sm-6">
 			<p>name: <%=@house_owner.full_name%> </p>
+			<p>Profile image</p>
+			<%= image_tag @house_owner_profile.image_url(:thumb) if @house_owner_profile.image? %>
 			<p>Gender: <%=@house_owner_profile.sex%> </p>
 			<p>Bio: <%=@house_owner_profile.bio%> </p>
 			<p>DOB: <%=@house_owner_profile.DOB%> </p>

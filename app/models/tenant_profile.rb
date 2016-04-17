@@ -12,5 +12,5 @@ class TenantProfile < ActiveRecord::Base
 		l << c_city if c_city && !c_city.blank?
 		l << c_state if c_state && !c_state.blank?
   	end
-  	
+  	mount_uploader :image, ImageUploader
 end

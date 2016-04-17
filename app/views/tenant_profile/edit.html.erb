@@ -26,6 +26,10 @@
 								Fill your basic details
 							</p>
 							<div class="input-with-label text-left">
+						    <%= f.file_field :image%>
+						  </div>
+						  
+							<div class="input-with-label text-left">
 								<label>Date of birth</label>
 								<%= f.text_field :DOB, placeholder: 'DOB' %>
 							</div>

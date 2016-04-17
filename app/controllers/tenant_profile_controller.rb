@@ -27,6 +27,6 @@ class TenantProfileController < ApplicationController
 
   private
   def profile_params
-   params.require(:tenant_profile).permit(:DOB,:sex,:p_address,:p_city,:p_state,:p_pincode,:c_address,:c_city,:c_state,:c_pincode,:father_name,:occupation,:work_place)
+   params.require(:tenant_profile).permit(:image,:DOB,:sex,:p_address,:p_city,:p_state,:p_pincode,:c_address,:c_city,:c_state,:c_pincode,:father_name,:occupation,:work_place)
   end
 end

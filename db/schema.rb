@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160416144103) do
+ActiveRecord::Schema.define(version: 20160417051654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20160416144103) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.boolean  "subscription",   default: false
+    t.string   "image"
   end
 
   create_table "house_owners", force: :cascade do |t|
@@ -93,6 +94,7 @@ ActiveRecord::Schema.define(version: 20160416144103) do
     t.integer  "c_pincode"
     t.integer  "tenant_id"
     t.boolean  "subscription", default: true
+    t.string   "image"
   end
 
   create_table "tenants", force: :cascade do |t|

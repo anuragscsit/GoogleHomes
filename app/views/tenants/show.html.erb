@@ -11,6 +11,8 @@
 		<h3>Tenants#profile</h3>
 		<div class="col-sm-6">
 			<p>name: <%=@tenant.full_name%> </p>
+			<p>Profile Image</p>
+			<%= image_tag @tenant_profile.image_url(:thumb) if @tenant_profile.image? %>
 			<p>father_name:<%= @tenant_profile.father_name%></p>
 			<p>Gender: <%=@tenant_profile.sex%> </p>
 			<p>Bio: <%=@tenant_profile.bio%> </p>
