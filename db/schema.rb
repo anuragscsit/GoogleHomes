@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160417183343) do
+ActiveRecord::Schema.define(version: 20160417193958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20160417183343) do
     t.string   "distance_from_station"
     t.integer  "visit_count",           default: 0
     t.integer  "house_owner_id"
+    t.string   "city"
   end
 
   create_table "states", force: :cascade do |t|
