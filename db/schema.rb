@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418130944) do
+ActiveRecord::Schema.define(version: 20160418155153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bathroom_amenities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bedroom_amenities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -62,15 +74,11 @@ ActiveRecord::Schema.define(version: 20160418130944) do
   add_index "house_owners", ["reset_password_token"], name: "index_house_owners_on_reset_password_token", unique: true, using: :btree
 
   create_table "houses", force: :cascade do |t|
-    t.string   "house_lat"
-    t.string   "house_lang"
-    t.string   "address"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "type",                  default: "1BHK"
+    t.string   "name"
+    t.string   "house_type",            default: "1BHK"
     t.string   "house_for",             default: "boys"
     t.integer  "no_of_rooms",           default: 1
-    t.integer  "bed",                   default: 1
+    t.integer  "no_of_beds",            default: 1
     t.integer  "rent_per_room",         default: 1
     t.integer  "rent_per_bed",          default: 3000
     t.string   "food_preference",       default: "none"
@@ -78,11 +86,33 @@ ActiveRecord::Schema.define(version: 20160418130944) do
     t.text     "bedroom_amenities",     default: [],                  array: true
     t.text     "bathroom_amenities",    default: [],                  array: true
     t.text     "kitchen_amenities",     default: [],                  array: true
+    t.text     "other_amenities",       default: [],                  array: true
     t.text     "house_image",           default: [],                  array: true
+    t.string   "city"
+    t.string   "location"
     t.string   "distance_from_station"
     t.integer  "visit_count",           default: 0
     t.integer  "house_owner_id"
-    t.string   "city"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
+  create_table "kitchen_amenities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "livingroom_amenities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "other_amenities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "requirements", force: :cascade do |t|

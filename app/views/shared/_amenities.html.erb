@@ -1,0 +1,24 @@
+<script type="text/javascript">
+  $('select#<%= object %>').selectize({
+    plugins: ['remove_button'],
+    valueField: 'id',
+    labelField: 'name',
+    searchField: 'name',
+    persist: true,
+    create: false,
+    render: {
+      item: function(item, escape) {
+        return '<div>' +
+            (item.name ? '<span class="select-name">' + escape(item.name) + '</span>' : '') +
+        '</div>';
+      },
+      option: function(item, escape) {
+        var label = item.name;
+        return '<div>' +
+            '<span class="select-label">' + escape(label) + '</span>' +
+        '</div>';
+      }
+    }
+
+});
+</script>
