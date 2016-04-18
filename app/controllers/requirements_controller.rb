@@ -10,7 +10,6 @@ class RequirementsController < ApplicationController
     @requirement.save
     if current_user.class.name=='Tenant'
     	redirect_to '/tenants/dashboard' 
-    	byebug
 	else
 		redirect_to '/'
 	end
