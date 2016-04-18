@@ -20,5 +20,4 @@ class TenantsController < ApplicationController
   
   def payments    
   end
-
 end

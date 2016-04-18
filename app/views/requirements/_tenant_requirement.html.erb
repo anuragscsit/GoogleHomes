@@ -1,0 +1,31 @@
+<section>
+	<div class="col-sm-6 col-sm-offset-3">
+		<div>
+			<h4>Post Your Requirement</h4>
+			<h5>Let us know what you need and we'll send you houses matching your requirements.</h5>
+		</div>	
+		<div>
+
+			<%= form_for (@requirement) do |f| %>
+		    <%= f.text_field :name,placeholder: 'Name' %>
+		    <%= f.email_field :email,placeholder: 'Email' %>
+		    <%= f.text_field :phone,placeholder: 'Phone' %>
+		    <%= f.text_field :city,placeholder: 'City' %>
+		    <%= f.text_field :location,placeholder: 'Location' %>
+		    <div class="select-option">
+				<i class="ti-angle-down"></i>
+				<%=f.select :room_for, options_for_select([['single boy'], ['Group of single boy'],['single girl'], ['Group of single girls']])%>
+			</div>
+		    <div class="select-option">
+				<i class="ti-angle-down"></i>
+				<%=f.select :need_within, options_for_select([['within a week']])%>
+			</div>
+			<%= f.submit "post Requirements",class:'btn' %>
+		    <%end%>
+		</div>	
+	</div>
+</section>
+<script type="text/javascript">
+  $("#requirement_location").geocomplete();
+ 
+</script>
