@@ -13,6 +13,8 @@
   <% end %>
     <div class="col-sm-6">
       <%= f.hidden_field :house_owner_id, value:@house_owner %>
+      <%= f.hidden_field :latitude %>
+      <%= f.hidden_field :longitude %>
       <div>
         <label>Name</label>
         <%= f.text_field :name, placeholder:"name"%>
@@ -70,23 +72,23 @@
       </div>     
       <div>
         <label>livingroom_amenities</label>
-        <%= f.select :livingroom_amenities, @livingroom_amenities.all.collect {|p| [ p.name, p.name ] }, {},{placeholder: 'Type or select a amenitie', id: 'livingroom_amenitie', multiple: 'multiple'} %>
+        <%= f.select :livingroom_amenities, @livingroom_amenities.all.collect {|p| [ p.name, p.name ] }, {:include_hidden => false},{placeholder: 'Type or select a amenitie', id: 'livingroom_amenitie', multiple: 'multiple'} %>
       </div>
       <div>
         <label>bedroom_amenities</label>
-        <%= f.select :bedroom_amenities, @bedroom_amenities.all.collect {|p| [ p.name, p.name ] }, {},{placeholder: 'Type or select a amenitie', id: 'bedroom_amenitie', multiple: 'multiple'} %>
+        <%= f.select :bedroom_amenities, @bedroom_amenities.all.collect {|p| [ p.name, p.name ] }, {:include_hidden => false},{placeholder: 'Type or select a amenitie', id: 'bedroom_amenitie', multiple: 'multiple'} %>
       </div>
       <div>
         <label>bathroom_amenities</label>
-         <%= f.select :bathroom_amenities, @bathroom_amenities.all.collect {|p| [ p.name, p.name ] }, {},{placeholder: 'Type or select a amenitie', id: 'bathroom_amenitie', multiple: 'multiple'} %>
+         <%= f.select :bathroom_amenities, @bathroom_amenities.all.collect {|p| [ p.name, p.name ] }, {:include_hidden => false},{placeholder: 'Type or select a amenitie', id: 'bathroom_amenitie', multiple: 'multiple'} %>
       </div>
       <div>
         <label>kitchen_amenities</label>
-         <%= f.select :kitchen_amenities, @kitchen_amenities.all.collect {|p| [ p.name, p.name ] }, {},{placeholder: 'Type or select a amenitie', id: 'kitchen_amenitie', multiple: 'multiple'} %>
+         <%= f.select :kitchen_amenities, @kitchen_amenities.all.collect {|p| [ p.name, p.name ] }, {:include_hidden => false},{placeholder: 'Type or select a amenitie', id: 'kitchen_amenitie', multiple: 'multiple'} %>
       </div>
       <div>
         <label>other_amenities</label>
-         <%= f.select :other_amenities, @other_amenities.all.collect {|p| [ p.name, p.name ] }, {},{placeholder: 'Type or select a amenitie', id: 'other_amenitie', multiple: 'multiple'} %>
+         <%= f.select :other_amenities, @other_amenities.all.collect {|p| [ p.name, p.name ] }, {:include_hidden => false},{placeholder: 'Type or select a amenitie', id: 'other_amenitie', multiple: 'multiple'} %>
       </div>
       <div>
         <label>house_image</label>
@@ -119,4 +121,13 @@
         }
     }
   });
+
+  $("#house_location").geocomplete().bind("geocode:result", function(event, result){
+    var lat = result.geometry.location.lat();
+    var lng = result.geometry.location.lng();
+    $('#house_latitude').val(lat);
+    $('#house_longitude').val(lng);
+    console.log(lat)
+    console.log(lng)
+    });
 </script>
