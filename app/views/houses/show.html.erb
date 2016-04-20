@@ -1,6 +1,12 @@
 <section>
 	<p id="notice"><%= notice %></p>
-
+	<div class="row">
+		<% @house.house_image.each do |image|%>
+  		<div class="col-sm-4">
+  			<%=image_tag(image.url, class:"image-responsive") if @house.house_image?%>
+  		</div>
+  	<%end%>
+  </div>
 <%= link_to 'Edit', edit_house_path(@house) %> |
 <%= link_to 'Back', houses_path %>
 

@@ -21,7 +21,7 @@ gem 'turbolinks'
 
 gem "cocoon"
 #file uploder
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'gmaps4rails'
 gem 'geocoder'

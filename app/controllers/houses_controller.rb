@@ -16,6 +16,7 @@ class HousesController < ApplicationController
   # GET /houses/1.json
   def show
      @house = House.find(params[:id])
+     
   end
 
   # GET /houses/new

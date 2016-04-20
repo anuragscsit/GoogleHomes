@@ -1,5 +1,5 @@
 <div>
-  <%= form_for(@house) do |f| %>
+  <%= form_for @house, html: {multipart: :true} do |f| %>
   <% if @house.errors.any? %>
     <div id="error_explanation">
       <h4><%= pluralize(@house.errors.count, "error") %> prohibited this house from being saved:</h4>
@@ -92,7 +92,7 @@
       </div>
       <div>
         <label>house_image</label>
-        <%= f.file_field :house_image %>
+        <%= f.file_field :house_image, multiple: true %>
       </div>
       <div>
         <label>distance_from_station</label>
