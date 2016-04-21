@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @visit_schedule.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @visit_schedule.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @visit_schedule.phone %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @visit_schedule.date %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @visit_schedule.time %>
+</p>
+
+<%= link_to 'Edit', edit_visit_schedule_path(@visit_schedule) %> |
+<%= link_to 'Back', visit_schedules_path %>

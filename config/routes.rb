@@ -1,20 +1,15 @@
 Rails.application.routes.draw do
-  resources :houses
+  
   get 'requirements/new'
-
   get 'requirements/create'
-
   get 'tenant_profile/edit'
-
   get 'house_owner_profile/edit'
-
   get 'house_owners/dashboard'
-
   get 'tenants/dashboard'
-
   get 'tenants/profile'
   get 'home/index'
   get 'home/owner'
+  get 'home/map'
   devise_for :tenants, skip: [:sessions]
   devise_for :house_owners, skip: [:sessions]
   devise_for :users, skip: :registrations
@@ -26,6 +21,7 @@ Rails.application.routes.draw do
     get 'profile', :to => "profile#edit"
   resources :houses
   resources :requirements , only: :create
+  resources :visit_schedules, only: [:index,:create, :show]
   resources :tenants do
     collection do 
       get :payments

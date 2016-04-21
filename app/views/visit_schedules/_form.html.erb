@@ -1,0 +1,39 @@
+
+  <%= form_for(@visit_schedule) do |f| %>
+<% if @visit_schedule.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@visit_schedule.errors.count, "error") %> prohibited this visit_schedule from being saved:</h2>
+
+  <ul>
+    <% @visit_schedule.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div>
+  <%= f.text_field :name , placeholder: "Name"%>
+</div>
+<div>
+  <%= f.email_field :email, placeholder: "email" %>
+</div>
+<div>
+  <%= f.text_field :phone, placeholder: "phone" %>
+</div>
+<div>
+  <div class="select-option">
+    <i class="ti-angle-down"></i>
+    <%=f.select :date, options_for_select([Date.today.to_s,Date.today+1,Date.today+2,Date.today+3,Date.today+4,Date.today+5])%>
+  </div>
+</div>
+<div>
+  <div class="select-option">
+    <i class="ti-angle-down"></i>
+    <%=f.select :time, options_for_select(["morning 8 AM to 9AM","evening 6PM to 8PM"])%>
+  </div>
+</div>
+<div>
+  <%= f.submit %>
+</div>
+<% end %>
