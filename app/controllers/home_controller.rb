@@ -3,4 +3,7 @@ class HomeController < ApplicationController
   end
   def owner
   end
+  def map
+  	
+  end
 end

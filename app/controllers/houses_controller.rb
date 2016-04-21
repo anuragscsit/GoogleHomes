@@ -16,6 +16,8 @@ class HousesController < ApplicationController
   # GET /houses/1.json
   def show
      @house = House.find(params[:id])
+     @visit_schedule=VisitSchedule.new
+     @owner_fullname= User.find(@house.house_owner_id).full_name
      
   end
 

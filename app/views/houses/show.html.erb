@@ -1,13 +1,250 @@
-<section>
-	<p id="notice"><%= notice %></p>
-	<div class="row">
-		<% @house.house_image.each do |image|%>
-  		<div class="col-sm-4">
-  			<%=image_tag(image.url, class:"image-responsive") if @house.house_image?%>
-  		</div>
-  	<%end%>
-  </div>
-<%= link_to 'Edit', edit_house_path(@house) %> |
-<%= link_to 'Back', houses_path %>
+<section class="pt0 pb0">
+	<div class="container">
+		<p id="notice"><%= notice %></p>
+		<div class="house-details">
+			<div class="row">
+				<div class="col-sm-8">
+					<div class="row">
+						<div class="col-sm-12 module widget-handle hidden-xs" style="min-height: 41px; border:1px;">
+							<nav>
+								<ul class="nav nav-offer menu">
+									<li>
+										<a class="nav-link" href="#Overview" class="overview-btn">Overview</a>
+									</li>	
+									<li>
+										<a class="nav-link" href="#house-amenities" class="amenities-btn">Amenities</a>
+									</li>
+									<li>
+										<a class="nav-link" href="#house-map" >Map</a>
+									</li>
+									<li>
+										<a class="nav-link" href="#house-conditions" >Conditions</a>
+									</li>
+									<li>
+										<a class="nav-link" href="#house-reviews" >Reviews</a>
+									</li>
+								</ul>
+							</nav>
+						</div>	
+					</div>	<!-- end of row -->		
+					<div id="myCarousel" class="carousel slide" data-ride="carousel">
+						<!-- Indicators -->
+						<% i= 0%> 
+						<% count= @house.house_image.count %>
+						<ol class="carousel-indicators">
+							<% for i in 0..count-1 do%>
+							<li data-target="#myCarousel" data-slide-to= <%= i %> >
+							</li>
+							<% i = i+1%>
+							<% end %>
+						</ol>
+
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner" role="listbox">
+							<% @house.house_image.each_with_index do |image, index|%>
+							<div style="background: url(<%=image.url%>) center center; background-size:cover;" class="slider-size image-responsive item <%='active' if index == 0%>" data-slide-to="<%= index %>">
+							</div>
+							<%end%>
+						</div>
+
+						<!-- Left and right controls -->
+						<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+							<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+				</div>
+				<div class="col-sm-4 house-details-right">
+					<div class="house-right-tabs">
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#schedule-house" aria-controls="schedule-house" role="tab" data-toggle="tab">Schedule a visit</a></li>
+							<li role="presentation"><a href="#book-house" aria-controls="book-house" role="tab" data-toggle="tab">Book Now</a></li>
+						</ul>
+
+						<!-- Tab panes -->
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="schedule-house">
+								<%= render 'visit_schedules/form'%>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="book-house">
+								<div>
+									<h5 style="margin: 10px;">To Book, you need to pay a token amount and the remaining before move-in. </h5>
+									<div align="center"><button class="btn">Pay Token Amount</button></div>
+									<div>
+										<div class="col-sm-3 visit-count" align="center">
+											<p class="uppercase"><span><%=@house.visit_count%></span> Visits</p>
+										</div>
+										<div class="col-sm-9">
+											<span><strong>Already Scheduled</strong></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>   <!-- end of row -->
+		</div>
+	</div>	
+</section>
+<section class="pt0">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8">
+				<div class=row>
+					<div class="subpanel">
+						<ul class="house-overview">
+							<li class="house-overview-item">
+								<div class="house-overview-title">Type</div> 
+								<div class="house-overview-body "><%= @house.house_type%></div>
+							</li>
+							<li class="house-overview-item">
+								<div class="house-overview-title">Only For</div> 
+								<div class="house-overview-body "><%= @house.house_for%></div>
+							</li>
+							<li class="house-overview-item">
+								<div class="house-overview-title">Rooms</div> 
+								<div class="house-overview-body "><%= @house.no_of_rooms%></div>
+							</li>
+							<li class="house-overview-item">
+								<div class="house-overview-title">Bed</div> 
+								<div class="house-overview-body "><%= @house.no_of_beds%></div>
+							</li>
+						</ul>			
+					</div>
+				</div>
+				<div class="row mt8" id="house-amenities">
+					<div  class="mt8">
+						<div class="amenities-list">
+							<h4 class="uppercase">Home Amenities</h4>
+							<div class="col-sm-6">
+								<h5><strong>Living Room</strong></h5>
+								<ul>
+									<% @house.livingroom_amenities.each do |amenities| %>
+									<li><%= amenities %></li>
+									<% end %>
+								</ul>
+							</div>
+							<div class="col-sm-6">
+								<h5><strong>Kitchen</strong></h5>
+								<ul>
+									<% @house.kitchen_amenities.each do |amenities| %>
+									<li><%= amenities %></li>
+									<% end %>
+								</ul>
+							</div>
+							<div class="col-sm-6">
+								<h5><strong>bedroom</strong></h5>
+								<ul>
+									<% @house.bedroom_amenities.each do |amenities| %>
+									<li><%= amenities %></li>
+									<% end %>
+								</ul>
+							</div>
+							<div class="col-sm-6">
+								<h5><strong>Bathroom</strong></h5>
+								<ul>
+									<% @house.bathroom_amenities.each do |amenities| %>
+									<li><%= amenities %></li>
+									<% end %>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt8">
+					<div class="house-detail-table">
+						<div>
+							<h4 class="uppercase">Property Summary</h4>
+						</div>	
+						<table class="house-detail-table table">
+							<tr>
+								<td class="att">Address:  </td><td class="att-title"><%=@house.location%></td>
+							</tr>
+							<tr>
+								<td class="att">House Type:  </td><td class="att-title"><%=@house.location%></td>
+							</tr>
+							<tr>
+								<td class="att">House Owner:  </td><td class="att-title"><%=@house.location%></td>
+							</tr>
+						</table>
+						<div>
+							<h4 class="uppercase"> Description</h4>
+						</div>
+					</div>
+				</div>
+				<div class="row mt8">
+					<div id="house-on-map"  style="width:100%;height: 300px;">
+						
+					</div>
+				</div>
+			</div>
+		</div>				
+	</div>
+
+			<!-- <div class="col-sm-4 owner-detail" >
+				<div class="col-sm-4 owner-image">
+					<%#=image_tag "avatar.png"%>
+				</div>
+				<div  class="col-sm-8 owner-name">
+					<span>House Owner</span>
+					<h5><strong><%#= @owner_fullname%></strong></h5>
+				</div>
+			</div> -->		
+</section>
+<section class="pt0">
 
 </section>
+
+	<!-- <div class="col-sm-4">
+						<h4>Similar Houses</h4>
+						<div class="col-sm-12">
+							<div class="house-listing">
+								<ul>
+									<li>
+										<a href="">
+										<div class="col-sm-6">
+											<img src="">
+										</div>
+										<div class="col-sm-6">
+											<h4>58B sheetal nagar</h4>
+											<span>place</span>
+											<span>1BHK</span>
+											<div>
+												<span>1bed available</span>
+												<span>For Boys</span>
+											</div>
+											<div>
+												<span>Rs 5000</span>
+												<span>0.7Km away</span>
+											</div>
+										</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div> -->
+
+<script type="text/javascript">
+	handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'house-on-map'}}, function(){
+    markers = handler.addMarkers([
+    {
+      "lat": <%=@house.latitude%>,
+      "lng": <%=@house.longitude%>,
+      
+      "infowindow": "hello!"
+    }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.map.centerOn(markers[0]);
+    handler.getMap().setZoom(15);
+  });
+
+</script>

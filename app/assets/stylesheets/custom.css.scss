@@ -2,6 +2,7 @@
 .custom-section{padding-top: 30px !important;}
 .btn-custom{width:25% !important;}
 .bd{margin-top:20px;}
+
 /*****************Static page****************/
 #input-location i{position: absolute;margin-left: 5px;font-size: 16px;color: #747171;margin-top: 17px;}
 .tenant-review{background: asset_url("event1.jpg") !important;}
@@ -45,6 +46,95 @@
 #map{height: 500px; border: #000 solid 1px;}
 
 
+.slider-size
+{
+    max-height: 480px;
+    min-height: 400px;width:100%;
+}
+.carousel {
+    
+    text-align: center;
+    margin:0 auto; /* center your carousel if other than 100% */ 
+}
+
+.nav-offer {
+    background-color: rgba(255, 255, 255, 0.95);
+    width: 100%;
+}
+.nav-offer li 
+{
+    border:1px #ccc solid;
+    max-width:100%;
+    min-width:115px;
+    text-align:center;
+}
+.house-details-right{border:1px #ccc solid;padding:8px;}
+.house-details-right li{
+    float: left;
+    line-height: 30px;
+    margin: 0;
+    padding: 9px;
+    text-align: center;
+    width: 50%;
+    }
+.tab-content #schedule-house{padding-top:5px;}
+.visit-count
+{
+    background-color:#fff;  
+    border:1px #ccc solid; 
+    border-radius:50%;
+    height:60px;
+    width:60px;
+    padding: 5px;
+}
+.visit-count p span{color:#684900; font-size:14px;font-weight:600;}
+
+#new_visit_schedule input[type="text"],#new_visit_schedule input[type="email"],#new_visit_schedule input[type="number"] {
+    background: #f5f5f5 none repeat scroll 0 0;
+    border: 1px #eee solid;
+    border-radius: 0;
+    font-weight: 500;
+    height: 40px ;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    width: 100%;
+}
+#visit_schedule_date,#visit_schedule_time{height:40px;}
+.subpanel {
+    background-color: #ffffff;
+    border: 1px solid #d3d3d3;
+    position: relative;
+    margin-top:10px;
+}
+.house-overview {
+    display: table;
+    margin: 10px 0;
+    text-align: center;
+    width: 100%;
+}
+.house-overview-item {
+    border-color: rgba(211, 211, 211, 0.6);
+    border-left: 1px solid rgba(211, 211, 211, 0.6);
+    box-sizing: border-box;
+    display: table-cell;
+    padding: 0 5px;
+    width: 20%;
+}
+.house-overview-title::before, .house-overview-title::after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+.house-overview-body {
+    color: #212121;
+    font-size: 20px;
+    padding: 4px 0;
+}
+.owner-detail{margin-top:10px; border:1px #ccc solid; }
+.owner-image{width:76px;height:76px;padding: 10px;}
+.owner-name{margin-top:5px;}
+#house-amenities{border:1px #ccc solid;}
+.amenities-list{padding:10px;}
 /******Profile Page*******/
 .bg-custom{background: #e0efeb none repeat scroll 0 0 / cover ;}
 .after-radio{position: absolute;margin-left: 10px;}
@@ -52,7 +142,14 @@
 .li-dashboard{ background:#fff; color:#47b475; margin-top:5px; padding: 10px; border: #47b475 2px solid; font-size:16px; cursor: pointer;}
 .li-dashboard:hover{background:#47b475 !important; color: #fff;}
 .dashboard-header{border:1px #ccc solid;}
-
+.house-detail-table{border:1px #ccc solid;padding:10px;}
+.att{text-align:left;}
+.att-title
+{
+    color: #212121;
+    padding: 10px 0 10px 10px;
+    text-align: right;
+}
 /***********Tenant-page*************/
 .tenat-payment,.tenat-wishlist
 {
@@ -61,3 +158,6 @@
 	box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 	border-radius: 2px;
 }
+
+
+/******MAP*******/
