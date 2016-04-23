@@ -62,8 +62,8 @@
 }
 .house-form .select-option 
 {height: 40px ;}
-#map{height: 500px; border: #000 solid 1px;}
-
+#map{height: 500px; border: #ccc solid 1px;}
+#house-on-map{border: #ccc solid 1px;}
 
 .slider-size
 {
@@ -123,7 +123,7 @@
     background-color: #ffffff;
     border: 1px solid #d3d3d3;
     position: relative;
-    margin-top:10px;
+    margin:10px;
 }
 .house-overview {
     display: table;
@@ -152,10 +152,23 @@
 .owner-detail{margin-top:10px; border:1px #ccc solid; }
 .owner-image{width:76px;height:76px;padding: 10px;}
 .owner-name{margin-top:5px;}
-#house-amenities{border:1px #ccc solid;}
+#house-amenities{border:1px #ccc solid; margin: -5px;}
 .amenities-list{padding:10px;}
-
-
+.house-rule{border:1px #ccc solid;  margin-top: 10px;}
+.house-desc{border:1px #ccc solid;}
+.house-rent-detail{border:1px #ccc solid; margin:10px -5px; text-align:center;}
+ .house-rent-detail .col-xs-6{border-left: 1px solid #ccc;}
+.similar-house-price
+{
+    background-color:RGBA(0, 0, 0, 0.48);
+    bottom: 20%;
+    position: absolute;
+    color: #fff;
+    padding: 10px;
+    font-size: 18px;
+}
+.customer-story{border:1px #ccc solid;  margin: 10px -15px;padding:10px;}
+.house-rent h5{text-align:center; font-size:16px;}
 /******Profile Page*******/
 .bg-custom{background: #e0efeb none repeat scroll 0 0 / cover ;}
 .after-radio{position: absolute;margin-left: 10px;}
@@ -163,7 +176,7 @@
 .li-dashboard{ background:#fff; color:#47b475; margin-top:5px; padding: 10px; border: #47b475 2px solid; font-size:16px; cursor: pointer;}
 .li-dashboard:hover{background:#47b475 !important; color: #fff;}
 .dashboard-header{border:1px #ccc solid;}
-.house-detail-table{border:1px #ccc solid;padding:10px;}
+.house-detail-table{border:1px #ccc solid;padding:10px;margin:10px;}
 .att{text-align:left;}
 .att-title
 {

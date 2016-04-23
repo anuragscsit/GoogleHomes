@@ -1,4 +1,4 @@
-<section class="pt0 pb0">
+<section class="pb0">
 	<div class="container">
 		<p id="notice"><%= notice %></p>
 		<div class="house-details">
@@ -15,7 +15,7 @@
 										<a class="nav-link" href="#house-amenities" class="amenities-btn">Amenities</a>
 									</li>
 									<li>
-										<a class="nav-link" href="#house-map" >Map</a>
+										<a class="nav-link" href="#house-on-map" >Map</a>
 									</li>
 									<li>
 										<a class="nav-link" href="#house-conditions" >Conditions</a>
@@ -118,6 +118,17 @@
 						</ul>			
 					</div>
 				</div>
+				<div class="house-rent-detail row mt8">
+					<div class="col-xs-6">
+						<h5>Rent</h5>
+						<h5><%=@house.rent_per_bed%></h5>
+					</div>
+					<div class="col-xs-6">
+						<h5>Security Deposit</h5>
+						<h5><%=2*@house.rent_per_bed%></h5>
+					</div>	
+				</div>
+
 				<div class="row mt8" id="house-amenities">
 					<div  class="mt8">
 						<div class="amenities-list">
@@ -162,27 +173,42 @@
 						<div>
 							<h4 class="uppercase">Property Summary</h4>
 						</div>	
-						<table class="house-detail-table table">
+						<table class="house-desc table">
+							<tr>
+								<td class="att">GoogleHomes Home Id:  </td><td class="att-title"><%=@house.city%></td>
+							</tr>
 							<tr>
 								<td class="att">Address:  </td><td class="att-title"><%=@house.location%></td>
 							</tr>
 							<tr>
-								<td class="att">House Type:  </td><td class="att-title"><%=@house.location%></td>
+								<td class="att">City:  </td><td class="att-title"><%=@house.city%></td>
 							</tr>
 							<tr>
-								<td class="att">House Owner:  </td><td class="att-title"><%=@house.location%></td>
+								<td class="att">House Type:  </td><td class="att-title"><%=@house.house_type%></td>
+							</tr>							
+							<tr>
+								<td class="att">For:  </td><td class="att-title"><%=@house.house_for%></td>
+							</tr>
+							<tr>
+								<td class="att">Food Preference:  </td><td class="att-title"><%=@house.food_preference%></td>
+							</tr>
+							<tr>
+								<td class="att">Distance from station:  </td><td class="att-title"><%=@house.distance_from_station%></td>
 							</tr>
 						</table>
-						<div>
-							<h4 class="uppercase"> Description</h4>
-						</div>
 					</div>
 				</div>
 				<div class="row mt8">
-					<div id="house-on-map"  style="width:100%;height: 300px;">
+					<div id="house-on-map" style="margin:10px;height: 300px;">
 						
 					</div>
 				</div>
+			</div>
+			<div class="col-sm-4 ">
+				<div class="customer-story">
+					<h4>Customer Stories</h4>
+				</div>
+
 			</div>
 		</div>				
 	</div>
@@ -196,25 +222,39 @@
 					<h5><strong><%#= @owner_fullname%></strong></h5>
 				</div>
 			</div> -->		
-</section>
-<section class="pt0">
+		</section>
+		<section class="pt0">
+			<div class="similar-house" >
+				<h5 class="uppercase">Similar house</h5>
+				<div class="col-sm-12" style="border: 1px #ccc solid; margin:5px;">
+					<div style="margin:5px;">
+						<%= image_tag 'arch6.jpg', class: 'image-responsive'%>
+						<div class="similar-house-price">Rs. <%= @house.rent_per_bed%></div>
+					</div>
+					<div class="house-rule"> 
+						<%= render 'house_rules' %>
+					</div>
+					<div>
+						<%= @house.location %>
+					</div>
+				</div>
+			</div>
+		</section>
 
-</section>
+		<script type="text/javascript">
+			handler = Gmaps.build('Google');
+			handler.buildMap({ provider: {}, internal: {id: 'house-on-map'}}, function(){
+				markers = handler.addMarkers([
+				{
+					"lat": <%=@house.latitude%>,
+					"lng": <%=@house.longitude%>,
 
-<script type="text/javascript">
-	handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'house-on-map'}}, function(){
-    markers = handler.addMarkers([
-    {
-      "lat": <%=@house.latitude%>,
-      "lng": <%=@house.longitude%>,
-      
-      "infowindow": "hello!"
-    }
-    ]);
-    handler.bounds.extendWith(markers);
-    handler.map.centerOn(markers[0]);
-    handler.getMap().setZoom(15);
-  });
+					"infowindow": "hello!"
+				}
+				]);
+				handler.bounds.extendWith(markers);
+				handler.map.centerOn(markers[0]);
+				handler.getMap().setZoom(15);
+			});
 
-</script>
+		</script>

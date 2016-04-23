@@ -116,7 +116,7 @@
 <%= render 'shared/amenities', object: 'other_amenities' %>
 <script type="text/javascript">
 window.onload = function () { mapa() };
-  $("#house_location").geocomplete();
+  //$("#house_location").geocomplete();
   
   $('#house_livingroom_amenities').selectize({
     delimiter: ',',
@@ -129,14 +129,14 @@ window.onload = function () { mapa() };
     }
   });
 // lat lang using manual entry
-  $("#house_location").geocomplete().bind("geocode:result", function(event, result){
-    var lat = result.geometry.location.lat();
-    var lng = result.geometry.location.lng();
-    $('#house_latitude').val(lat);
-    $('#house_longitude').val(lng);
-    console.log(lat)
-    console.log(lng)
-    });
+  // $("#house_location").geocomplete().bind("geocode:result", function(event, result){
+  //   var lat = result.geometry.location.lat();
+  //   var lng = result.geometry.location.lng();
+  //   $('#house_latitude').val(lat);
+  //   $('#house_longitude').val(lng);
+  //   console.log(lat)
+  //   console.log(lng)
+  //   });
 
   // Lat lng using map////
 
