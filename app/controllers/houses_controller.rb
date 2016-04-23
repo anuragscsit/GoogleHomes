@@ -1,6 +1,6 @@
 class HousesController < ApplicationController
   before_action :set_house, only: [:show, :edit, :update, :destroy]
-   before_filter :auth_owner
+   before_filter :auth_owner, except: [:show]
 
   def auth_owner
     redirect_to  new_house_owner_registration_url unless user_signed_in?

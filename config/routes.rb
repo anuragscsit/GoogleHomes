@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/owner'
   get 'home/map'
+  get 'home/ghomeshouses'
   devise_for :tenants, skip: [:sessions]
   devise_for :house_owners, skip: [:sessions]
   devise_for :users, skip: :registrations
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'home#index'
     get 'profile', :to => "profile#edit"
+  resources :search
   resources :houses
   resources :requirements , only: :create
   resources :visit_schedules, only: [:index,:create, :show]
@@ -31,7 +33,9 @@ Rails.application.routes.draw do
   end
   resources :house_owners do
    collection do 
+      get :my_houses
       get :dashboard
+      get :my_payments
     end
     resources :house_owner_profile
   end

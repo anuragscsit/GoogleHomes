@@ -6,4 +6,8 @@ class HomeController < ApplicationController
   def map
   	
   end
+
+  def ghomeshouses
+  	@house = House.all
+  end
 end

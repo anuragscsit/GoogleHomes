@@ -6,7 +6,7 @@
   </div>
 </form>
  -->
-<section class="cover fullscreen image-slider slider-all-controls controls-inside parallax landing-div">
+<section class="cover fullscreen image-slider slider-all-controls controls-inside parallax landing-div" onload="initialize()">
     <ul class="slides">
         <li class="overlay image-bg">
             <div class="background-image-holder ">
@@ -41,7 +41,7 @@
                                 </select>
                               </div>
                               <div class="col-sm-2">
-                                <input type="submit" value="Search" class=""/>
+                                <input type="submit" value="Search" class="search-house-btn"/>
                               </div>  
                           </form>
                         </div>
@@ -169,5 +169,7 @@
 </section>
 <script type="text/javascript">
   $("#search-location").geocomplete();
+ // address = $("#search-location").val
+ 
  
 </script>

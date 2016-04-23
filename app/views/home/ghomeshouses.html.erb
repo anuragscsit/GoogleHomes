@@ -1,0 +1,36 @@
+<section class="pt0">
+	<div class="container-fluid">
+		<div>
+			<h3 class="uppercase">check out GoogleHomes Houses</h3>
+		</div>
+		<div>
+		<div class="row house-listing">
+				<h4> Houses</h4>
+				<% @house.each do |image| %> 
+				<% curret_house = @house.find(image) %>
+					<div class=" col-sm-4 house-listing">
+						<div class="col-sm-6">
+							<a href="<%= url_for("/houses/#{curret_house.id}") %>">
+								<div style="background:url(<%=curret_house.house_image.first.url%>)center center; background-size:cover; max-height:100%;min-height: 150px; ">
+								</div>
+							</a>
+						</div>		
+						<div class="col-sm-6">
+							<h5><%= curret_house.id %></h5>
+							<span>city: <%= curret_house.city %></span>
+							<span><%= curret_house.house_type %></span>
+							<div>
+								<span>Rooms: <%= curret_house.no_of_rooms %></span>
+								<span>Beds: <%= curret_house.no_of_beds %> </span>
+							</div>
+							<div>
+								<span>House for: <%= curret_house.house_for %></span>
+								<span>Rent: <%= curret_house.rent_per_bed %></span>									
+							</div>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</section>

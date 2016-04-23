@@ -21,13 +21,13 @@
 					<hr>
 					<ul class="link-list uppercase">
 						<li>
-							<div class="li-dashboard"><a href="#">My House</a></div>
+							<div class="li-dashboard"><a href="/house_owners/my_houses" data-remote ="true">My House</a></div>
 						</li>						
 						<li>
 							
 						</li>
 						<li>
-							<div class="li-dashboard"><span>My wishlists</span></div>
+							<div class="li-dashboard"><a href="/house_owners/my_payments" data-remote ="true">My payments</a></div>
 						</li>
 						<li>
 							<div class="li-dashboard "><span>My credits</span></div>
@@ -35,8 +35,8 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-sm-9" id="tenant-dashboard-section">
-				<%#= render 'myhouse'%>
+			<div class="col-sm-9" id="owner-dashboard-section">
+				<%#= render my_houses'%>
 			</div>
 		</div>		
 	</div>	
