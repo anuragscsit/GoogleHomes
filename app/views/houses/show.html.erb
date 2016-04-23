@@ -205,15 +205,60 @@
 				</div>
 			</div>
 			<div class="col-sm-4 ">
-				<div class="customer-story">
-					<h4>Customer Stories</h4>
+				<div class=" row hw-detail">
+					<h4 class="uppercase">House owner</h4>
+					<div align="center">
+						<%= image_tag @house_owner_image.url%>
+						<div class="hwname" >
+							<h4><%= @owner_fullname%></h4>
+						</div>
+					</div>	
 				</div>
-
+				<div class="customer-story row">
+					<h4 class="uppercase">Customer Stories</h4>
+				</div>
 			</div>
 		</div>				
 	</div>
+</section>
+<div class="container-fluid">
+	<div class="house-rule"> 
+	<%= render 'house_rules' %>
+</div>
+</div>
+<section class="pt0">
+	<div class="similar-house container-fluid" >
+		<h5 class="uppercase">Similar house</h5>
+		<div class="col-sm-4" style="border: 1px #ccc solid; margin:5px;">
+			<div style="margin:5px;">
+				<%= image_tag 'arch6.jpg', class: 'image-responsive'%>
+				<div class="similar-house-price">Rs. <%= @house.rent_per_bed%></div>
+			</div>
+			<div>
+				<%= @house.location %>
+			</div>
+		</div>
+	</div>
+</section>
 
-			<!-- <div class="col-sm-4 owner-detail" >
+<script type="text/javascript">
+	handler = Gmaps.build('Google');
+	handler.buildMap({ provider: {}, internal: {id: 'house-on-map'}}, function(){
+		markers = handler.addMarkers([
+		{
+			"lat": <%=@house.latitude%>,
+			"lng": <%=@house.longitude%>,
+
+			"infowindow": "hello!"
+		}
+		]);
+		handler.bounds.extendWith(markers);
+		handler.map.centerOn(markers[0]);
+		handler.getMap().setZoom(15);
+	});
+
+</script>
+<!-- <div class="col-sm-4 owner-detail" >
 				<div class="col-sm-4 owner-image">
 					<%#=image_tag "avatar.png"%>
 				</div>
@@ -221,40 +266,4 @@
 					<span>House Owner</span>
 					<h5><strong><%#= @owner_fullname%></strong></h5>
 				</div>
-			</div> -->		
-		</section>
-		<section class="pt0">
-			<div class="similar-house" >
-				<h5 class="uppercase">Similar house</h5>
-				<div class="col-sm-12" style="border: 1px #ccc solid; margin:5px;">
-					<div style="margin:5px;">
-						<%= image_tag 'arch6.jpg', class: 'image-responsive'%>
-						<div class="similar-house-price">Rs. <%= @house.rent_per_bed%></div>
-					</div>
-					<div class="house-rule"> 
-						<%= render 'house_rules' %>
-					</div>
-					<div>
-						<%= @house.location %>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<script type="text/javascript">
-			handler = Gmaps.build('Google');
-			handler.buildMap({ provider: {}, internal: {id: 'house-on-map'}}, function(){
-				markers = handler.addMarkers([
-				{
-					"lat": <%=@house.latitude%>,
-					"lng": <%=@house.longitude%>,
-
-					"infowindow": "hello!"
-				}
-				]);
-				handler.bounds.extendWith(markers);
-				handler.map.centerOn(markers[0]);
-				handler.getMap().setZoom(15);
-			});
-
-		</script>
+			</div> -->	

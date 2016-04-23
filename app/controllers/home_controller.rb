@@ -9,5 +9,6 @@ class HomeController < ApplicationController
 
   def ghomeshouses
   	@house = House.all
+    
   end
 end

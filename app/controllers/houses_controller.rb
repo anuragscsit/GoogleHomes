@@ -18,7 +18,8 @@ class HousesController < ApplicationController
      @house = House.find(params[:id])
      @visit_schedule=VisitSchedule.new
      @owner_fullname= User.find(@house.house_owner_id).full_name
-     
+
+     @house_owner_image= HouseOwnerProfile.find(@house.house_owner_id).image
   end
 
   # GET /houses/new
