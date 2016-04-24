@@ -1,10 +1,10 @@
 class HousesController < ApplicationController
   before_action :set_house, only: [:show, :edit, :update, :destroy]
-   before_filter :auth_owner, except: [:show]
-
+   before_action :auth_owner, except: [:show]
   def auth_owner
     redirect_to  new_house_owner_registration_url unless user_signed_in?
   end
+ 
 
   # GET /houses
   # GET /houses.json
@@ -92,6 +92,9 @@ class HousesController < ApplicationController
     end
   end
 
+  def book_house
+    
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_house

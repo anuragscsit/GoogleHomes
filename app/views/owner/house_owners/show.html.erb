@@ -2,12 +2,12 @@
 	
 
 	<h1>House owner profile</h1>
-	<%= link_to 'Update Profile',  edit_house_owner_house_owner_profile_path(house_owner_id: current_user.id)%>
+	<%= link_to 'Update Profile',  edit_owner_house_owner_house_owner_profile_path(house_owner_id: current_user.id)%>
 	<%# if !current_user.tenant_profile.valid? %>
 	<p class="alert alert-warning">
 		Your profile is incomplete. Please fill out more of your
 
-		<%= link_to 'Update Profile',   edit_house_owner_house_owner_profile_path(house_owner_id: current_user.id, id: current_user.house_owner_profile.id)%>
+		<%= link_to 'Update Profile',   edit_owner_house_owner_house_owner_profile_path(house_owner_id: current_user.id, id: current_user.house_owner_profile.id)%>
 	</p>
 </div>
 <%#end%>
@@ -30,7 +30,7 @@
 			<p>contact_number:<%=@house_owner.contact_number%></p>
 		</div>
 		<div class="col-sm-6">
-			<%= link_to 'Update Profile',  edit_house_owner_house_owner_profile_path(house_owner_id: current_user.id, id: current_user.house_owner_profile.id)%>
+			<%= link_to 'Update Profile',  edit_owner_house_owner_house_owner_profile_path(house_owner_id: current_user.id, id: current_user.house_owner_profile.id)%>
 		</div>
 	</div>	
 </section>

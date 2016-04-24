@@ -1,4 +1,4 @@
-class HouseOwnerProfileController < ApplicationController
+class Owner::HouseOwnerProfileController < ApplicationController
 	before_filter :authenticate_house_owner!
 
   def edit
@@ -15,7 +15,7 @@ class HouseOwnerProfileController < ApplicationController
      @state  = State.all
      @house_owner_profile = HouseOwnerProfile.find(params[:id])
     if @house_owner_profile.update_attributes(profile_params)
-      redirect_to house_owners_dashboard_path
+      redirect_to owner_house_owners_dashboard_path
     else
       render 'edit'
     end

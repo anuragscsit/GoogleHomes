@@ -2,11 +2,11 @@ Rails.application.routes.draw do
   
   get 'requirements/new'
   get 'requirements/create'
-  get 'tenant_profile/edit'
+  get 'tenant/tenant_profile/edit'
   get 'house_owner_profile/edit'
-  get 'house_owners/dashboard'
-  get 'tenants/dashboard'
-  get 'tenants/profile'
+  get 'owner/house_owners/dashboard'
+  get 'tenant/tenants/dashboard'
+  get 'tenant/tenants/profile'
   get 'home/index'
   get 'home/owner'
   get 'home/map'
@@ -20,25 +20,35 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'home#index'
     get 'profile', :to => "profile#edit"
-  resources :search
-  resources :houses
-  resources :requirements , only: :create
-  resources :visit_schedules, only: [:index,:create, :show]
-  resources :tenants do
-    collection do 
-      get :payments
-      get :dashboard
+  resources :search, only: [:new]
+  resources :requirements , only: [:create]
+  resources :houses, except: [:index,:destroy]
+  resources :visit_schedules, only: [:new,:create,:edit, :show]
+############################################################################### 
+  namespace :tenant do 
+    resources :tenants do
+      collection do 
+        get :payments
+        get :dashboard
+      end
+      resources :tenant_profile
+      
     end
-    resources :tenant_profile
   end
-  resources :house_owners do
-   collection do 
-      get :my_houses
-      get :dashboard
-      get :my_payments
-    end
+###############################################################################
+  namespace :owner do
+    resources :house_owners do
+     collection do 
+        get :my_houses
+        get :dashboard
+        get :my_payments
+      end
     resources :house_owner_profile
+    resources :visit_schedules, only: [:index,:show]
+    #resources :houses,except:[:destroy]
   end
+ ############################################################################ 
+end 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

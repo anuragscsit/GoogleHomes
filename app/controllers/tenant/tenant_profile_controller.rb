@@ -1,4 +1,4 @@
-class TenantProfileController < ApplicationController
+class Tenant::TenantProfileController < ApplicationController
 	before_filter :authenticate_tenant!
   def edit
   	@user = current_tenant
@@ -12,7 +12,7 @@ class TenantProfileController < ApplicationController
      @state  = State.all
      @tenant_profile = TenantProfile.find(params[:id])
     if @tenant_profile.update_attributes(profile_params)
-      redirect_to dashboard_tenants_path
+      redirect_to dashboard_tenant_tenants_path
     else
       render 'edit'
     end

@@ -1,6 +1,7 @@
-class TenantsController < ApplicationController
+class Tenant::TenantsController < ApplicationController
 	before_filter :authenticate_tenant!
-   respond_to :html, :js
+  respond_to :html, :js
+
   def dashboard
   	
     @tenant = current_user

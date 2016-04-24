@@ -3,9 +3,9 @@
 	<div class="section-edit">
 		<div class="container">
 			<div class="row">
-				<%= form_for [@user, @house_owner_profile] do |f| %>
+				<%= form_for [:tenant, @user, @tenant_profile] do |f| %>
 				<div class="col-lg-12 col-sm-12 ">
-					<% if @house_owner_profile.errors.any? || !@house_owner_profile.valid? %>
+					<% if @tenant_profile.errors.any? || !@tenant_profile.valid? %>
 					<div id="error_explanation" class="alert alert-info">
 						<p>
 							<strong>
@@ -14,7 +14,7 @@
 						</p>
 
 						<ul>
-							<% @house_owner_profile.errors.full_messages.each do |msg| %>
+							<% @tenant_profile.errors.full_messages.each do |msg| %>
 							<li><%= msg %></li>
 							<% end %>
 						</ul>
@@ -26,14 +26,17 @@
 								Fill your basic details
 							</p>
 							<div class="input-with-label text-left">
-
 						    <%= f.file_field :image%>
 						  </div>
+						  
 							<div class="input-with-label text-left">
 								<label>Date of birth</label>
 								<%= f.text_field :DOB, placeholder: 'DOB' %>
 							</div>
-							
+							<div class="input-with-label text-left">
+								<span>Father's Name</span>
+								<%= f.text_field :father_name, placeholder: 'Father Name' %>
+							</div>
 							<div class="row">
 								<div class="col-sm-12">
 									<h5>Gender</h5>
@@ -60,20 +63,20 @@
 									</div>
 									<div class="input-with-label text-left">
 										<label>Work place</label>
-										<%= f.text_field :work_detail, placeholder: 'work detail' %>
+										<%= f.text_field :work_place, placeholder: 'work place' %>
 									</div>
 									<div class="mb24">
 										<span>Would you like to Susbscribe googleHomes newsletters</span>
 										<div class="checkbox-option pull-right">
 											<div class="inner"></div>
-											 <%= f.check_box :subscription %>
+											<input name="checkbox" value="Checkbox" type="checkbox">
 										</div>
 									</div>
 								</div>
 
 								<div class="col-sm-6">
 									<div>
-										<label>Current Address</label>
+										<label>Permanent Address</label>
 										<%= f.text_field :c_address, placeholder: 'Address line 1' %>
 									</div>  
 
@@ -93,10 +96,10 @@
 									</div>
 									<div class="input-with-label text-left">
 										<label>Pincode</label>
-										<%= f.text_field :c_pincode, placeholder: 'pincode' %>
+										<%= f.text_field :p_pincode, placeholder: 'pincode' %>
 									</div>      
 									<div>
-										<label>Permanent Address</label>
+										<label>Current Address</label>
 										<%= f.text_field :p_address, placeholder: 'Address line 1' %>
 									</div>  
 									<div>
@@ -126,11 +129,12 @@
 					</div>
 				</div>
 			</div>
+			<%#= link_to 'View Profile',   tenant_tenant_profile_path(id:tenant_profile.id)%>
 		</section>		
 		<script type="text/javascript">
 			$('#bio-textarea textarea').show_char_limit({ status_element: '#bio-textarea .status', status_style: 'chars_left' } );
 
 			
-  			$('#house_owner_profile_DOB').datepicker();
+  			$('#tenant_profile_DOB').datepicker();
 			
 		</script>

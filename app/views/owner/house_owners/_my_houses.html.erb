@@ -15,7 +15,7 @@
         <td><%= house.location %></td>
         <td><%= link_to 'Show', house %></td>
         <td><%= link_to 'Edit', edit_house_path(house) %></td>
-        <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
       <% end %>
     </tbody>
@@ -23,6 +23,6 @@
 
   <br>
 
-  <%= link_to 'Register another house', new_house_path, class:'btn' %>
+  <%#= link_to 'Register another house', new_house_path, class:'btn' %>
   </div>
 </section>

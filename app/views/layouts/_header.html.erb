@@ -51,14 +51,14 @@
           <ul class="menu">
             <li><%= link_to 'Post requirement', requirements_new_path%></li>
             <li>                   
-              <%= link_to "Dashboard", dashboard_tenants_path%>
+              <%= link_to "Dashboard", dashboard_tenant_tenants_path%>
             </li> 
             <li class="">
                   Settings <span class="caret"></span>
                 <ul>
                                     
                   <li>                   
-                    <%= link_to current_user.first_name,  tenant_path(current_user)%>
+                    <%= link_to current_user.first_name,  tenant_tenant_path(current_user)%>
                   </li>
                     <li>
                       <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
@@ -73,15 +73,16 @@
         <div class="module widget-handle language right">
           <ul class="menu">
             <li><%= link_to 'For Owner', home_owner_path%></li>
+            <li><%= link_to 'List your Houses', new_house_path%></li>
             <li>                   
-              <%= link_to "Dashboard", house_owners_dashboard_path%>
+              <%= link_to "Dashboard", owner_house_owners_dashboard_path%>
             </li>
             <li class="">
               
               <%=current_user.first_name%> <span class="caret"></span>
               <ul class>   
                 <li>                   
-                    <%= link_to current_user.first_name,  house_owner_path(current_user)%>
+                    <%= link_to current_user.first_name,  owner_house_owner_path(current_user)%>
                   </li>            
                 <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
               </ul>

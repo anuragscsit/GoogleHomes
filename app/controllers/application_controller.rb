@@ -16,9 +16,9 @@ class ApplicationController < ActionController::Base
   def account_url
   	case resource.class.name
   	when 'HouseOwner'
-  		 dashboard_house_owners_path
+  		 dashboard_owner_house_owners_path
   	when 'Tenant'
-  		dashboard_tenants_path
+  		dashboard_tenant_tenants_path
 
   	else
   		root_url

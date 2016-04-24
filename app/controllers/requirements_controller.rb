@@ -9,7 +9,7 @@ class RequirementsController < ApplicationController
     
     @requirement.save
     if current_user.class.name=='Tenant'
-    	redirect_to '/tenants/dashboard' 
+    	redirect_to dashboard_tenant_tenants_path 
 	else
 		redirect_to '/'
 	end
