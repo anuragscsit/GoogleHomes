@@ -7,25 +7,38 @@
 		<div>
 
 			<%= form_for (@requirement) do |f| %>
-		    <%= f.text_field :name,placeholder: 'Name' %>
-		    <%= f.email_field :email,placeholder: 'Email' %>
-		    <%= f.text_field :phone,placeholder: 'Phone' %>
-		    <%= f.text_field :city,placeholder: 'City' %>
-		    <%= f.text_field :location,placeholder: 'Location' %>
-		    <div class="select-option">
+
+			<% if @requirement.errors.any? %>
+			<div id="error_explanation">
+				<h4><%= pluralize(@requirement.errors.count, "error") %> prohibited this house from being saved:</h4>
+
+				<ul>
+					<% @requirement.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+					<% end %>
+				</ul>
+			</div>
+			<% end %>
+
+			<%= f.text_field :name,placeholder: 'Name', required:"true" %>
+			<%= f.email_field :email,placeholder: 'Email', required:"true" %>
+			<%= f.text_field :phone,placeholder: 'Phone', required:"true" %>
+			<%= f.text_field :city,placeholder: 'City', required:"true" %>
+			<%= f.text_field :location,placeholder: 'Location', required:"true" %>
+			<div class="select-option">
 				<i class="ti-angle-down"></i>
 				<%=f.select :room_for, options_for_select([['single boy'], ['Group of single boy'],['single girl'], ['Group of single girls']])%>
 			</div>
-		    <div class="select-option">
+			<div class="select-option">
 				<i class="ti-angle-down"></i>
 				<%=f.select :need_within, options_for_select([['within a week']])%>
 			</div>
 			<%= f.submit "post Requirements",class:'btn' %>
-		    <%end%>
+			<%end%>
 		</div>	
 	</div>
 </section>
 <script type="text/javascript">
-  $("#requirement_location").geocomplete();
- 
+	$("#requirement_location").geocomplete();
+
 </script>
