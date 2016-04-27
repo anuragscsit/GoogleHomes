@@ -16,26 +16,28 @@
 		<div>
 		<div class="row house-listing">
 				<h4> Houses</h4>
-				<% @house.each do |image| %> 
-				<% curret_house = @house.find(image) %>
+				<% @house.each do |house| %> 
+				<% current_house = @house.find(house) %>
+				<% image = current_house.house_image.first.url %>
+
 					<div class=" col-sm-4 house-listing">
 						<div class="col-sm-6">
-							<a href="<%= url_for("/houses/#{curret_house.id}") %>">
-								<div style="background:url(<%=curret_house.house_image.first.url%>)center center; background-size:cover; max-height:100%;min-height: 150px; ">
+							<a href="<%= url_for("/houses/#{current_house.id}") %>">
+								<div style="background:url(<%= image unless image == nil %>)center center; background-size:cover; max-height:100%;min-height: 150px; ">
 								</div>
 							</a>
 						</div>		
 						<div class="col-sm-6">
-							<h5><%= curret_house.id %></h5>
-							<span>city: <%= curret_house.city %></span>
-							<span><%= curret_house.house_type %></span>
+							<h5><%= current_house.id %></h5>
+							<span>city: <%= current_house.city %></span>
+							<span><%= current_house.house_type %></span>
 							<div>
-								<span>Rooms: <%= curret_house.no_of_rooms %></span>
-								<span>Beds: <%= curret_house.no_of_beds %> </span>
+								<span>Rooms: <%= current_house.no_of_rooms %></span>
+								<span>Beds: <%= current_house.no_of_beds %> </span>
 							</div>
 							<div>
-								<span>House for: <%= curret_house.house_for %></span>
-								<span>Rent: <%= curret_house.rent_per_bed %></span>									
+								<span>House for: <%= current_house.house_for %></span>
+								<span>Rent: <%= current_house.rent_per_bed %></span>									
 							</div>
 						</div>
 					</div>
