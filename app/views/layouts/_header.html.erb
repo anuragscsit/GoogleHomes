@@ -7,90 +7,79 @@
       </div>
       <div class="module widget-handle mobile-toggle right visible-sm visible-xs">
         <i class="ti-menu"></i>
-      </div>
-      
+      </div>      
       <div class="module-group left">
         <ul class="menu">
-          
         </ul>
       </div>   
       <% unless user_signed_in?  %>
       <div class="module-group right">
-        
         <ul class="menu">
-          
           <li><%= link_to 'Browse Houses', home_ghomeshouses_path%></li>
           <li><%= link_to 'Post requirement', requirements_new_path%></li>
           <li><%= link_to 'List your Houses', new_house_path%></li>
           <li><%= link_to 'For Owner', home_owner_path%></li>
           <li><a href="#">Success stories</a></li>
           <li><%= link_to 'Log in', new_user_session_path%></li>
-          <!-- <li><#%= link_to 'Log in', new_owner_session_path%></li> -->
           
           <div class="module widget-handle language right">
             <ul class="menu">
-                <li class="has-dropdown">
-                    <a href="#">Sign up</a>
-                    <ul>
-                        
-                        <li>
-                            <%= link_to 'tenant', new_tenant_registration_path%>
-                        </li>
-                        <li>
-                            <%= link_to 'owner', new_house_owner_registration_path%>
-                        </li>
-                    </ul>
-                </li>
+              <li class="has-dropdown">
+                <a href="#">Sign up</a>
+                <ul>
+                  <li>
+                    <%= link_to 'tenant', new_tenant_registration_path%>
+                  </li>
+                  <li>
+                    <%= link_to 'owner', new_house_owner_registration_path%>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </div>                       
         </ul>
       </div>
       <% end %>
+
       <% if user_signed_in? && current_user.class.name == 'Tenant' %>
-        <div class="module widget-handle language right">
-          <ul class="menu">
-            <li><%= link_to 'Post requirement', requirements_new_path%></li>
-            <li>                   
-              <%= link_to "Dashboard", dashboard_tenant_tenants_path%>
-            </li> 
-            <li class="">
-                  Settings <span class="caret"></span>
-                <ul>
-                                    
-                  <li>                   
-                    <%= link_to current_user.first_name,  tenant_tenant_path(current_user)%>
-                  </li>
-                    <li>
-                      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-                  </li>
-                </ul>
+      <div class="module widget-handle language right">
+        <ul class="menu">
+          <li><%= link_to 'Post requirement', requirements_new_path%></li>
+          <li>                   
+            <%= link_to "Dashboard", dashboard_tenant_tenants_path%>
+          </li> 
+          <li class="">Settings <span class="caret"></span>
+            <ul>
+              <li>                   
+                <%= link_to current_user.first_name,  tenant_tenant_path(current_user)%>
+              </li>
+              <li>
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
               </li>
             </ul>
-        </div>
-        <% end %>
-        <% if user_signed_in? && current_user.class.name == 'HouseOwner' %>
-       
-        <div class="module widget-handle language right">
-          <ul class="menu">
-            <li><%= link_to 'For Owner', home_owner_path%></li>
-            <li><%= link_to 'List your Houses', new_house_path%></li>
-            <li>                   
-              <%= link_to "Dashboard", owner_house_owners_dashboard_path%>
-            </li>
-            <li class="">
-              
-              <%=current_user.first_name%> <span class="caret"></span>
-              <ul class>   
-                <li>                   
-                    <%= link_to current_user.first_name,  owner_house_owner_path(current_user)%>
-                  </li>            
-                <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-              </ul>
-            </li>
-          </ul>    
-         <!--end of module group-->
-        </div> 
-        <% end %>
+          </li>
+        </ul>
+      </div>
+      <% end %>
+
+      <% if user_signed_in? && current_user.class.name == 'HouseOwner' %>
+      <div class="module widget-handle language right">
+        <ul class="menu">
+          <li><%= link_to 'For Owner', home_owner_path%></li>
+          <li><%= link_to 'List your Houses', new_house_path%></li>
+          <li>                   
+            <%= link_to "Dashboard", owner_house_owners_dashboard_path%>
+          </li>
+          <li class="">Settings<span class="caret"></span>
+            <ul class="">   
+              <li><%= link_to current_user.first_name,  owner_house_owner_path(current_user)%></li>
+              <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        </ul>    
+        <!--end of module group-->
+      </div> 
+      <% end %>
     </div>    
   </nav>
 </div>
