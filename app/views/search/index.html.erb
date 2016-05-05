@@ -1,0 +1,159 @@
+<div class="pt24">
+  <div class="container">
+    <div class="search-form row">
+    <%= form_tag search_index_path, method: 'get' do %>
+      <div class="">
+        <div class="select-option col-sm-3">
+          <i class="ti-angle-down"></i>
+          <select>
+            <option selected="" value="Default">Select City</option>
+            <option value="Small">Indore</option>
+            <option value="Medium">Bhopal</option>
+            <option value="Larger">Jabalpur</option>
+          </select>
+        </div>
+        <div class="col-sm-4" id="input-location"><i class="ti-location-pin "></i>
+          <input type="text" name="address" id="search-location" placeholder="location" />
+        </div>
+        <div class="form-group hidden">
+              <%= hidden_field_tag :lat, nil, id: 'search-location-lat', value: params[:lat] %>
+            </div>
+            <div class="form-group hidden">
+              <%= hidden_field_tag :lng, nil, id: 'search-location-long', value: params[:lng] %>
+            </div>  
+        <div class="select-option col-sm-3">
+          <i class="ti-angle-down"></i>
+          <select>
+            <option selected="" value="Default">Looking for</option>
+            <option value="Small">Boy</option>
+            <option value="Medium">Girl</option>
+          </select>
+        </div>
+        <div class="col-sm-2">
+          <input type="submit" value="Search" name= "search" class="search-house-btn"/>
+        </div>  
+      </div>
+      <label class="coords"></label>
+      <% end %>
+    </div>
+  </div>
+  <hr/>
+</div>
+<div>
+	
+<section class="pt0">
+  <div class="row">
+   <div class="col-sm-5 list-div">
+    <h4> Houses</h4>
+    <% (1..2).each do %>     
+      <div class="col-sm-12">
+        <div class="house-listing">
+          <ul>
+            <li>
+              <a href="">
+                <div class="col-sm-6">
+                <%=image_tag 'arch6.jpg',class:"img-responsive" %>
+                </div>
+                <div class="col-sm-6">
+                  <h4>58B sheetal nagar</h4>
+                  <span>place</span>
+                  <span>1BHK</span>
+                  <div>
+                    <span>1bed available</span>
+                    <span>For Boys</span>
+                  </div>
+                  <div>
+                    <span>Rs 5000</span>
+                    <span>0.7Km away</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div id="gmap" class="col-sm-7" style="height:400px;"></div>
+</div>
+</section>
+</div>
+<script type="text/javascript">
+  $("#search-location").geocomplete();
+  var lat;
+  var lng;
+  $("#search-location").geocomplete().bind("geocode:result", function(event, result){
+    lat = result.geometry.location.lat();
+    lng = result.geometry.location.lng();
+    $('#search-location-lat').val(lat);
+    $('#search-location-long').val(lng);
+  });
+	handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'gmap'}}, function(){
+
+    
+    markers = handler.addMarkers([
+    {
+      "lat": 22,
+      "lng": 77,
+      
+      "infowindow": "hello!"
+    }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.map.centerOn(markers[0]);
+    handler.getMap().setZoom(12);
+  });
+
+</script>
+<script>
+ 
+
+//  $('.search-house-btn').click(function() {
+//   var lat;
+//   var lng;
+//   var geocoder = new google.maps.Geocoder(); 
+//   geocoder.geocode({
+//     address : $('input[name=address]').val(), 
+//     region: 'no' 
+
+//   },
+//   function(results, status) {
+//     if (status.toLowerCase() == 'ok') {
+//       // Get center
+//       var coords = new google.maps.LatLng(
+//         lat=  results[0]['geometry']['location'].lat(),
+//         lng=  results[0]['geometry']['location'].lng()
+//         );
+//       $('.coords').html('Latitute: ' + coords.lat() + '    Longitude: ' + coords.lng() );
+
+//       markers = handler.addMarkers([
+//       {
+//         "lat": lat,
+//         "lng": lng,
+        
+//         "infowindow": "hello!"
+//       }
+//       ]);
+//       handler.bounds.extendWith(markers);
+//       handler.map.centerOn(markers[0]);
+//       handler.getMap().setZoom(12);
+
+//       // Set marker also        
+//     }
+//   });
+// });
+</script>
+
+<script type="text/javascript">
+  // Load google map
+  // var map = new google.maps.Map( document.getElementById("gmap"),  {
+  //   center: new google.maps.LatLng(0,0),
+  //   zoom: 3,
+  //   mapTypeId: google.maps.MapTypeId.ROADMAP,
+  //   panControl: false,
+  //   streetViewControl: false,
+  //   mapTypeControl: false
+  // });
+
+</script>

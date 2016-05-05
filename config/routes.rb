@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'home#index'
     get 'profile', :to => "profile#edit"
-  resources :search, only: [:new]
+  resources :search, only: [:new, :index]
   resources :requirements , only: [:create]
   resources :houses, except: [:index,:destroy]
   resources :visit_schedules, only: [:new,:create,:edit, :show]
