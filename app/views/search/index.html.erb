@@ -5,12 +5,7 @@
       <div class="">
         <div class="select-option col-sm-3">
           <i class="ti-angle-down"></i>
-          <select>
-            <option selected="" value="Default">Select City</option>
-            <option value="Small">Indore</option>
-            <option value="Medium">Bhopal</option>
-            <option value="Larger">Jabalpur</option>
-          </select>
+          <%=select_tag :city, options_for_select(City.all.collect {|c| [ c.name, c.name ] }),id: 'city'%>
         </div>
         <div class="col-sm-4" id="input-location"><i class="ti-location-pin "></i>
           <input type="text" name="address" id="search-location" placeholder="location" />
@@ -23,14 +18,10 @@
             </div>  
         <div class="select-option col-sm-3">
           <i class="ti-angle-down"></i>
-          <select>
-            <option selected="" value="Default">Looking for</option>
-            <option value="Small">Boy</option>
-            <option value="Medium">Girl</option>
-          </select>
+           <%=select_tag :gender, options_for_select([ "Boys", "Girls" ], "Boys"),id: 'gender'%>
         </div>
         <div class="col-sm-2">
-          <input type="submit" value="Search" name= "search" class="search-house-btn"/>
+          <input type="submit" value="Search" class="search-house-btn"/>
         </div>  
       </div>
       <label class="coords"></label>
@@ -44,27 +35,27 @@
 <section class="pt0">
   <div class="row">
    <div class="col-sm-5 list-div">
-    <h4> Houses</h4>
-    <% (1..2).each do %>     
-      <div class="col-sm-12">
-        <div class="house-listing">
+     <% @houses.each do |house| %>   
+      <div class="col-sm-12 house-listing">
+        <div class="">
+        <h5>Houses for <%= house.house_for%></h5>
           <ul>
             <li>
-              <a href="">
+              <a href="<%= url_for("/houses/#{house.id}") %>">
                 <div class="col-sm-6">
-                <%=image_tag 'arch6.jpg',class:"img-responsive" %>
+                <%=image_tag house.house_image.first.url,class:"img-responsive house-thumb" %>
                 </div>
                 <div class="col-sm-6">
-                  <h4>58B sheetal nagar</h4>
-                  <span>place</span>
-                  <span>1BHK</span>
+                  <h4><%= house.name%></h4>   
+                  <span><%= house.location%></span>
+                  <span><%= house.house_type%></span>
                   <div>
-                    <span>1bed available</span>
-                    <span>For Boys</span>
+                    <span><%= house.no_of_beds%></span>
+                    <span><%= house.house_for%></span>
                   </div>
                   <div>
-                    <span>Rs 5000</span>
-                    <span>0.7Km away</span>
+                    <span><%= house.rent_per_bed%></span>
+                    <span><%= house.distance_from_station%></span>
                   </div>
                 </div>
               </a>
@@ -73,6 +64,7 @@
         </div>
       </div>
     <% end %>
+    <% if @houses.length == 0 %><h4>There is no matching house</h4><% end %> 
   </div>
   <div id="gmap" class="col-sm-7" style="height:400px;"></div>
 </div>
@@ -92,68 +84,10 @@
   handler.buildMap({ provider: {}, internal: {id: 'gmap'}}, function(){
 
     
-    markers = handler.addMarkers([
-    {
-      "lat": 22,
-      "lng": 77,
-      
-      "infowindow": "hello!"
-    }
-    ]);
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
     handler.map.centerOn(markers[0]);
     handler.getMap().setZoom(12);
   });
-
-</script>
-<script>
- 
-
-//  $('.search-house-btn').click(function() {
-//   var lat;
-//   var lng;
-//   var geocoder = new google.maps.Geocoder(); 
-//   geocoder.geocode({
-//     address : $('input[name=address]').val(), 
-//     region: 'no' 
-
-//   },
-//   function(results, status) {
-//     if (status.toLowerCase() == 'ok') {
-//       // Get center
-//       var coords = new google.maps.LatLng(
-//         lat=  results[0]['geometry']['location'].lat(),
-//         lng=  results[0]['geometry']['location'].lng()
-//         );
-//       $('.coords').html('Latitute: ' + coords.lat() + '    Longitude: ' + coords.lng() );
-
-//       markers = handler.addMarkers([
-//       {
-//         "lat": lat,
-//         "lng": lng,
-        
-//         "infowindow": "hello!"
-//       }
-//       ]);
-//       handler.bounds.extendWith(markers);
-//       handler.map.centerOn(markers[0]);
-//       handler.getMap().setZoom(12);
-
-//       // Set marker also        
-//     }
-//   });
-// });
-</script>
-
-<script type="text/javascript">
-  // Load google map
-  // var map = new google.maps.Map( document.getElementById("gmap"),  {
-  //   center: new google.maps.LatLng(0,0),
-  //   zoom: 3,
-  //   mapTypeId: google.maps.MapTypeId.ROADMAP,
-  //   panControl: false,
-  //   streetViewControl: false,
-  //   mapTypeControl: false
-  // });
 
 </script>

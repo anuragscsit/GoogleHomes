@@ -89,6 +89,9 @@ GEM
     geocomplete_rails (1.6.5)
       railties (>= 3.1)
     geokit (1.10.0)
+    geokit-rails (2.1.0)
+      geokit (~> 1.5)
+      rails (>= 3.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     gmaps4rails (2.1.2)
@@ -211,6 +214,7 @@ DEPENDENCIES
   geocoder
   geocomplete_rails
   geokit
+  geokit-rails
   gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails

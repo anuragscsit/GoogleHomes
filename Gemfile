@@ -25,6 +25,7 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'gmaps4rails'
 gem 'geocoder'
+gem 'geokit-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'elasticsearch-model'

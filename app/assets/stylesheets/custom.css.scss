@@ -213,11 +213,12 @@
 
 
 /********Search**********/
-.list-div,#gmap{border:1px #ccc solid;padding: 20px; padding:5px;}
+.list-div{}
+#gmap{border:1px #ccc solid; padding:0px;}
 /**********BrowseHouse***********/
-.house-listing{border:1px #ccc solid;padding: 20px; padding:5px;margin:4px;}
+.house-listing{border:1px #ccc solid;padding:5px;margin:1px 5px 10px 5px;}
 .img-house-tiny{max-height:100%;display:cover center center;}
-
+.house-thumb{margin-bottom:10px;}
 /********REGISTRATION**********/
 .edit-registration{border:1px #ccc solid;padding: 20px;}
 
