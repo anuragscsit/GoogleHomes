@@ -213,7 +213,10 @@
 
 
 /********Search**********/
-.list-div{}
+.list-div{
+    overflow-y: scroll;
+    max-height: 500px;
+}
 #gmap{border:1px #ccc solid; padding:0px;}
 /**********BrowseHouse***********/
 .house-listing{border:1px #ccc solid;padding:5px;margin:1px 5px 10px 5px;}

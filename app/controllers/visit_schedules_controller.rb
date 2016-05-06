@@ -15,6 +15,8 @@ class VisitSchedulesController < ApplicationController
   # GET /visit_schedules/new
   def new
     @visit_schedule = VisitSchedule.new
+    @house = House.find(params[:id])
+    byebug
   end
 
   # GET /visit_schedules/1/edit
@@ -25,7 +27,7 @@ class VisitSchedulesController < ApplicationController
   # POST /visit_schedules.json
   def create
     @visit_schedule = VisitSchedule.new(visit_schedule_params)
-
+   
     respond_to do |format|
       if @visit_schedule.save
         format.html { redirect_to :back, notice: 'Visit schedule was successfully created.' }
@@ -69,6 +71,6 @@ class VisitSchedulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def visit_schedule_params
-      params.require(:visit_schedule).permit(:name, :email, :phone, :date, :time)
+      params.require(:visit_schedule).permit(:name, :email, :phone, :date, :time,:house_owner_id,:house_id)
     end
 end

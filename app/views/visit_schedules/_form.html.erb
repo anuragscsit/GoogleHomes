@@ -13,13 +13,13 @@
 <% end %>
 
 <div>
-  <%= f.text_field :name , placeholder: "Name"%>
+  <%= f.text_field :name , placeholder: "Name",required:'true'%>
 </div>
 <div>
-  <%= f.email_field :email, placeholder: "email" %>
+  <%= f.email_field :email, placeholder: "email",required:'true' %>
 </div>
 <div>
-  <%= f.text_field :phone, placeholder: "phone" %>
+  <%= f.text_field :phone, placeholder: "phone",required:'true' %>
 </div>
 <div>
   <div class="select-option">
@@ -32,6 +32,11 @@
     <i class="ti-angle-down"></i>
     <%=f.select :time, options_for_select(["morning 8 AM to 9AM","evening 6PM to 8PM"])%>
   </div>
+</div>
+
+<div>
+  <%= f.hidden_field :house_owner_id,value: @house.house_owner_id  %>
+  <%= f.hidden_field :house_id,value: @house.id %>
 </div>
 <div>
   <%= f.submit %>
