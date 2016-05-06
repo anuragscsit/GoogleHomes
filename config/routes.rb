@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'home/owner'
   get 'home/map'
   get 'home/ghomeshouses'
+   get 'home/home'
   devise_for :tenants, skip: [:sessions]
   devise_for :house_owners, skip: [:sessions]
   devise_for :users, skip: :registrations

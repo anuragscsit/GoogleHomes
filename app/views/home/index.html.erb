@@ -5,182 +5,82 @@
       <input type="checkbox" name="checkbox" value="Checkbox" />
   </div>
 </form>
- -->
+-->
 <section class="cover fullscreen image-slider slider-all-controls controls-inside parallax landing-div">
-    <ul class="slides">
-        <li class="overlay image-bg">
-            <div class="background-image-holder ">
+  <ul class="slides">
+    <li class="overlay image-bg">
+      <div class="background-image-holder ">
+      </div>
+      <div class="container v-align-transform">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
+            <h1 class="mb8">City apartments: your smart home alternative.</h1>
+            <p class="lead mb48">
+              Perfect for those advertising a new product or service who wish to drive subscribers.
+            </p>
+            <div class="search-form row">
+              <%= form_tag search_index_path, method: 'get' do %>
+              <div class="select-option col-sm-3">
+                <i class="ti-angle-down"></i>
+                <select>
+                  <option selected="" value="Default">Select City</option>
+                  <option value="Small">Indore</option>
+                  <option value="Medium">Bhopal</option>
+                  <option value="Larger">Jabalpur</option>
+                </select>
+              </div>
+              <div class="col-sm-4" id="input-location"><i class="ti-location-pin "></i>
+                <input type="text" name="name" id="search-location" placeholder="location" />
+              </div>  
+              <div class="form-group hidden">
+                <%= hidden_field_tag :lat, nil, id: 'search-location-lat' %>
+              </div>
+              <div class="form-group hidden">
+                <%= hidden_field_tag :lng, nil, id: 'search-location-long' %>
+              </div>
+              <div class="select-option col-sm-3">
+                <i class="ti-angle-down"></i>
+                <select>
+                  <option selected="" value="Default">Looking for</option>
+                  <option value="Small">Boy</option>
+                  <option value="Medium">Girl</option>
+                </select>
+              </div>
+              <div class="col-sm-2">
+                <input type="submit" value="Search" class="search-house-btn"/>
+              </div>  
+              <% end %>
             </div>
-            <div class="container v-align-transform">
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
-                        <h1 class="mb8">City apartments: your smart home alternative.</h1>
-                        <p class="lead mb48">
-                            Perfect for those advertising a new product or service who wish to drive subscribers.
-                        </p>
-                        <div class="search-form row">
-                          <%= form_tag search_index_path, method: 'get' do %>
-                              <div class="select-option col-sm-3">
-                                  <i class="ti-angle-down"></i>
-                                  <select>
-                                      <option selected="" value="Default">Select City</option>
-                                      <option value="Small">Indore</option>
-                                      <option value="Medium">Bhopal</option>
-                                      <option value="Larger">Jabalpur</option>
-                                  </select>
-                                </div>
-                              <div class="col-sm-4" id="input-location"><i class="ti-location-pin "></i>
-                                <input type="text" name="name" id="search-location" placeholder="location" />
-                              </div>  
-                              <div class="form-group hidden">
-                                <%= hidden_field_tag :lat, nil, id: 'search-location-lat' %>
-                              </div>
-                              <div class="form-group hidden">
-                                <%= hidden_field_tag :lng, nil, id: 'search-location-long' %>
-                              </div>
-                              <div class="select-option col-sm-3">
-                                <i class="ti-angle-down"></i>
-                                <select>
-                                    <option selected="" value="Default">Looking for</option>
-                                    <option value="Small">Boy</option>
-                                    <option value="Medium">Girl</option>
-                                </select>
-                              </div>
-                              <div class="col-sm-2">
-                                <input type="submit" value="Search" class="search-house-btn"/>
-                              </div>  
-                           <% end %>
-                        </div>
-                    </div>
-                </div>
-                <!--end of row-->
-            </div>
-            <!--end of container-->
-        </li>
-    </ul>
-</section>
-<section>
-    <div class="container">
-        <div class="row v-align-children">
-            <div class="col-sm-6 col-md-5">
-                <h2 class="uppercase color-primary">The Perfect Place To Call Home</h2>
-                <hr>
-                <p>
-                    When you're looking for rentals, it helps to know where to start. You're in luck. GoogleHomes has the rentals you're looking for and all the tools you need to find them. Search for your next apartments, condo, or house on GoogleHomes and get moving.
-                </p>
-            </div>
-            <div class="col-sm-6 col-md-offset-1 p0">
-                <div class="col-sm-6 text-center">
-                    <div class="feature bordered mb30">
-                        <h1 class="large uppercase">3</h1>
-                        <h5 class="uppercase">Cities</h5>
-                    </div>
-                </div>
-                <!--end 6 col-->
-                <div class="col-sm-6 text-center">
-                    <div class="feature bordered mb30">
-                        <h1 class="large">50+</h1>
-                        <h5 class="uppercase">House owners</h5>
-                    </div>
-                </div>
-                <!--end 6 col-->
-                <div class="col-sm-6 text-center">
-                    <div class="feature bordered mb30">
-                        <h1 class="large">80+</h1>
-                        <h5 class="uppercase">Houses</h5>
-                    </div>
-                </div>
-                <!--end 6 col-->
-                <div class="col-sm-6 text-center">
-                    <div class="feature bordered mb30">
-                        <h1 class="large">150+</h1>
-                        <h5 class="uppercase">Tenants</h5>
-                    </div>
-                </div>
-                <!--end 6 col-->
-            </div>
+          </div>
         </div>
         <!--end of row-->
-    </div>
-    <!--end of container-->
+      </div>
+      <!--end of container-->
+    </li>
+  </ul>
 </section>
-<section class="projects p0 bg-dark">
-  <div class="row masonry-loader fadeOut">
-    <div class="col-sm-12 text-center">
-      <div class="spinner"></div>
-    </div>
-  </div>
-  <div class="row masonry masonryFlyIn fadeIn" >
-    <div data-filter="People" class="col-sm-4 masonry-item project fadeIn" style="position: absolute; left: 0px; top: 0px;">
-      <div class="image-tile inner-title hover-reveal text-center">
-        <a href="#">
-        <%= image_tag  "GHimages/bedroom-white.jpg",alt: "image" %>
-          <div class="title">
-            <h5 class="uppercase mb0">Bedroom</h5>
-            <span>Technology / Life</span>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div data-filter="Animals" class="col-sm-4 masonry-item project fadeIn">
-      <div class="image-tile inner-title hover-reveal text-center">
-        <a href="#">
-          <%= image_tag  "GHimages/kitchen-unsplas.jpg",alt: "image" %>
-          <div class="title">
-            <h5 class="uppercase mb0">Preparing The Convoy</h5>
-            <span>People / Art</span>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div data-filter="People" class="col-sm-4 masonry-item project fadeIn">
-      <div class="image-tile inner-title hover-reveal text-center">
-        <a href="#">
-          <%= image_tag  "GHimages/room-table.jpg",alt: "image" %>
-          <div class="title">
-            <h5 class="uppercase mb0">Beachside</h5>
-            <span>Lifestyle / Art</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-  <!--end of row-->
+<section>
+ <%= render 'about'%>
+</section>
+<section class="bg-dark">
+  <%= render 'why_use'%>
+</section>
+<section>
+  <%= render 'house_detail'%>
+</section>
+<section class="pt0 pb0">
+  <%= render 'feature'%>
 </section>
 
 <section class="pt120 pb120 image-bg overlay">
-  <div class="background-image-holder fadeIn tenant-review" style="background-color: transparent; background-repeat: repeat; background-attachment: scroll; background-position: initial; background-clip: border-box; background-origin: padding-box; background-size: auto auto; ">
-  </div>
-  <div class="container">
-    <div class="row v-align-children">
-      <div class="col-sm-8 mb-xs-80">
-        <h2 class="mb16">Meet GoogleHomes Tenants
-          <br class="hidden-sm"> Ravi Singh, Indore</h2>
-        <h6 class="uppercase mb32"></h6>
-        <a href="#" class="btn btn-filled btn-lg mb0">Purchase A Ticket</a>
-      </div>
-      <div class="col-sm-4 text-center text-left-xs">
-        <div class="modal-container">
-          <div class="play-button btn-modal large inline" modal-link="0"></div>
-          <div class="foundry_modal no-bg">
-            <iframe data-autoplay="1" data-video-id="88883554" data-provider="vimeo" data-src="http://player.vimeo.com/video/88883554?badge=0&amp;title=0&amp;byline=0&amp;title=0&amp;autoplay=1"></iframe>
-          </div>
-        </div>
-        <!--end of modal video-->
-      </div>
-    </div>
-    <!--end of row-->
-  </div>
-  <!--end of container-->
+  <%= render 'feedback'%>
 </section>
 <script type="text/javascript">
   $("#search-location").geocomplete();
- // address = $("#search-location").val
- $("#search-location").geocomplete().bind("geocode:result", function(event, result){
-    var lat = result.geometry.location.lat();
-    var lng = result.geometry.location.lng();
-    $('#search-location-lat').val(lat);
-    $('#search-location-long').val(lng);
-  });
- 
+  $("#search-location").geocomplete().bind("geocode:result", function(event, result){
+  var lat = result.geometry.location.lat();
+  var lng = result.geometry.location.lng();
+  $('#search-location-lat').val(lat);
+  $('#search-location-long').val(lng);
+});
 </script>
