@@ -1,0 +1,24 @@
+<div>
+	<div class="">
+		<ul>
+			<li>
+				<a href="<%= url_for("/houses/#{object.id}") %>">
+					<div class="pull-left">
+						<%=image_tag object.house_image.first.url(:thumb),class:"img-responsive",height: "100", width:'100' %>
+						<p class="marker-info-text"><strong><%= object.name%></strong></p>  
+						<p class="marker-info-text"><%= object.house_for%></p>
+					</div>
+					<div class="pull-right" style="max-width: 150px">
+						 
+						<p class="marker-info-text"><%= object.location%></p>
+						<p class="marker-info-text"><%= object.house_type%></p>
+						<div>
+							<p class="marker-info-text"><%= object.no_of_beds%> beds Available</p>
+							<p class="marker-info-text">Rent <%= object.rent_per_bed%></p>
+						</div>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
