@@ -1,24 +1,24 @@
-<div>
-	<div class="">
-		<ul>
-			<li>
-				<a href="<%= url_for("/houses/#{object.id}") %>">
-					<div class="pull-left">
-						<%=image_tag object.house_image.first.url(:thumb),class:"img-responsive",height: "100", width:'100' %>
-						<p class="marker-info-text"><strong><%= object.name%></strong></p>  
-						<p class="marker-info-text"><%= object.house_for%></p>
-					</div>
-					<div class="pull-right" style="max-width: 150px">
-						 
-						<p class="marker-info-text"><%= object.location%></p>
-						<p class="marker-info-text"><%= object.house_type%></p>
-						<div>
-							<p class="marker-info-text"><%= object.no_of_beds%> beds Available</p>
-							<p class="marker-info-text">Rent <%= object.rent_per_bed%></p>
-						</div>
-					</div>
-				</a>
-			</li>
-		</ul>
-	</div>
+
+<div class="marker-info-window">
+	<a href="<%= url_for("/houses/#{object.id}") %>">
+		<div>
+			<div class="row">
+				<div class="col-sm-4">
+			<%=image_tag object.house_image.first.url(:thumb),class:"img-responsive",height: "100", width:'110' %>
+
+			</div>
+			<div class="marker-info-detail col-sm-8" style="max-width: 150px">
+				<p class="marker-info-text" style="color:#000;"><strong><%= object.name%></strong></p>
+				<p class="marker-info-text"><%= object.location.split(",")[0]%></p>
+				<p class="marker-info-text"><%= object.house_type%></p>
+			</div>	
+			</div>
+			<div class="row">
+				<div class="marker-info-bed col-sm-4"><%= object.no_of_beds%> beds Available</div>
+				<div class="marker-info-rent col-sm-4">Rent <%= object.rent_per_bed%></div>
+
+				<div class=" col-sm-4 marker-info-house-for pull-right"><%= object.house_for%></div>
+			</div>
+		</div>	
+	</a>
 </div>

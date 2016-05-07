@@ -210,8 +210,10 @@
 
 
 /******MAP*******/
+.marker-info-window{overflow:hidden;}
 .marker-info-text{margin-bottom:0;}
-
+.marker-info-detail{margin-left:5px;float:right; }
+.marker-info-house-for{background-color:#47B475;width: 75px; color:#fff;}
 /********Search**********/
 .list-div{
     overflow-y: scroll;
