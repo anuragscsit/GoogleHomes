@@ -2,7 +2,7 @@
   <div class="container">
     <div class="search-form row">
     <%= form_tag search_index_path, method: 'get' do %>
-      <div class="">
+      <div class="search-form-div">
         <div class="select-option col-sm-3">
           <i class="ti-angle-down"></i>
           <%=select_tag :city, options_for_select(City.all.collect {|c| [ c.name, c.name ] }),id: 'city'%>
@@ -66,7 +66,7 @@
     <% end %>
     <% if @houses.length == 0 %><h4>There is no matching house</h4><% end %> 
   </div>
-  <div id="gmap" class="col-sm-7" style="height:400px;"></div>
+  <div id="gmap" class="col-sm-7" style="height:500px;"></div>
 </div>
 </section>
 </div>
@@ -81,7 +81,7 @@
     $('#search-location-long').val(lng);
   });
 	handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'gmap'}}, function(){
+  handler.buildMap({ provider: {disableDefaultUI: true}, internal: {id: 'gmap'}}, function(){
 
     
     markers = handler.addMarkers(<%=raw @hash.to_json %>);
