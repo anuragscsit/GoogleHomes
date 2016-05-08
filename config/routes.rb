@@ -43,6 +43,8 @@ Rails.application.routes.draw do
         get :my_houses
         get :dashboard
         get :my_payments
+        get :my_credits
+        get :my_notifications
       end
     resources :house_owner_profile
     resources :visit_schedules, only: [:index,:show]

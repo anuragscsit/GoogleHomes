@@ -38,12 +38,11 @@
      <% @houses.each do |house| %>   
       <div class="col-sm-12 house-listing">
         <div class="">
-        <h5>Houses for <%= house.house_for%></h5>
           <ul>
             <li>
               <a href="<%= url_for("/houses/#{house.id}") %>">
                 <div class="col-sm-6">
-                <%=image_tag house.house_image.first.url,class:"img-responsive house-thumb" %>
+                <%=image_tag house.house_image.first.url(:thumb),class:"img-responsive house-thumb" %>
                 </div>
                 <div class="col-sm-6">
                   <h4><%= house.name%></h4>   

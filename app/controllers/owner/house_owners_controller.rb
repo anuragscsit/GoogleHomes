@@ -24,5 +24,10 @@ class Owner::HouseOwnersController < ApplicationController
   end
   def my_payments
   end
-  
+  def my_credits
+  end
+  def my_notifications
+    @house_owner = current_user
+    @visit_schedules = VisitSchedule.where(house_owner_id: current_user.id)
+  end
 end
