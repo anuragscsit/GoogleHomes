@@ -156,53 +156,27 @@
   <!--end of container-->
 </section>
 
-<section>
+<section style="background-color: #f8f8f8">
+  <h3 class="text-center">People like you love Foundry</h3>
   <div class="container">
-    <div class="row mb80 mb-xs-40">
-      <div class="col-sm-12 text-center">
-        <h2 class="bold italic uppercase fade-3-4 mb0">Weekly Schedule</h2>
-      </div>
-    </div><!--end of row-->
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-      <div class="tab-content text-left">
-        <div>
-          <div class="overflow-hidden">
-            <div class="inline-block pull-left">
-              <h6 class="uppercase mb8">06:30am - 07:30am</h6>
-              <h4>Thompson Reserve</h4>
-              <p class="mb0">
-                167 Darbyshire Road<br>
-                Melbourne, 3001<br>
-                <a href="#">Get Directions</a>
-              </p>
-            </div>
-            <div class="inline-block pull-right pt48 pt-xs-24">
-              <a class="btn btn-lg" href="#">Join This Class</a>
-            </div>
+    <div class="row masonry masonryFlyIn fadeIn" style="position: relative; height: 800px;">
+    <% @owners.each do |owner| %>  
+      <div data-filter="People" class="col-sm-6 masonry-item project fadeIn" style="position: absolute;">
+        <div class="image-tile hover-tile text-center  cast-shadow-light">
+          <%=image_tag owner.image.url, class:"background-image", alt:"image"%>
+          <div class="hover-state">
+            <a href="#">
+              <h3 class="uppercase mb8"><%= owner.name %> </h3>
+              <h6 class="uppercase"> <%=owner.full_permamnent_address%></h6>
+              <p>I love the ease-of-use - </p>
+            </a>
           </div>
-          <hr class="mt40 mb40 mt-xs-0 mb-xs-24">
-        </div><!--end of class-->
-        <div>
-          <div class="overflow-hidden">
-            <div class="inline-block pull-left">
-              <h6 class="uppercase mb8">08:00am - 09:00am</h6>
-              <h4>Thompson Reserve</h4>
-              <p class="mb0">
-                167 Darbyshire Road<br>
-                Melbourne, 3001<br>
-                <a href="#">Get Directions</a>
-              </p>
-            </div>
-            <div class="inline-block pull-right pt48 pt-xs-24">
-              <a class="btn btn-lg" href="#">Join This Class</a>
-            </div>
-          </div>
-          <hr class="mt40 mb40 mt-xs-0 mb-xs-24">
-        </div><!--end of class-->
-        <!--end of class-->
-      <!--end of button tabs-->
+        </div>
+        <!--end of hover tile-->
+      </div> 
+      <% end %>     
     </div>
+    <!--end of row-->
   </div>
-</div><!--end of container-->
+  <!--end of container-->
 </section>

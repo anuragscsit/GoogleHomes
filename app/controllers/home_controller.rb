@@ -2,6 +2,8 @@ class HomeController < ApplicationController
   def index
   end
   def owner
+    @owners= HouseOwnerProfile.all.sample(2)
+    
   end
   def map
   	

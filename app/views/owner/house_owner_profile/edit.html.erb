@@ -25,6 +25,10 @@
 								Fill your basic details
 							</p>
 							<div class="input-with-label text-left">
+								<label>Name</label>
+								<%= f.text_field :name, placeholder: 'Name',value: @house_owner_profile.name %>
+							</div>
+							<div class="input-with-label text-left">
 								<%= image_tag @house_owner_profile.image.url(:thumb) if @house_owner_profile.image.present?%>
 								<%= f.file_field :image%>
 							</div>

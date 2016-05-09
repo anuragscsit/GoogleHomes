@@ -30,6 +30,6 @@ class Owner::HouseOwnerProfileController < ApplicationController
 
   private
   def profile_params
-   params.require(:house_owner_profile).permit(:image, :DOB, :sex, :bio, :p_address, :p_city, :p_state, :p_pincode, :c_address, :c_city, :c_state, :c_pincode, :occupation, :work_detail, :subscription)
+   params.require(:house_owner_profile).permit(:image, :DOB, :sex, :bio, :p_address, :p_city, :p_state, :p_pincode, :c_address, :c_city, :c_state, :c_pincode, :occupation, :work_detail, :subscription,:name)
   end
 end
