@@ -10,12 +10,13 @@
                     <h6 class="title">New House</h6>
                     <hr>
                     <ul class="link-list recent-posts">
-                    
+                      <% House.last(3).each do |house| %>
                         <li>
-                            <a href="#">58B Sheetal Nagar</a>
-                            <span class="date">Indore</span>
-                        </li>
-                        
+                            <a href="<%= url_for("/houses/#{house.id}") %>"><%= house.name %>
+                            <span><%= house.location.split(",")[0] %></span>
+                            </a>
+                        </li> 
+                        <% end %>               
                     </ul>
                 </div>
                 <!--end of widget-->
