@@ -6,7 +6,20 @@
 #flash_error,#flash_notice,#flash_alert{ font-size:16px; font-weight:700; text-align:center;}
 #flash_alert,#flash_error{color:red;}
 #error_explanation h2{font-size:14px;}
-/*****************Static page****************/
+@media(min-width:768px){
+#input-location,.city-select,.gender-select,.search-house-submit-btn
+    {
+        padding-left: 0;
+        padding-right: 1px;
+    }
+}
+@media(max-width:767px){
+    #input-location,.city-select,.gender-select,.search-house-submit-btn
+    {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+}
 #input-location i{position: absolute;margin-left: 5px;font-size: 16px;color: #747171;margin-top: 17px;}
 .tenant-review{background: asset_url("event1.jpg") !important;}
 .landing-div{background: asset_url("home13.jpg") !important;}
@@ -20,7 +33,9 @@
 .home-owner-top-header p {line-height: 1.42857143; color: #fff;}
 
 
-
+.modal-content {
+ border-radius:0px;
+}
 
 
 
@@ -217,6 +232,7 @@
 .marker-info-house-for{background-color:#47B475;width: 75px; color:#fff;}
 
 /********Search**********/
+.searchbar-top{background-color:#ccc;}
 .list-div{
     overflow-y: scroll;
     max-height: 500px;

@@ -13,35 +13,54 @@
 			</div>
 		</div>	
 
-		</br>
-		<div class="row">
-			<div class="col-sm-3 sidebar-left-custom">
-				<div class="widget">
-					<h6 class="title">Blog Categories</h6>
-					<hr>
-					<ul class="link-list uppercase">
-						<li>
-							<div class="li-dashboard"><%= link_to 'My House', my_houses_owner_house_owners_path, remote: "true" %></div>
-						</li>						
-						<li>
-							
-						</li>
-						<li>
-							<div class="li-dashboard"><%= link_to 'My payments', my_payments_owner_house_owners_path, remote: "true" %></div>
-						</li>
-						<li>
-							<div class="li-dashboard "><%= link_to 'My credits', my_credits_owner_house_owners_path, remote: "true" %></div>
-						</li>
-						<li>
-							<div class="li-dashboard"><%= link_to 'My notifications', my_notifications_owner_house_owners_path, remote: "true" %></div>
-						</li>
-					</ul>
-				</div>
+	</br>
+	<div class="row">
+		<div class="col-sm-3 sidebar-left-custom">
+			<div class="widget">
+				<h6 class="title">Blog Categories</h6>
+				<hr>
+				<ul class="link-list uppercase">
+					<li>
+						<div class="li-dashboard"><%= link_to 'My House', my_houses_owner_house_owners_path, remote: "true" %></div>
+					</li>						
+					<li>
+
+					</li>
+					<li>
+						<div class="li-dashboard"><%= link_to 'My payments', my_payments_owner_house_owners_path, remote: "true" %></div>
+					</li>
+					<li>
+						<div class="li-dashboard "><%= link_to 'My credits', my_credits_owner_house_owners_path, remote: "true" %></div>
+					</li>
+					<li>
+						<div class="li-dashboard"><%= link_to 'My notifications', my_notifications_owner_house_owners_path, remote: "true" %></div>
+					</li>
+				</ul>
 			</div>
-			<div class="col-sm-9" id="owner-dashboard-section">
-				<%= render 'my_houses'%>
-			</div>
-		</div>		
-	</div>	
+		</div>
+		<div class="col-sm-9" id="owner-dashboard-section">
+			<%= render 'my_houses'%>
+		</div>
+	</div>		
+</div>	
 </div>
 </section>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

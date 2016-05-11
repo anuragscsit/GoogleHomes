@@ -1,9 +1,9 @@
-<div class="pt24">
+<div class="pt24 searchbar-top">
   <div class="container">
     <div class="search-form row">
     <%= form_tag search_index_path, method: 'get' do %>
       <div class="search-form-div">
-        <div class="select-option col-sm-3">
+        <div class="select-option col-sm-3 city-select">
           <i class="ti-angle-down"></i>
           <%=select_tag :city, options_for_select(City.all.collect {|c| [ c.name, c.name ] }),id: 'city'%>
         </div>
@@ -16,11 +16,11 @@
             <div class="form-group hidden">
               <%= hidden_field_tag :lng, nil, id: 'search-location-long', value: params[:lng] %>
             </div>  
-        <div class="select-option col-sm-3">
+        <div class="select-option col-sm-3 gender-select">
           <i class="ti-angle-down"></i>
            <%=select_tag :gender, options_for_select([ "Boys", "Girls" ], "Boys"),id: 'gender'%>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-2 search-house-submit-btn">
           <input type="submit" value="Search" class="search-house-btn"/>
         </div>  
       </div>
