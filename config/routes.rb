@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'home/map'
   get 'home/ghomeshouses'
    get 'home/home'
+   get 'payments/bed_confirmation'
   devise_for :tenants, skip: [:sessions]
   devise_for :house_owners, skip: [:sessions]
   devise_for :users, skip: :registrations
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
   resources :requirements , only: [:create]
   resources :houses, except: [:index,:destroy]
   resources :visit_schedules, only: [:new,:create,:edit, :show]
+  resources :payments, only: [:new,:create, :show]
 ############################################################################### 
   namespace :tenant do 
     resources :tenants do

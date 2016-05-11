@@ -246,7 +246,7 @@
 .search-form-div #city,.search-form-div #gender,.search-form-div .search-house-btn,.search-form-div #search-location{height:40px}
 #gmap{border:1px #ccc solid; padding:0px;}
 /**********BrowseHouse***********/
-.house-listing{border:1px #ccc solid;padding:5px;margin:1px 5px 10px 5px;}
+.house-listing{border:1px #ccc solid;padding:5px;margin:1px 0px 10px 0px;}
 .img-house-tiny{max-height:100%;display:cover center center;}
 .house-thumb{margin-bottom:10px;}
 /********REGISTRATION**********/
@@ -265,4 +265,28 @@
     margin-bottom: 10px;
     padding-left: 20px;
     width: 100%;
+}
+
+/*****PAYMENT******/
+.payment-widget-content,.chosen-move-in-date,.payment-widget-card{background-color: #ffffff;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);box-sizing: border-box;}
+.payment-widget-content,.chosen-move-in-date,.payment-widget-card{margin:10px; padding: 0 15px;}
+.choose-bed-widget input[type="radio"], .choose-bed-widget input[type="checkbox"] {
+    display: none;
+}
+.choose-bed-widget input[type="radio"]:checked + label, .choose-bed-widget input[type="checkbox"]:checked + label {
+    background-image: none;
+    box-shadow: none !important;
+    color: #00a8a1;
+}
+.choose-bed-widget .ti-layout-cta-left{font-size:32px;}
+.roomtype {
+    border-top: 1px solid #ddd;
+    width: 100%;
+}
+.bed-type-btn {
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    cursor: pointer;
+    padding: 14px;
+    text-align: center;
 }

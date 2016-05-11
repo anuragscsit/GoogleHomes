@@ -1,0 +1,100 @@
+<section style="background: #f5f5f5 none repeat scroll 0 0 !important;">
+	<div class="col-sm-6 col-sm-offset-3">
+		<div class="payment-widget-content">
+			<div id="sharing_option"class="animated fadeIn booking-option option-bed">
+				<h6 class="text-center">Click on bed to select</h6>
+				<div class="row text-center">
+					<ul class="select-bed-list">
+					<%i=@house.no_of_beds%>
+					<% j=0 %>
+					<% for room in 1..@house.no_of_rooms %>
+						<div class="row">
+							<li>
+							<div class="col-sm-4">
+								<h5>Bedroom <%= room%></h5>
+							</div>
+						</li>
+						<li>
+							<div class="col-sm-8 choose-bed-widget">
+								<% for bed in 1..2 %>
+								<input type="radio" value="" name="bed_id" id="bed<%= j%>" class="chosen-bed">
+								<label for="bed<%= j%>"><i class="ti-layout-cta-left"><br></i><%= @house.rent_per_bed%></label>
+								<%j+=1%>
+								<% if j==i then%>
+									<%break %>
+									<%end %>
+								<%end%>
+							</div>
+						</li>
+						</div>
+						<%end%>
+					</ul>					
+				</div>
+				
+				<h6 class="text-center">Choose your booking type</h6>
+				<div class="roomtype text-center">
+
+					<label class="bed-type-btn">
+						<input type="radio" value="bed" style="margin-right: 6px;" name="bed_type" id="shared" checked="checked"><b>Shared Room</b>
+					</label>
+					<label class="bed-type-btn">
+						<input type="radio" value="room" style="margin-right: 6px;" name="bed_type" id="private"><b>Private Room</b>
+					</label>
+					<label style="border:0; padding-right:20px;" class="bed-type-btn">
+						<input type="radio" value="house" style="margin-right: 6px;" name="bed_type" id="house"><b>House</b>
+					</label>
+				</div>
+			</div>			
+		</div>
+		<div class="row chosen-move-in-date">
+				<h6>Your chosen move in date</h6>
+				<h4 style="color: #47B59C;">25/05/2016</h4>
+		</div>
+		<div class="payment-widget-card">
+			<div class="action-btn action-btn-gender-choose">
+				<div class="payment-gender-choose">
+					<strong style="font-size:13px; display:block;">This house is available for boys.</strong>
+					<div style="margin-top:10px; overflow:hidden;">
+						<input type="checkbox" value="boys" title="Please confirm your gender" required="" name="tenant_type" id="terms_check-gender">
+						<label for="terms_check-gender">&nbsp;&nbsp;&nbsp;I am a boy</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<%= link_to 'cancle', :back, class:'btn' %>
+		</div>
+		<div class="col-sm-8">
+			<a href="#" class="btn">Go for payment</a>
+		</div>
+
+		<div id="movein-popup" class="movein-popup-payment">
+			<div class="movein-popup-widget">
+				<div class="date-popup-header">
+					<div>Set your move in date</div>
+					<div style="" id="available-date" class="date-available">You can only move-in after 48 hours from bed available date.</div>
+					<div class="movein-info" style="display: none;">Please choose your move in date</div>
+				</div>
+				<div class="move-date-widget">
+					<label style="width:100%" for="">
+						<input type="text" style="width:100%" readonly="" required="" placeholder="select move in date" id="datepicker-disable-past" name="move_in_date">
+					</label>
+				</div>
+				<div class="movein-footer">
+					<span>
+
+					</span><a id="choose-move-date-close" href="" class="btn"> Cancel</a>
+					<a id="movein-ok-btn" class="btn"> Set move in date</a>
+				</div>
+			</div>
+		</div>
+	</div>	
+</section>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		 $(".choose-bed-widget input[type=radio]").click(function () {
+		 
+		 });
+	});
+</script>

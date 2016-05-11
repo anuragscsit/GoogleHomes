@@ -74,7 +74,7 @@
 							<div role="tabpanel" class="tab-pane" id="book-house">
 								<div>
 									<h5 style="margin: 10px;">To Book, you need to pay a token amount and the remaining before move-in. </h5>
-									<div align="center"><button class="btn">Pay Token Amount</button></div>
+									<div align="center"><%= link_to 'book', payments_bed_confirmation_path(house_id: @house.id), class:'btn'%></div>
 									<div>
 										<div class="col-sm-3 visit-count" align="center">
 											<p class="uppercase"><span><%=@house.visit_count%></span> Visits</p>
