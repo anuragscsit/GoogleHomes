@@ -197,10 +197,16 @@
 .bg-custom{background: #e0efeb none repeat scroll 0 0 / cover ;}
 .after-radio{position: absolute;margin-left: 10px;}
 .sidebar-left-custom{border-right:#ccc 1px solid;}
-.li-dashboard{ background:#fff; color:#47b475; margin-top:5px; padding: 10px; border: #47b475 2px solid; font-size:16px; cursor: pointer;}
-.li-dashboard:hover{background:#47b475 !important; color: #fff;}
+.li-dashboard ,.li-dashboard .sidebar-btn{
+    background-color: #ccc;
+    margin: 2px 0;
+    padding: 5px 0;
+}
+
+
 .dashboard-header{border:1px #ccc solid;}
 .house-detail-table{border:1px #ccc solid;padding:10px;margin:10px;}
+
 .att{text-align:left;}
 .att-title
 {
