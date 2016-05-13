@@ -1,158 +1,181 @@
 <section>
-	<div class="col-sm-6 col-sm-offset-3">
+	<div class="col-sm-6 col-sm-offset-3 confirmation-widget">
 		<div class="row">
-			<h5>Advance token Money</h5>
-			<h1>Rs 8000</h1>
-		</div>
-		<div class="row">
-			<div class="panel-group" id="accordion">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#person-detail"><i class="glyphicon glyphicon-minus"></i>Person-details</a>
-						</h4>
-					</div>
-					<div id="person-detail" class="panel-collapse collapse in">
-						<div class="panel-body">
-							<table class="table detail-table">
-								<tr>
-									<td>Name</td>
-									<td><%= @tenant.full_name %></td>
-								</tr>
-								<tr>
-									<td>Email</td>
-									<td><%= @tenant.email %></td>
-								</tr>
-								<tr>
-									<td>Mobile</td>
-									<td><%= @tenant.contact_number %></td>
-								</tr>
-								<tr>
-									<td>Move in Date</td>
-									<td style="color:#47B475;"><%= @move_in_date %></td>
-								</tr>
-							</table>
-						</div>
-					</div>
+			<div class="token-widget">
+				<div>
+					<h5>Advance token Money</h5>
 				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#terms"><i class="glyphicon glyphicon-plus"></i>Terms</a>
-						</h4>
 
-					</div>
-					<div id="terms" class="panel-collapse collapse">
-						<div class="panel-body">Contents panel 2</div>
+				<div>
+					<h3 style="color:#E73400">Total
+						<span style="text-align: right">₹ <%= @token_amount %></span></h3>
 					</div>
 				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#house-detail"><i class="glyphicon glyphicon-plus"></i>House-details</a>
-						</h4>
-					</div>
-					<div id="house-detail" class="panel-collapse collapse">
-						<div class="panel-body">
-							<div class="row">
-								<%= image_tag @house.house_image.first.url, class:'img-responsive', height:'400'%>
-							</div>
-							<div class="row">
-								<h5  style="color:#47B475;"><%= @house.name %></h5>
-								<h6><%= @house.location %></h6>									
-								<table  class="table detail-table">
-									
+				<div class="checkbox-option">
+					<div class="inner"></div>
+					<input type="checkbox" value="Checkbox" name="checkbox">
+				</div>
+			</div>
+			<div class="row">
+				<div class="panel-group details-widget" id="accordion">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#person-detail"><i class="glyphicon glyphicon-minus"></i>Person-details</a>
+							</h4>
+						</div>
+						<div id="person-detail" class="panel-collapse collapse in">
+							<div class="panel-body">
+								<table class="table detail-table">
 									<tr>
-										<td>House Type</td>
-										<td><%= @house.house_type %></td>
-									</tr>
-									<tr> 
-										<td>House Id</td>
-										<td>GH <%= @house.id %></td>
+										<td>Name</td>
+										<td><%= @tenant.full_name %></td>
 									</tr>
 									<tr>
-										<td>House for</td>
-										<td><%= @house.house_for %></td>
+										<td>Email</td>
+										<td><%= @tenant.email %></td>
 									</tr>
 									<tr>
-										<td>Food preference</td>
-										<td><%= @house.food_preference %></td>
+										<td>Mobile</td>
+										<td><%= @tenant.contact_number %></td>
+									</tr>
+									<tr>
+										<td>Move in Date</td>
+										<td style="color:#47B475;"><%= @move_in_date %></td>
 									</tr>
 								</table>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#rent-cover"><i class="glyphicon glyphicon-plus"></i>What your rent covers</a>
-						</h4>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#terms"><i class="glyphicon glyphicon-plus"></i>Terms</a>
+							</h4>
 
+						</div>
+						<div id="terms" class="panel-collapse collapse">
+							<div class="panel-body">Contents panel 2</div>
+						</div>
 					</div>
-					<div id="rent-cover" class="panel-collapse collapse">
-						<div class="panel-body">
-						<div class="row">
-							<ul>
-								<li>Home and furnishing charges</li>
-								<li>Building maintenance charges wherever applicable</li>
-								<li>Free service visit charges upto INR 500/ month</li>
-							</ul>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#house-detail"><i class="glyphicon glyphicon-plus"></i>House-details</a>
+							</h4>
 						</div>
-						<div class="row">
-							<h5>What your rent does not cover</h5>
-							<ul>
-								<li>Monthly Water & Electricity Charges</li>
-								<li>Refilling Cooking Gas</li>
-								<li>DTH and Internet monthly charges</li>
-								<li>Basically, any recurring charges including food</li>
-								<li>Minor structural repairs, cleaning & more <a data-toggle="modal" data-target="#myModal">(See details)</a></li>
-							</ul>
+						<div id="house-detail" class="panel-collapse collapse">
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-sm-8 col-sm-offset-2">
+										<%= image_tag @house.house_image.first.url, class:'img-responsive'%>
+									</div>	
+								</div>
+								<div class="row">
+									<h5  style="color:#47B475;"><%= @house.name %></h5>
+									<h6><%= @house.location %></h6>									
+									<table  class="table detail-table">
+
+										<tr>
+											<td>House Type</td>
+											<td><%= @house.house_type %></td>
+										</tr>
+										<tr> 
+											<td>House Id</td>
+											<td>GH <%= @house.id %></td>
+										</tr>
+										<tr>
+											<td>House for</td>
+											<td><%= @house.house_for %></td>
+										</tr>
+										<tr>
+											<td>Food preference</td>
+											<td><%= @house.food_preference %></td>
+										</tr>
+									</table>
+								</div>
+							</div>
 						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#rent-cover"><i class="glyphicon glyphicon-plus"></i>What your rent covers</a>
+							</h4>
+
+						</div>
+						<div id="rent-cover" class="panel-collapse collapse">
+							<div class="panel-body">
+								<div class="row">
+									<ul>
+										<li>Home and furnishing charges</li>
+										<li>Building maintenance charges wherever applicable</li>
+										<li>Free service visit charges upto INR 500/ month</li>
+									</ul>
+								</div>
+								<div class="row">
+									<h5>What your rent does not cover</h5>
+									<ul>
+										<li>Monthly Water & Electricity Charges</li>
+										<li>Refilling Cooking Gas</li>
+										<li>DTH and Internet monthly charges</li>
+										<li>Basically, any recurring charges including food</li>
+										<li>Minor structural repairs, cleaning & more <a data-toggle="modal" data-target="#myModal" style="cursor: pointer;">(See details)</a></li>
+									</ul>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</section>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h5 class="modal-title uppercase" id="myModalLabel">Day to day repairs to be done by Tenant</h5>
+				</div>
+				<div class="modal-body">
+					<ul>
+						<li>1. Changing of tap washers and taps.</li>
+						<li>2. Drain cleaning.</li>
+						<li>3. Water closet repairs.</li>
+						<li>4. Wash Basin repairs. </li>
+						<li>5. Bath tub repairs. </li>
+						<li>6. Geyser repairs. </li>
+						<li>7. Circuit breaker repairs. </li>
+						<li>8. Switches and socket repairs, Replacement of bulbs.</li>
+						<li>9. Repairs and replacement of electrical equipment except major internal and external wiring change.</li>
+						<li>10. Kitchen fixtures repairs. </li>
+						<li>11. Replacement of knobs and locks of doors, cupboard windows etc.</li>
+						<li>12. Replacement of flynets. </li>
+						<li>13. Replacement of glass panels in windows, doors etc. </li>
+						<li>14. Maintenance of gardens and open spaces let out to the tenant.</li>
+						<li>15. Servicing & Maintenance of appliance & furniture.</li>
+						<h5><span style="color:#648900"><strong>Maintenance timings:</strong></span> <strong>9 AM - 6PM</strong> on <strong>Mon-Sat</strong> except holidays subject to prior intimation & tenant availability </h5>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</div>
-</section>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h5 class="modal-title uppercase" id="myModalLabel">Day to day repairs to be done by Tenant</h5>
-      </div>
-      <div class="modal-body">
-        <ul>
-        	<li>1. Changing of tap washers and taps.</li>
-        	<li>2. Drain cleaning.</li>
-        	<li>3. Water closet repairs.</li>
-        	<li>4. Wash Basin repairs. </li>
-        	<li>5. Bath tub repairs. </li>
-        	<li>6. Geyser repairs. </li>
-        	<li>7. Circuit breaker repairs. </li>
-        	<li>8. Switches and socket repairs, Replacement of bulbs.</li>
-        	<li>9. Repairs and replacement of electrical equipment except major internal and external wiring change.</li>
-        	<li>10. Kitchen fixtures repairs. </li>
-        	<li>11. Replacement of knobs and locks of doors, cupboard windows etc.</li>
-        	<li>12. Replacement of flynets. </li>
-        	<li>13. Replacement of glass panels in windows, doors etc. </li>
-        	<li>14. Maintenance of gardens and open spaces let out to the tenant.</li>
-        	<li>15. Servicing & Maintenance of appliance & furniture.</li>
-        	<h5><span style="color:#648900"><strong>Maintenance timings:</strong></span> <strong>9 AM - 6PM</strong> on <strong>Mon-Sat</strong> except holidays subject to prior intimation & tenant availability </h5>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<script type="text/javascript">
-	var selectIds = $('#person-detail,#terms,#rent-cover,#house-detail');
-	$(function ($) {
-		selectIds.on('show.bs.collapse hidden.bs.collapse', function () {
-			$(this).prev().find('.glyphicon').toggleClass('glyphicon-plus glyphicon-minus');
-		})
-	});
-</script>
+	<script type="text/javascript">
+		var selectIds = $('#person-detail,#terms,#rent-cover,#house-detail');
+		$(function ($) {
+			selectIds.on('show.bs.collapse hidden.bs.collapse', function () {
+				$(this).prev().find('.glyphicon').toggleClass('glyphicon-plus glyphicon-minus');
+			})
+		});
+		$('.checkbox-option').on("click",function() {
+        $(this).toggleClass('checked');
+        var checkbox = $(this).find('input');
+        if (checkbox.prop('checked') === false) {
+            checkbox.prop('checked', true);
+        } else {
+            checkbox.prop('checked', false);
+        }
+    });
+	</script>

@@ -22,7 +22,7 @@
 							<li>
 								<div class="col-sm-8 choose-bed-widget">
 									<% for bed in 1..2 %>
-									<input type="radio" value="" name="bed_id" id="bed<%= @house.id%><%= room%><%= j%>" class="chosen-bed">
+									<input type="radio" name="bed_id" id="bed<%= @house.id%><%= room%><%= j%>" class="chosen-bed" value="<%= @house.rent_per_bed %>">
 									<label for="bed<%= @house.id%><%= room%><%= j%>"><i class="ti-layout-cta-left"><br></i><%= @house.rent_per_bed%></label>
 									<%j+=1%>
 									<% if j==i then%>
@@ -51,7 +51,7 @@
 							<li>
 								<div class="col-sm-8 choose-bed-widget">
 									
-									<input type="radio" value="" name="bed_id" id="room<%= @house.id%><%= r%>" class="chosen-bed">
+									<input type="radio" name="bed_id" id="room<%= @house.id%><%= r%>" class="chosen-bed" value="<%= @house.rent_per_room %>">
 									<label for="room<%= @house.id%><%= r%>"><i class="ti-layout-cta-left"><br></i><%= @house.rent_per_room%></label>
 									<%r+=1%>
 								</div>
@@ -78,12 +78,12 @@
 			</div>	
 		</div>
 <!-- hidden fields for room and bed -->
-	<div class="form-group hidden">
-    <%= hidden_field_tag :bed, nil, id: 'selected-bed', value: params[:bed] %>
+	<!-- <div class="form-group hidden">
+    <%#= hidden_field_tag :bed, nil, id: 'selected-bed', value: params[:bed] %>
   </div>
   <div class="form-group hidden">
-    <%= hidden_field_tag :room, nil, id: 'selected-room', value: params[:room] %>
-  </div> 
+    <%#= hidden_field_tag :room, nil, id: 'selected-room', value: params[:room] %>
+  </div> --> 
 <!-- end of hidden fields -->
 		<div id="movein-popup" class="movein-popup-payment">
 			<div class="movein-popup-widget">
@@ -113,11 +113,17 @@
 			<h4 class= 'date-text' style="color: #47B59C;"></h4>
 			
 			<div class="col-sm-8">
-				<a id="choose-move-date-close" href="" class="btn"> Cancel</a>
-				<%= form_tag payments_confirmation_path, method: 'post' do %>
+				<div class="col-sm-6">
+					<a id="choose-move-date-close" href="" class="btn"> Cancel</a>
+				</div>
+				<%= form_tag payments_confirmation_path, method: 'get' do %>
 				<%= hidden_field_tag :date, nil, id: 'move-in-date', value: params[:date] %>
 				<%= hidden_field_tag :house_id, nil, id: 'ghomes-house_id', value: params[:house_id] %>
-				<input type="submit" value="Go for payment" class="search-house-btn"/>
+				<%= hidden_field_tag :token, nil, id: 'token-amount', value: params[:token] %>
+				<%= hidden_field_tag :rent, nil, id: 'rent-amount', value: params[:rent] %>
+				<div class="col-sm-6">
+					<input type="submit" value="Go for payment" class="bed-submit"/>
+				</div>
 				<% end %>
 			</div>
 		</div>
@@ -126,7 +132,7 @@
 
 		<script type="text/javascript">
 
-			$('#datepicker-disable-past').datepicker({ minDate: 0});
+			$('#datepicker-disable-past').datepicker({ minDate: 2 });
 			$('#movein-popup').hide();
 			$('.chosen-move-in-date').hide();
 			$('.option-room').hide();
@@ -136,11 +142,21 @@
 				$('.rent-option').hide("slide", {direction: "down" }, 500);
 				$('.chosen-move-in-date').hide("slide", {direction: "down" }, 500);
 				$('#movein-popup').show("slide", {direction: "up" }, 500 );
+				$('.choose-bed-widget input[type=radio]').on('change', function() {
+				 
+					$('#rent-amount').val($(this).val());
+					console.log($(this).val())
+					
+					$('#token-amount').val($(this).val()/2);
+					console.log($(this).val()/2)
+				});
+				
 				event.preventDefault();
 			});
 				$('#shared').click(function(event){
 					$('.option-bed').show();
 					$('.option-room').hide();
+					
 				});
 
 				$('#private').click(function(event){
@@ -166,5 +182,6 @@
 				}
 				event.preventDefault();
 			});
+
 
 		</script>

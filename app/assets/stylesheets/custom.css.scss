@@ -243,7 +243,7 @@
     overflow-y: scroll;
     max-height: 500px;
 }
-.search-form-div #city,.search-form-div #gender,.search-form-div .search-house-btn,.search-form-div #search-location{height:40px}
+.search-form-div #city,.search-form-div #gender,.search-form-div .search-house-btn,.search-form-div #search-location{height:40px;}
 #gmap{border:1px #ccc solid; padding:0px;}
 /**********BrowseHouse***********/
 .house-listing{border:1px #ccc solid;padding:5px;margin:1px 0px 10px 0px;}
@@ -268,8 +268,8 @@
 }
 
 /*****PAYMENT******/
-.payment-widget-content,.chosen-move-in-date,.payment-widget-card,#movein-popup{background-color: #ffffff;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);box-sizing: border-box;}
-.payment-widget-content,.chosen-move-in-date,.payment-widget-card,#movein-popup{margin:10px; padding: 0 15px;}
+.payment-widget-content,.chosen-move-in-date,.payment-widget-card,#movein-popup,.confirmation-widget{background-color: #ffffff;border-radius: 1px;box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);box-sizing: border-box;}
+.payment-widget-content,.chosen-move-in-date,.payment-widget-card,#movein-popup,{margin:10px; padding: 0 15px;}
 .choose-bed-widget input[type="radio"], .choose-bed-widget input[type="checkbox"] {
     display: none;
 }
@@ -301,4 +301,7 @@
 .panel-title{text-transform:uppercase;}
 .panel-title a:hover{color:#fff;}
 #house-detail h5,#house-detail h6{margin-bottom:5px !important;}
+#house-detail img{min-height:200px !important; max-height:300px !important;}
 .detail-table tr td {font-weight:300; font-size:14px;}
+.bed-submit{height:40px !important; line-height: 40px !important;}
+.token-widget,.details-widget{padding: 5px 15px;}

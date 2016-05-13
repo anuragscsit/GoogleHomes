@@ -10,8 +10,11 @@ class PaymentsController < ApplicationController
 	end
 	def confirmation
 		house = params[:house_id]
+		@move_in_date = params[:date]
+		@token_amount = params[:token].to_f
+		@rent_amount = params[:rent].to_f
 		@house = House.find(house)
 		@tenant= current_user
-		@move_in_date = params[:date]
+		
 	end
 end
