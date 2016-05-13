@@ -10,25 +10,27 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require jquery-ui
 
-//= require turbolinks
-//= require underscore
-//= require gmaps/google
-//= require jquery.geocomplete
-//= require selectize
-//= require cocoon
-//= require bootstrap.min
-//= require scripts
-//= require flickr
-//= require flexslider.min
-//= require masonry.min
-//= require spectragram.min
-//= require countdown.min
-//= require smooth-scroll.min
-//= require char-count
-//= require parallax
-//= ytplayer.min
+ //= require jquery
+ //= require jquery_ujs
+ //= require jquery-ui
+ //= require scripts
+ //= require turbolinks
+ //= require underscore
+ //= require gmaps/google
+ //= require jquery.geocomplete
+ //= require selectize
+ //= require cocoon
+ //= require bootstrap.min
+
+ //= require flickr
+ //= require flexslider.min
+ //= require masonry.min
+ //= require spectragram.min
+ //= require countdown.min
+ //= require smooth-scroll.min
+ //= require char-count
+
+ //= require parallax
+ //= ytplayer.min
 
