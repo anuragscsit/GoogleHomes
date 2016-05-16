@@ -34,18 +34,14 @@
 				<tr>
 					<td>Occupation: </td><td><%=@house_owner_profile.occupation%> </td>
 				</tr>
-				<tr>
-					<td>Working Details: </td><td><%=@house_owner_profile.work_detail%> </td>
-				</tr>
+				
 				<tr>
 					<td>contact_number:</td><td><%=@house_owner.contact_number%></td>
 				</tr>
 				<tr>
 					<td>Permanent Address:</td><td><%=@house_owner_profile.full_permamnent_address%></td>
 				</tr>
-				<tr>
-					<td>Current Address:</td><td><%= @house_owner_profile.full_corespondence_address%></td>
-				</tr>
+				
 			</table>
 			<%= link_to 'Update Profile',  edit_owner_house_owner_house_owner_profile_path(house_owner_id: current_user.id, id: current_user.house_owner_profile.id), class:'btn'%>
 		</div>

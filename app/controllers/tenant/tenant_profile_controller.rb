@@ -12,7 +12,7 @@ class Tenant::TenantProfileController < ApplicationController
      @state  = State.all
      @tenant_profile = TenantProfile.find(params[:id])
     if @tenant_profile.update_attributes(profile_params)
-      redirect_to :back
+      redirect_to :back, notice: 'Profile updated successfully.'
     else
       render 'edit'
     end

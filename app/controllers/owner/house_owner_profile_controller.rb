@@ -15,7 +15,7 @@ class Owner::HouseOwnerProfileController < ApplicationController
      @state  = State.all
      @house_owner_profile = HouseOwnerProfile.find(params[:id])
     if @house_owner_profile.update_attributes(profile_params)
-      redirect_to owner_house_owners_dashboard_path
+      redirect_to :back, notice: 'Profile updated successfully.'
     else
       render 'edit'
     end
@@ -30,6 +30,8 @@ class Owner::HouseOwnerProfileController < ApplicationController
 
   private
   def profile_params
-   params.require(:house_owner_profile).permit(:image, :DOB, :sex, :bio, :p_address, :p_city, :p_state, :p_pincode, :c_address, :c_city, :c_state, :c_pincode, :occupation, :work_detail, :subscription,:name)
+   params.require(:house_owner_profile).permit(:image, :DOB, :sex, :bio, :contact_no, :email,
+    :p_address, :p_city, :p_state, :p_pincode, :identity_proof, :address_proof,
+    :occupation, :account_holder, :account_number,:bank_name,:ifsc_code,:cheque,:subscription)
   end
 end

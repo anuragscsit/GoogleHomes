@@ -1,5 +1,5 @@
 <section class="bg-custom">
-	<h3 class="mb0">Edit your profile</h3> 
+	<h3 class="text-center">My profile</h3> 
 	<div class="section-edit">
 		<div class="container">
 			<div class="row">
@@ -20,102 +20,128 @@
 					</div>
 					<% end %>						
 					<div class="row">
+						<div class="col-sm-3">
+							<ul>
+								<li class="btn" id="personal-details">Personal detils</li>
+								<li class="btn" id="banking-details">banking</li>
+							</ul>
+						</div>
 						<div class="col-sm-6">
+							<div class="personal-details">
+								<p class="lead">
+									Fill your basic details
+								</p>
+								<div class="input-with-label text-left">
+									<label>First Name</label>
+									<%= f.text_field :first_name, placeholder: 'First Name',value: @user.first_name ,:readonly=> true%>
+								</div>
+								<div class="input-with-label text-left">
+									<label>Last Name</label>
+									<%= f.text_field :last_name, placeholder: 'Last Name',value: @user.last_name ,:readonly=> true%>
+								</div>
+								<div class="input-with-label text-left">
+									<%= image_tag @house_owner_profile.image.url(:thumb) if @house_owner_profile.image.present?%>
+									<%= f.file_field :image%>
+								</div>
+								<div class="input-with-label text-left">
+									<label>Date of birth</label>
+									<%= f.text_field :DOB, placeholder: 'DOB' %>
+								</div>							
+								<div class="row">
+									<div class="col-sm-12">
+										<h5>Gender</h5>
+										<span class="radio">
+											<label for="sex"><%= f.radio_button :sex, true%>Male</label>
+										</span>
+										<span class="radio">
+											<label for="sex"><%= f.radio_button :sex, false%>Female</label>
+										</span>
+									</div>
+								</div>
+								<div class="input-with-label text-left">
+								<label>Identity proof</label>
+								<%= image_tag @house_owner_profile.identity_proof.url(:thumb) if @house_owner_profile.identity_proof.present?%>
+								<%= f.file_field :identity_proof%>
+							</div>
+							<div class="input-with-label text-left">
+								<label>Dummy cheque</label>
+								<%= image_tag @house_owner_profile.address_proof.url(:thumb) if @house_owner_profile.address_proof.present?%>
+								<%= f.file_field :address_proof%>
+							</div>
+								<div id="bio-textarea">
+									<label>Short bio</label>
+									<%= f.text_area :bio, maxlength: 140%>
+									<p>Characters remaining: <span class='status'></span></p>
+								</div> 
+								<div class="input-with-label text-left">
+									<label>Occupation</label>
+									<%= f.text_field :occupation, placeholder: 'occupation' %>
+								</div>
+
+								<div class="mb24">
+									<span>Would you like to Susbscribe googleHomes newsletters</span>
+									<div class="checkbox-option pull-right">
+										<div class="inner"></div>
+										<%= f.check_box :subscription %>
+									</div>
+								</div>
+
+
+
+								<div>
+									<label>Permanent Address</label>
+									<%= f.text_field :p_address, placeholder: 'Address line 1' %>
+								</div>  
+								<div>
+									<label>City</label>
+									<div class="select-option">
+										<i class="ti-angle-down"></i>
+										<%=f.select :p_city, options_for_select(@city.all.collect {|c| [ c.name, c.name ] })%>
+									</div>
+								</div>
+								<div>
+									<label>State</label>
+									<div class="select-option">
+										<i class="ti-angle-down"></i>
+										<%=f.select :p_state, options_for_select(@state.all.collect {|s| [ s.name, s.name ] })%>
+									</div>
+								</div>
+								<div class="input-with-label text-left">
+									<label>Pincode</label>
+									<%= f.text_field :p_pincode, placeholder: 'pincode' %>
+								</div> 
+								<!--end select-->
+							</div>
+						
+						<div class="banking-details">		
 							<p class="lead">
-								Fill your basic details
-							</p>
+								banking details
+							</p>								
 							<div class="input-with-label text-left">
-								<label>Name</label>
-								<%= f.text_field :name, placeholder: 'Name',value: @house_owner_profile.name %>
-							</div>
-							<div class="input-with-label text-left">
-								<%= image_tag @house_owner_profile.image.url(:thumb) if @house_owner_profile.image.present?%>
-								<%= f.file_field :image%>
+								<label>account holder</label>
+								<%= f.text_field :account_holder, placeholder: 'account holder' %>
 							</div>
 							<div class="input-with-label text-left">
-								<label>Date of birth</label>
-								<%= f.text_field :DOB, placeholder: 'DOB' %>
-							</div>							
-							<div class="row">
-								<div class="col-sm-12">
-									<h5>Gender</h5>
-									<span class="radio">
-										<label for="sex"><%= f.radio_button :sex, true%>Male</label>
-									</span>
-									<span class="radio">
-										<label for="sex"><%= f.radio_button :sex, false%>Female</label>
-									</span>
-								</div>
-							</div>
-							<div id="bio-textarea">
-								<label>Short bio</label>
-								<%= f.text_area :bio, maxlength: 140%>
-								<p>Characters remaining: <span class='status'></span></p>
-							</div> 
-							<div class="input-with-label text-left">
-								<label>Occupation</label>
-								<%= f.text_field :occupation, placeholder: 'occupation' %>
+								<label>account number</label>
+								<%= f.text_field :account_number, placeholder: 'account number' %>
 							</div>
 							<div class="input-with-label text-left">
-								<label>Work place</label>
-								<%= f.text_field :work_detail, placeholder: 'work detail' %>
+								<label>bank name</label>
+								<%= f.text_field :bank_name, placeholder: 'bank name' %>
 							</div>
-							<div class="mb24">
-								<span>Would you like to Susbscribe googleHomes newsletters</span>
-								<div class="checkbox-option pull-right">
-									<div class="inner"></div>
-									<%= f.check_box :subscription %>
-								</div>
+							<div class="input-with-label text-left">
+								<label>ifsc code</label>
+								<%= f.text_field :ifsc_code, placeholder: 'ifsc code' %>
 							</div>
+							<div class="input-with-label text-left">
+								<label>Dummy cheque</label>
+								<%= image_tag @house_owner_profile.cheque.url(:thumb) if @house_owner_profile.cheque.present?%>
+								<%= f.file_field :cheque%>
+							</div>
+
 						</div>
-						<div class="col-sm-6">
-							<div>
-								<label>Current Address</label>
-								<%= f.text_field :c_address, placeholder: 'Address line 1' %>
-							</div>  
-							<div>
-								<label>City</label>
-								<div class="select-option">
-									<i class="ti-angle-down"></i>
-									<%=f.select :c_city, options_for_select(@city.all.collect {|c| [ c.name, c.name ] })%>
-								</div>
-							</div>
-							<div>
-								<label>State</label>
-								<div class="select-option">
-									<i class="ti-angle-down"></i>
-									<%=f.select :c_state, options_for_select(@state.all.collect {|s| [ s.name, s.name ] })%>
-								</div>
-							</div>
-							<div class="input-with-label text-left">
-								<label>Pincode</label>
-								<%= f.text_field :c_pincode, placeholder: 'pincode' %>
-							</div>      
-							<div>
-								<label>Permanent Address</label>
-								<%= f.text_field :p_address, placeholder: 'Address line 1' %>
-							</div>  
-							<div>
-								<label>City</label>
-								<div class="select-option">
-									<i class="ti-angle-down"></i>
-									<%=f.select :p_city, options_for_select(@city.all.collect {|c| [ c.name, c.name ] })%>
-								</div>
-							</div>
-							<div>
-								<label>State</label>
-								<div class="select-option">
-									<i class="ti-angle-down"></i>
-									<%=f.select :p_state, options_for_select(@state.all.collect {|s| [ s.name, s.name ] })%>
-								</div>
-							</div>
-							<div class="input-with-label text-left">
-								<label>Pincode</label>
-								<%= f.text_field :p_pincode, placeholder: 'pincode' %>
-							</div> 
-							<!--end select-->
-							<input value="Submit Button" type="submit">
 						</div>
+						<div class="col-sm-4 col-sm-offset-4"><input value="Submit Button" type="submit"></div>	
 					</div>					
 				</div>
 				<% end %>
@@ -127,6 +153,18 @@
 	$('#bio-textarea textarea').show_char_limit({ status_element: '#bio-textarea .status', status_style: 'chars_left' } );
 
 
-	$('#house_owner_profile_DOB').datepicker();
+	$('#house_owner_profile_DOB').datepicker({
+    dateFormat: 'dd-mm-yy'
+});
+	$('.banking-details').hide();
+	$('#banking-details').click(function(event){
+			$('.banking-details').show("slide", {direction: "up" }, 500 );
+			// $(this).addClass('btn-filled')
+			$('.personal-details').hide();
+		});
 
+		$('#personal-details').click(function(event){
+			$('.banking-details').hide();	
+			$('.personal-details').show("slide", {direction: "up" }, 500 );
+		});
 </script>
