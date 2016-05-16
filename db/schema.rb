@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509090630) do
+ActiveRecord::Schema.define(version: 20160516092816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -138,24 +138,37 @@ ActiveRecord::Schema.define(version: 20160509090630) do
 
   create_table "tenant_profiles", force: :cascade do |t|
     t.date     "DOB"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.string   "sex"
     t.text     "bio"
-    t.string   "occupation"
-    t.string   "work_place"
-    t.string   "father_name"
     t.string   "p_address"
     t.string   "p_city"
     t.string   "p_state"
     t.integer  "p_pincode"
-    t.string   "c_address"
-    t.string   "c_city"
-    t.string   "c_state"
-    t.integer  "c_pincode"
     t.integer  "tenant_id"
-    t.boolean  "subscription", default: true
+    t.boolean  "subscription",                  default: true
     t.string   "image"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "contact_no"
+    t.string   "email"
+    t.string   "identity_proof"
+    t.string   "address_proof"
+    t.string   "occupation"
+    t.string   "orgnization"
+    t.string   "office_email"
+    t.integer  "years_of_employement"
+    t.string   "employment_proof"
+    t.string   "account_holder"
+    t.string   "account_number"
+    t.string   "bank_name"
+    t.string   "ifsc_code"
+    t.string   "cheque"
+    t.string   "emergency_person_name"
+    t.string   "emergency_person_contact"
+    t.string   "emergency_person_relationship"
+    t.string   "emergency_person_address"
   end
 
   create_table "tenants", force: :cascade do |t|

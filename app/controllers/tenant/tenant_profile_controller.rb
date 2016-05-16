@@ -12,7 +12,7 @@ class Tenant::TenantProfileController < ApplicationController
      @state  = State.all
      @tenant_profile = TenantProfile.find(params[:id])
     if @tenant_profile.update_attributes(profile_params)
-      redirect_to dashboard_tenant_tenants_path
+      redirect_to :back
     else
       render 'edit'
     end
@@ -27,6 +27,12 @@ class Tenant::TenantProfileController < ApplicationController
 
   private
   def profile_params
-   params.require(:tenant_profile).permit(:image,:DOB,:sex,:p_address,:p_city,:p_state,:p_pincode,:c_address,:c_city,:c_state,:c_pincode,:father_name,:occupation,:work_place)
+   params.require(:tenant_profile).permit(:first_name,:last_name,:email,:contact_no,:image,:DOB,:sex,
+    :identity_proof,:address_proof,
+    :p_address,:p_city,:p_state,:p_pincode,
+    :occupation,:orgnization,:office_email,:years_of_employement,:employment_proof,
+    :account_holder,:account_number,:bank_name,:ifsc_code,:cheque,:bank_name,
+    :emergency_person_name,:emergency_person_contact,:emergency_person_relationship,:emergency_person_address
+    )
   end
 end

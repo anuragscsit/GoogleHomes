@@ -241,8 +241,10 @@ background-size: cover !important;background-attachment: scroll !important;backg
     padding-left: 20px;
     width: 100%;
 }
-.personal-details, .Family-occupation,.adderess-details{border:1px #ccc solid;padding:5px 10px; margin:10px 0;}
-.personal-details p span{margin-left:10%}
+@media(min-width:767px){
+    .personal-details, .banking-details,.emergency-details, .employment-details{margin:10px 0; border-left:1px #ccc solid;padding-left: 25px;}
+}
+
 /******MAP*******/
 .marker-info-window{overflow:hidden;}
 .marker-info-text{margin-bottom:0;}

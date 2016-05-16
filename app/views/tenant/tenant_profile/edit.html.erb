@@ -1,5 +1,5 @@
 <section class="bg-custom">
-	<h3 class="mb0">Edit your profile</h3> 
+	<h3 class="text-center">My profile</h3> 
 	<div class="section-edit">
 		<div class="container">
 			<div class="row">
@@ -12,7 +12,6 @@
 								Please fill out the following fields:
 							</strong>
 						</p>
-
 						<ul>
 							<% @tenant_profile.errors.full_messages.each do |msg| %>
 							<li><%= msg %></li>
@@ -21,13 +20,19 @@
 					</div>
 					<% end %>						
 					<div class="row">
-						<div class="col-sm-6">
+						<div class="col-sm-3">
+							<ul>
+								<li class="btn" id="personal-details">Personal detils</li>
+								<li class="btn" id="banking-details">banking</li>
+								<li class="btn" id="employment-details">Occupation</li>
+								<li class="btn" id="emergency-details">Emergency</li>
+							</ul>
+						</div>
+						<div class="col-sm-6" id="tenant-profile-update">
 							<div class="personal-details">
 								<p class="lead">
 									Personal details
-								</p>
-								<p>Name: <span><%= @user.full_name%></span></p>
-								<p>mobile No. <span><%= @user.contact_number%></span></p>
+								</p>								
 								<div class="input-with-label text-left">
 									<label>Date of birth</label>
 									<%= f.text_field :DOB, placeholder: 'DOB' %>
@@ -48,6 +53,7 @@
 									</div>
 								</div>
 								<div class="input-with-label text-left">
+									<%= image_tag @tenant_profile.image.url(:thumb) if @tenant_profile.image.present?%>
 									<%= f.file_field :image%>
 								</div>
 								<div id="bio-textarea">
@@ -55,58 +61,6 @@
 									<%= f.text_area :bio, maxlength: 140%>
 									<p>Characters remaining: <span class='status'></span></p>
 								</div> 
-							</div>
-							<div class="Family-occupation">
-								<p>Family & occupation</p>
-								<div class="input-with-label text-left">
-									<span>Father's Name</span>
-									<%= f.text_field :father_name, placeholder: 'Father Name' %>
-								</div>
-
-
-								<div class="input-with-label text-left">
-									<label>Occupation</label>
-									<%= f.text_field :occupation, placeholder: 'occupation' %>
-								</div>
-								<div class="input-with-label text-left">
-									<label>Work place</label>
-									<%= f.text_field :work_place, placeholder: 'work place' %>
-								</div>
-									<!-- <div class="mb24">
-										<span>Would you like to Susbscribe googleHomes newsletters</span>
-										<div class="checkbox-option pull-right">
-											<div class="inner"></div>
-											<input name="checkbox" value="Checkbox" type="checkbox">
-										</div>
-									</div> -->
-									
-								</div>
-							</div>
-							<div class="col-sm-6">
-							<div class="adderess-details">
-								<div>
-									<label>Current Address</label>
-									<%= f.text_field :c_address, placeholder: 'Address line 1' %>
-								</div>  
-
-								<div>
-									<label>City</label>
-									<div class="select-option">
-										<i class="ti-angle-down"></i>
-										<%=f.select :c_city, options_for_select(@city.all.collect {|c| [ c.name, c.name ] })%>
-									</div>
-								</div>
-								<div>
-									<label>State</label>
-									<div class="select-option">
-										<i class="ti-angle-down"></i>
-										<%=f.select :c_state, options_for_select(@state.all.collect {|s| [ s.name, s.name ] })%>
-									</div>
-								</div>
-								<div class="input-with-label text-left">
-									<label>Pincode</label>
-									<%= f.text_field :p_pincode, placeholder: 'pincode' %>
-								</div>      
 								<div>
 									<label>Permanent Address</label>
 									<%= f.text_field :p_address, placeholder: 'Address line 1' %>
@@ -126,16 +80,93 @@
 									</div>
 								</div>
 								<div class="input-with-label text-left">
-									<label>Pincode</label>
+									<label>Pin code</label>
 									<%= f.text_field :p_pincode, placeholder: 'pincode' %>
 								</div> 
-								<!--end select-->
-								
+								<div class="input-with-label text-left">
+									<label>Identity proof</label>
+									<%= image_tag @tenant_profile.identity_proof.url(:thumb) if @tenant_profile.identity_proof.present?%>
+									<%= f.file_field :identity_proof%>
+								</div>
+								<div class="input-with-label text-left">
+									<label>Address proof</label>
+									<%= image_tag @tenant_profile.address_proof.url(:thumb) if @tenant_profile.address_proof.present?%>
+									<%= f.file_field :address_proof%>
+								</div>
+								<!--end select-->				
+							</div>	
+							<div class="banking-details">		
+								<p class="lead">
+									banking details
+								</p>								
+								<div class="input-with-label text-left">
+									<label>account holder</label>
+									<%= f.text_field :account_holder, placeholder: 'account holder' %>
+								</div>
+								<div class="input-with-label text-left">
+									<label>account number</label>
+									<%= f.text_field :account_number, placeholder: 'account number' %>
+								</div>
+								<div class="input-with-label text-left">
+									<label>bank name</label>
+									<%= f.text_field :bank_name, placeholder: 'bank name' %>
+								</div>
+								<div class="input-with-label text-left">
+									<label>ifsc code</label>
+									<%= f.text_field :ifsc_code, placeholder: 'ifsc code' %>
+								</div>
+								<div class="input-with-label text-left">
+									<label>Dummy cheque</label>
+									<%= image_tag @tenant_profile.cheque.url(:thumb) if @tenant_profile.cheque.present?%>
+									<%= f.file_field :cheque%>
+								</div>
+					
 							</div>
-							<input value="Submit Button" type="submit">
-						</div>
-
-					</div>	
+							<div class="emergency-details">		
+								<p>occupation</p>
+									<div class="input-with-label text-left">
+										<label>emergency_person_name</label>
+										<%= f.text_field :emergency_person_name, placeholder: 'emergency_person_name' %>
+									</div>
+									<div class="input-with-label text-left">
+										<label>emergency_person_contact</label>
+										<%= f.text_field :emergency_person_contact, placeholder: 'emergency_person_contact' %>
+									</div><div class="input-with-label text-left">
+										<label>emergency_person_relationship</label>
+										<%= f.text_field :emergency_person_relationship, placeholder: 'emergency_person_relationship' %>
+									</div>
+									<div class="input-with-label text-left">
+										<label>emergency_person_address</label>
+										<%= f.text_field :emergency_person_address, placeholder: 'emergency_person_address' %>
+									</div>
+							</div>
+							<div class="employment-details">
+									<p>occupation</p>
+									<div class="input-with-label text-left">
+										<label>Occupation</label>
+										<%= f.text_field :occupation, placeholder: 'occupation' %>
+									</div>
+									<div class="input-with-label text-left">
+										<label>orgnization</label>
+										<%= f.text_field :orgnization, placeholder: 'orgnization' %>
+									</div>
+									<div class="input-with-label text-left">
+										<label>office email</label>
+										<%= f.email_field :office_email, placeholder: 'office_email' %>
+									</div>
+									<div class="input-with-label text-left">
+										<label>years of employement</label>
+										<%= f.text_field :years_of_employement, placeholder: 'years_of_employement' %>
+									</div>
+									<div class="input-with-label text-left">
+										<%= image_tag @tenant_profile.employment_proof.url(:thumb) if @tenant_profile.employment_proof.present?%>
+										<label>employement proof</label>
+										<%= f.file_field :employment_proof %>
+									</div>
+									
+							</div>							
+						</div>	
+						<div class="col-sm-4 col-sm-offset-4"><input value="Submit Button" type="submit"></div>
 					</div>
 					<% end %>
 				</div>
@@ -144,9 +175,55 @@
 		<%#= link_to 'View Profile',   tenant_tenant_profile_path(id:tenant_profile.id)%>
 	</section>		
 	<script type="text/javascript">
-		$('#bio-textarea textarea').show_char_limit({ status_element: '#bio-textarea .status', status_style: 'chars_left' } );
 
+		$('.banking-details').hide();
+		$('.employment-details').hide();
+		$('.emergency-details').hide();
+
+		$('#bio-textarea textarea').show_char_limit({ status_element: '#bio-textarea .status', status_style: 'chars_left' } );
 
 		$('#tenant_profile_DOB').datepicker();
 
+		$('#banking-details').click(function(event){
+			$('.banking-details').show("slide", {direction: "up" }, 500 );
+			// $(this).addClass('btn-filled')
+			$('.personal-details').hide();
+			$('.employment-details').hide();
+			$('.emergency-details').hide();
+		});
+
+		$('#personal-details').click(function(event){
+			$('.banking-details').hide();	
+			$('.personal-details').show("slide", {direction: "up" }, 500 );
+			// $(this).addClass('btn-filled')
+			$('.employment-details').hide();
+			$('.emergency-details').hide();	
+		});
+
+		$('#employment-details').click(function(event){		
+			$('.banking-details').hide();$
+			$('.personal-details').hide();
+			$('.employment-details').show("slide", {direction: "up" }, 500 );
+			// $(this).addClass('btn-filled')
+			$('.emergency-details').hide();
+		});
+
+		$('#emergency-details').click(function(event){
+			$('.banking-details').hide();
+			$('.personal-details').hide();
+			$('.employment-details').hide();$
+			$('.emergency-details').show("slide", {direction: "up" }, 500 );
+			// $(this).addClass('btn-filled')
+		});
+
 	</script>
+
+
+
+	<!-- <div class="mb24">
+		<span>Would you like to Susbscribe googleHomes newsletters</span>
+		<div class="checkbox-option pull-right">
+			<div class="inner"></div>
+			<input name="checkbox" value="Checkbox" type="checkbox">
+		</div>
+	</div> -->
