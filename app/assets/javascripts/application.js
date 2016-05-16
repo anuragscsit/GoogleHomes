@@ -14,6 +14,7 @@
  //= require jquery
  //= require jquery_ujs
  //= require jquery-ui
+ //= require bootstrap.min
  //= require scripts
  //= require turbolinks
  //= require underscore
@@ -21,8 +22,6 @@
  //= require jquery.geocomplete
  //= require selectize
  //= require cocoon
- //= require bootstrap.min
-
  //= require flickr
  //= require flexslider.min
  //= require masonry.min
@@ -30,7 +29,7 @@
  //= require countdown.min
  //= require smooth-scroll.min
  //= require char-count
-
+ //= require twitterfetcher.min
  //= require parallax
  //= ytplayer.min
 
