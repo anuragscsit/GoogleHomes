@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
 	before_action :auth_tenant
+
 	def auth_tenant
 	    redirect_to  new_tenant_registration_url unless user_signed_in?
 	end
@@ -8,13 +9,19 @@ class PaymentsController < ApplicationController
 		house = params[:house_id]
 		@house = House.find(house)
 	end
+
 	def confirmation
 		house = params[:house_id]
 		@move_in_date = params[:date]
-		@token_amount = params[:token].to_f
+		#@token_amount = params[:token].to_f
 		@rent_amount = params[:rent].to_f
+		@month = params[:month]
+		@bed_room = params[:bed_room]
 		@house = House.find(house)
-		@tenant= current_user
+		@tenant = current_user		
+	end
+	def booking
 		
 	end
+
 end

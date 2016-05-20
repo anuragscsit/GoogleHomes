@@ -11,7 +11,7 @@
 				<div class="row text-center">
 					<ul class="select-bed-list">
 						<%i=@house.no_of_beds%>
-						<% j=0 %>
+						<% j=1 %>
 						<% for room in 1..@house.no_of_rooms %>
 						<div class="row">
 							<li>
@@ -119,8 +119,10 @@
 				<%= form_tag payments_confirmation_path, method: 'get' do %>
 				<%= hidden_field_tag :date, nil, id: 'move-in-date', value: params[:date] %>
 				<%= hidden_field_tag :house_id, nil, id: 'ghomes-house_id', value: params[:house_id] %>
-				<%= hidden_field_tag :token, nil, id: 'token-amount', value: params[:token] %>
+				<%#= hidden_field_tag :token, nil, id: 'token-amount', value: params[:token] %>
 				<%= hidden_field_tag :rent, nil, id: 'rent-amount', value: params[:rent] %>
+				<%= hidden_field_tag :month, nil, id: 'rent-month', value: params[:month] %>
+				<%= hidden_field_tag :bed_room, nil, id: 'bed-room', value: params[:bed_room] %>
 				<div class="col-sm-6">
 					<input type="submit" value="Go for payment" class="bed-submit"/>
 				</div>
@@ -131,8 +133,10 @@
 		</section>
 
 		<script type="text/javascript">
-
-			$('#datepicker-disable-past').datepicker({ minDate: 2 });
+			var full_rent;
+			$('#datepicker-disable-past').datepicker({
+			  dateFormat: "dd-mm-yy",
+			  minDate: 2 });
 			$('#movein-popup').hide();
 			$('.chosen-move-in-date').hide();
 			$('.option-room').hide();
@@ -143,12 +147,15 @@
 				$('.chosen-move-in-date').hide("slide", {direction: "down" }, 500);
 				$('#movein-popup').show("slide", {direction: "up" }, 500 );
 				$('.choose-bed-widget input[type=radio]').on('change', function() {
-				 
-					$('#rent-amount').val($(this).val());
-					console.log($(this).val())
+				 	
+					full_rent = $(this).val();
+					var id= $(this).attr('id');
+					$('#bed-room').val(id);
+					console.log(id)
 					
-					$('#token-amount').val($(this).val()/2);
-					console.log($(this).val()/2)
+					// $('#token-amount').val($(this).val()/2);
+					// console.log($(this).val()/2)
+				
 				});
 				
 				event.preventDefault();
@@ -166,20 +173,34 @@
 
 			$('#movein-ok-btn').click(function(event){
 				var date = $('#datepicker-disable-past').val();
+				var dateArray = date.split('-');
+				var dateDay = dateArray[0];
 				if(date == ""){
 					$('.error-date').html('Please select date')
 					
 				}
 				else{
+					
+					
 					$('.chosen-move-in-date').show("slide", {direction: "down" }, 500 );
 					$('.date-text').html(date);
 					$('#move-in-date').val(date);
 					$('#ghomes-house_id').val(<% @house.id %>);
+					$('#rent-month').val(dateArray[1]);
 					$('#movein-popup').hide();
 					$('.rent-option').show("slide", {direction: "down" }, 500);
 					$('.payment-widget-content').show("slide", {direction: "down" }, 500 );
 
 				}
+					if(dateDay>15){
+						$('#rent-amount').val(full_rent/2)
+					}
+					else{
+						$('#rent-amount').val(full_rent)
+					}
+					// $('#token-amount').val($(this).val()/2);
+					// console.log($(this).val()/2)
+					
 				event.preventDefault();
 			});
 

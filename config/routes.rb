@@ -14,6 +14,7 @@ Rails.application.routes.draw do
    get 'home/home'
    get 'payments/bed_confirmation'
    get 'payments/confirmation'
+   get 'payments/booking'
   devise_for :tenants, skip: [:sessions]
   devise_for :house_owners, skip: [:sessions]
   devise_for :users, skip: :registrations

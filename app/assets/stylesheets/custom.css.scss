@@ -6,6 +6,8 @@
 #flash_error,#flash_notice,#flash_alert{ font-size:16px; font-weight:700; text-align:center;}
 #flash_alert,#flash_error{color:red;}
 #error_explanation h2{font-size:14px;}
+.btn-cancle{border:2px #ffabab solid !important; color:#ffabab !important;}
+.btn-cancle:hover{color:#fff !important; background-color:#ffabab !important;border:none !important;transition: none !important;}
 @media(min-width:768px){
 #input-location,.city-select,.gender-select,.search-house-submit-btn
     {
@@ -292,7 +294,7 @@ background-size: cover !important;background-attachment: scroll !important;backg
 }
 
 /*****PAYMENT******/
-.payment-widget-content,.chosen-move-in-date,.payment-widget-card,#movein-popup,.confirmation-widget{background-color: #ffffff;border-radius: 1px;box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);box-sizing: border-box;}
+.chosen-move-in-date,.payment-widget-card,#movein-popup,{background-color: #ffffff;border-radius: 1px;box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);box-sizing: border-box;}
 .payment-widget-content,.chosen-move-in-date,.payment-widget-card,#movein-popup,{margin:10px; padding: 0 15px;}
 .choose-bed-widget input[type="radio"], .choose-bed-widget input[type="checkbox"] {
     display: none;
@@ -328,4 +330,5 @@ background-size: cover !important;background-attachment: scroll !important;backg
 #house-detail img{min-height:200px !important; max-height:300px !important;}
 .detail-table tr td {font-weight:300; font-size:14px;}
 .bed-submit{height:40px !important; line-height: 40px !important;}
-.token-widget,.details-widget{padding: 5px 15px;}
+.token-widget,.details-widget{padding: 5px 15px;background-color: #ffffff;border-radius: 1px;box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);box-sizing: border-box; margin-top: 7px;}
+.token-widget h2, .token-widget h5,.token-widget p{margin:0 5px;}

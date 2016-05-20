@@ -8,13 +8,37 @@
 
 				<div>
 					<h3 style="color:#E73400">Total
-						<span style="text-align: right">₹ <%= @token_amount %></span></h3>
+						<span style="text-align: right">₹ <%= @rent_amount %></span></h3>
+						<h5>first month Room/House Rent</h5>
 					</div>
+					<%= form_tag payments_booking_path, method: 'get' do %>
+						<ul class="form-wrapper add-merchant clearfix">
+							<li>
+							<!-- <input type="hidden" value="WH99IE5ZJEVMB6WD2TV8" name="merchantAccessKey">
+							<input type="hidden" value="INV851463741081" name="merchantTxnId"> -->
+							<input type="hidden" value="<%= @rent_amount %>" name="orderAmount">
+							<!-- <input type="hidden" value="INR" name="currency"> -->
+							<input type="hidden" value="<%= @bed_room %>" name="bedId">
+							</li>
+						</ul>
+						<div class="gender-agree">
+						  <input type="checkbox" title="Please accept T&amp;C" required="" value="" id="terms_check" name="">
+						  <label style="font-weight:normal" for="tenant"> &nbsp;
+						    I agree to <a target="_blank" style="color:#4bb39b; text-decoration:underline" href="/welcome/tenant_terms">Terms and Conditions</a>
+						  </label>
+						  <p class="error terms-error animated shake"></p>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<input type="submit" value="Pay <%= @rent_amount %>" />
+							</div>
+							<div class="col-sm-6">
+								<%= link_to 'Cancle', :back, class:'btn btn-lg btn-cancle'%>
+							</div>
+						</div>
+					<% end %>
 				</div>
-				<div class="checkbox-option">
-					<div class="inner"></div>
-					<input type="checkbox" value="Checkbox" name="checkbox">
-				</div>
+				
 			</div>
 			<div class="row">
 				<div class="panel-group details-widget" id="accordion">
