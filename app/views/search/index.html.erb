@@ -40,7 +40,7 @@
         <div class="">
           <ul>
             <li>
-              <a href="<%= url_for("/houses/#{house.id}") %>">
+              <a href="<%= url_for("/houses/#{house.id}") %>" target="_blank">
                 <div class="col-sm-6">
                 <%=image_tag house.house_image.first.url(:thumb),class:"img-responsive house-thumb" %>
                 </div>
