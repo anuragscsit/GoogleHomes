@@ -39,9 +39,36 @@ background-size: cover !important;background-attachment: scroll !important;backg
 .modal-content {
  border-radius:0px;
 }
-
-
-
+.how-it-works img{width:300px; height:auto;}
+.how-it-works h4{margin-top:20px;}
+.how-it-works h4 span{background-color:#00876C;border-radius:50%; color:#fff;padding: 3px 12px; font-weight:600;}
+.how-it-works ul li {
+    display: inline-block;
+    margin-top: 5px;
+    color:#fff;  
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    
+}
+.how-it-works ul li span{
+    background-color: #00876C; 
+    padding: 6px 10px;  
+    margin-left: 1px;
+    padding: 3px 10px;
+}
+.how-it-works ul li i{
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    padding: 5px 5px;
+    background-color: #00876C;
+}
+.how-it-works h6{
+    text-transform:uppercase;
+    border-radius: 33px;
+    color: #00876c;
+    margin: 2px auto;
+}
 /*****************SignIn-Page****************/
 .login-landing{background: asset_url("home12.jpg") !important; padding-top: 48px;}
 .reset-password-section{background-color: #35373f;}
