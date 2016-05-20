@@ -13,13 +13,12 @@
 			</p>
 			<hr>
 		</div>
-		<div>
-		<div class="row house-listing">
+		<div class="row">
+			<div class="container">
 				<h4> Houses</h4>
 				<% @house.each do |house| %> 
 				<% current_house = @house.find(house) %>
 				<% image = current_house.house_image.first.url %>
-
 					<div class=" col-sm-4 house-listing">
 						<div class="col-sm-6">
 							<a href="<%= url_for("/houses/#{current_house.id}") %>" target="_blank">

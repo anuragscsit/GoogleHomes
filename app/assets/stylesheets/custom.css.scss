@@ -272,7 +272,7 @@ background-size: cover !important;background-attachment: scroll !important;backg
 .search-form-div #city,.search-form-div #gender,.search-form-div .search-house-btn,.search-form-div #search-location{height:40px;}
 #gmap{border:1px #ccc solid; padding:0px;}
 /**********BrowseHouse***********/
-.house-listing{border:1px #ccc solid;padding:5px;margin:1px 0px 10px 0px;}
+.house-listing{border:1px #ccc solid;padding:5px;margin:1px 0px 10px 0px;box-shadow: 0 0 2px #000;}
 .img-house-tiny{max-height:100%;display:cover center center;}
 .house-thumb{margin-bottom:10px;}
 /********REGISTRATION**********/
@@ -295,7 +295,7 @@ background-size: cover !important;background-attachment: scroll !important;backg
 
 /*****PAYMENT******/
 .chosen-move-in-date,.payment-widget-card,#movein-popup,{background-color: #ffffff;border-radius: 1px;box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);box-sizing: border-box;}
-.payment-widget-content,.chosen-move-in-date,.payment-widget-card,#movein-popup,{margin:10px; padding: 0 15px;}
+.payment-widget-content,.chosen-move-in-date,.payment-widget-card,#movein-popup{margin:10px; padding: 0 15px;}
 .choose-bed-widget input[type="radio"], .choose-bed-widget input[type="checkbox"] {
     display: none;
 }
