@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-	default from: "noreply.ghomes@gmail.com"
+	default from: "anumfp@gmail.com"
 	
 	def booking_email(user)
 	    @user = user
