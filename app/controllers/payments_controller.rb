@@ -21,7 +21,8 @@ class PaymentsController < ApplicationController
 		@tenant = current_user		
 	end
 	def booking
-		
+		@user = current_user
+		UserMailer.booking_email(@user).deliver
 	end
 
 end

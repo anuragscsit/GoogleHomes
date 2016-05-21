@@ -38,4 +38,22 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  # change to true to allow email to be sent during development
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+  # SMTP settings for gmail
+  ActionMailer::Base.smtp_settings = {
+   :address              => "smtp.gmail.com",
+   :port                 => 587,
+   :authentication       => :plain,
+   :user_name            => 'anumfp@gmail.com',
+   :password             => 'polycse65',
+  :enable_starttls_auto => true,
+  :openssl_verify_mode  => 'none' 
+  }
+
 end

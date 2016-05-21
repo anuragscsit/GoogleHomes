@@ -26,10 +26,10 @@ gem 'mini_magick'
 gem 'gmaps4rails'
 gem 'geocoder'
 gem 'geokit-rails'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
+
 gem 'will_paginate', '~> 3.1.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
@@ -46,6 +46,8 @@ gem "timezone"
 gem "pundit"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+# mail service
+gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
