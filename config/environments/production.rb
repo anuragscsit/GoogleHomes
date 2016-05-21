@@ -88,7 +88,6 @@ Rails.application.configure do
   :authentication => :plain,
   :user_name      => 'noreply.ghomes@gmail.com',
   :password       => '1qaz9ol.',
-  :domain         => 'heroku.com',
   :enable_starttls_auto => true,
   :openssl_verify_mode  => 'none' 
 }
