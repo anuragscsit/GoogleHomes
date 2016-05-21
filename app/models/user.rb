@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, :contact_number, presence: true 
   # #mount_uploader :avatar, LogoUploader
 
+  after_create :send_signup_mail
+    def send_signup_mail
+      UserMailer.signup_mail(self).deliver
+    end
 
 
   # def should_be_house_owner_user?

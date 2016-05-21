@@ -9,5 +9,8 @@ class UserMailer < ApplicationMailer
 	    @user = user
 	    mail(to: @user.email, subject: 'Sample Email')
 	end
-	
+	def signup_mail(user)
+    @user = user
+    mail(:to => @user.email, :subject => "Welcome to GoogleHomes.")
+  end
 end
