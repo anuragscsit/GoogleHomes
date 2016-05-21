@@ -75,21 +75,20 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
-  config.action_mailer.default_url_options = { :host => 'heroku.com' }
-  config.action_mailer.delivery_method = :smtp
-  # change to true to allow email to be sent during development
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default :charset => "utf-8"
-  ActionMailer::Base.smtp_settings = {
-  :address        => 'smtp.gmail.com',
-  :port           => '587',
-  :domain         => 'gmail.com',
-  :authentication => :plain,
-  :user_name      => 'noreply.ghomes@gmail.com',
-  :password       => '1qaz9ol.',
-  :enable_starttls_auto => true,
-  :openssl_verify_mode  => 'none' 
-}
+#   config.active_record.dump_schema_after_migration = false
+#   config.action_mailer.default_url_options = { :host => 'heroku.com' }
+#   config.action_mailer.delivery_method = :smtp
+#   # change to true to allow email to be sent during development
+#   config.action_mailer.perform_deliveries = true
+#   config.action_mailer.raise_delivery_errors = true
+#   config.action_mailer.default :charset => "utf-8"
+#   ActionMailer::Base.smtp_settings = {
+#   :address        => 'smtp.gmail.com',
+#   :port           => '587',
+#   :domain         => 'gmail.com',
+#   :authentication => :plain,
+#   :user_name      => 'noreply.ghomes@gmail.com',
+#   :password       => '',
+#   :enable_starttls_auto => true 
+# }
 end
