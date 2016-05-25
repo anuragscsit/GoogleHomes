@@ -269,6 +269,8 @@ background-size: cover !important;background-attachment: scroll !important;backg
 @media(min-width:767px){
     .personal-details, .banking-details,.emergency-details, .employment-details{margin:10px 0; border-left:1px #ccc solid;padding-left: 25px;}
 }
+.t-profile-info p{margin-bottom:12px; font-size:16px;color:#303030;font-style: italic;}
+.t-profile-info p span{;font-style: normal; padding-left:10px;;}
 /***********owner-page*************/
 
 .owner-my-house{border:1px #ccc solid;padding: 20px;}

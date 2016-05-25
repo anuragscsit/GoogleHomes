@@ -3,7 +3,9 @@ class TenantProfile < ActiveRecord::Base
 	def full_permamnent_address
 		l = ''
 		l << p_address if p_address && !p_address.blank?
+    l << ' '
 		l << p_city if p_city && !p_city.blank?
+    l << ' '
 		l << p_state if p_state && !p_state.blank?
   	end
 

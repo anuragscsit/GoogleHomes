@@ -1,29 +1,51 @@
-<h1>Tenant Profile</h1>
-<%# if !current_user.tenant_profile.valid? %>
+
+<% if !current_user.tenant_profile.valid? %>
 <p class="alert alert-warning">
 	Your profile is incomplete. Please fill out more of your
 
 	<%= link_to 'Update Profile',  edit_tenant_tenant_tenant_profile_path(tenant_id: current_user.id, id: current_user.tenant_profile.id)%>
 </p>
-<%#end%>
-<section class="custom-section">
-	<div class="container">
-		<h3>Tenants#profile</h3>
-		<div class="col-sm-6">
-			<p>name: <%=@tenant.full_name%> </p>
-			<p>Profile Image</p>
-			<%= image_tag @tenant_profile.image_url(:thumb) if @tenant_profile.image? %>
+<%end%>
+
+<section>
+	<div class="row">
+	<div class="container-fluid">
+		<div class="col-sm-4 ">
+			<div class=" pt-1 text-center">
+				<h5 class="uppercase"></h5>
+				<%= image_tag @tenant_profile.image_url(:thumb) if @tenant_profile.image? %>
+
+			</div>
+			<!--end of pricing table-->
+		</div>
+		<div class="col-sm-4 t-profile-info">
+			<div class=" pt-1  boxed">
+				<h5 class="uppercase">Personal info</h5>
+				<p>name: <span><%=@tenant.full_name%></span> </p>
+				<p>Gender: <span><%=@tenant_profile.sex%></span> </p>
+				<p>Birth date: <span><%=@tenant_profile.DOB%></span> </p>
+				<p>email:<span><%=@tenant.email%></p>
+				<p>About me: <span><%=@tenant_profile.bio%></span> </p>
+
+			</div>
+			<!--end of pricing table-->
+		</div>
+		<div class="col-sm-4 t-profile-info">
+			<div class="pt-1 ">
+				<h5 class="uppercase">Address</h5>
+				<p>Permanent Address:<span><%=@tenant_profile.full_permamnent_address%></span></p>
+				<p>Contact Number:<span><%=@tenant.contact_number%></span></p>
+
+				
+			</div>
+			<!--end of pricing table-->
+
+		</div>
 			
-			<p>Gender: <%=@tenant_profile.sex%> </p>
-			<p>Bio: <%=@tenant_profile.bio%> </p>
-			<p>email:<%=@tenant.email%></p>
-			<p>Occupation: <%=@tenant_profile.occupation%> </p>
-			<p>contact_number:<%=@tenant.contact_number%></p>
-			<p>Permanent Address:<%=@tenant_profile.full_permamnent_address%></p>
-			<p>contact_number:<%=@tenant.contact_number%></p>
 		</div>
-		<div class="col-sm-6">
-			<%= link_to 'Update Profile',  edit_tenant_tenant_tenant_profile_path(tenant_id: current_user.id, id: current_user.tenant_profile.id)%>
+	</div>
+	<div class="container">
+			<%= link_to 'Update Profile',  edit_tenant_tenant_tenant_profile_path(tenant_id: current_user.id, id: current_user.tenant_profile.id), class:'btn'%>
 		</div>
-	</div>	
+			
 </section>
