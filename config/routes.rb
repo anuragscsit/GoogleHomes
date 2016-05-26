@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   resources :requirements , only: [:create]
   resources :houses, except: [:index,:destroy]
   resources :visit_schedules, only: [:new,:create,:edit, :show]
-  resources :payments, only: [:new,:create, :show]
+  resources :payments
 ############################################################################### 
   namespace :tenant do 
     resources :tenants do
@@ -40,6 +40,8 @@ Rails.application.routes.draw do
       
     end
   end
+  resources :charges 
+  get 'charges/booking'
 ###############################################################################
   namespace :owner do
     resources :house_owners do

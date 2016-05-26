@@ -1,5 +1,9 @@
 class House < ActiveRecord::Base
 	belongs_to :house_owner
+	has_many :bookings
+	has_many :deposite_rents
+	has_many :room_rents
+	has_many :tenants
 
 	validates :house_image, :city, :location, :latitude, :longitude, presence: true
 	mount_uploaders :house_image, ImageUploader
