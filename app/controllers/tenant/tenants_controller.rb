@@ -20,5 +20,13 @@ class Tenant::TenantsController < ApplicationController
   end
   
   def payments    
+    @rent = RoomRent.all
   end
+
+  def myhouse
+    
+   booking = Booking.where(tenant_id: current_user.id).first
+   @house = House.find(booking.house_id)
+  end
+
 end

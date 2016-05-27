@@ -16,7 +16,7 @@ class PaymentsController < ApplicationController
 		house = params[:house_id]
 		@house = House.find(house)
 		@move_in_date = params[:date]
-		#@token_amount = params[:token].to_f
+		@token_amount = params[:token].to_f
 		@rent_amount = params[:rent].to_f
 		@month = params[:month]
 		@bed_room = params[:bed_room]
@@ -27,7 +27,7 @@ class PaymentsController < ApplicationController
 		house = params[:house_id]
 		@house = House.find(house)
 		@move_in_date = params[:date]
-		#@token_amount = params[:token].to_f
+		@token_amount = params[:token].to_f
 		@rent_amount = params[:rent].to_f
 		@month = params[:month]
 		@bed_room = params[:bed_room]
@@ -37,6 +37,9 @@ class PaymentsController < ApplicationController
 
 	def show
 		@booking = Booking.find(params[:id])
+		@house =  House.find(@booking.house_id)
+		
+		@tenant = current_user
 	end
 	def booking
 		@user = current_user

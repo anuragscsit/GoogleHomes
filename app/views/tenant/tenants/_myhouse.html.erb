@@ -4,10 +4,11 @@
 	</div>
 	<div class="row">
 		<div class="col-sm-4">
-			<%=image_tag "vent5.jpg", class:"img-responsive",height:'250',width:'100%'%>
+			<%=image_tag @house.house_image.first.url(:thumb), class:"img-responsive"%>
 		</div>	
 		<div class="col-sm-8">
-			<h4>House Details</h4>
+			<h5><%= @house.name %></h5>
+			<h5><%= @house.location %></h5>
 		</div>
 	</div>
 </div>

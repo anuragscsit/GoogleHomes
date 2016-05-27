@@ -9,20 +9,19 @@
 	<div>
 		<table class="table table-responsive">
 			<tr>
-				<td>Due Date</td>
-				<td>Reason</td>
+				<td>Month</td>
+				<td>Date</td>
+				<td>Amount</td>
 				<td>Reciept</td>
-				<td>Amount Due</td>
-				<td></td>
 			</tr>
+			<% @rent.each do |rent| %>
 			<tr>
-			<td>20/04/2016</td>
-			<td></td>
+			<td><%= rent.month %></td>
+			<td><%= rent.rent_date %></td>
+			<td><%= rent.rent_amount%></td>
 			<td><a href="">Get Reciept</a></td>
-			<td>0</td>
-			<td colspan="2"><a href="">Pay Now</a></td>
 			</tr>
-
+			<% end %>
 		</table>
 		<h4>Total Amount to Pay: ₹ <span>0</span></h4>
 

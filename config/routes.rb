@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       collection do 
         get :payments
         get :dashboard
+        get :myhouse
       end
       resources :tenant_profile
       
