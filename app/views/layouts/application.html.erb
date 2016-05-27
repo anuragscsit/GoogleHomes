@@ -30,6 +30,9 @@
 				$('.flash-notice').slideUp();
 			}, 3000);
 		});
+		$('[rel=tooltip]').tooltip();
+		$(document).on('hover', '[rel=tooltip]', function () { $(this).tooltip('show'); });
+		$(document).on('focus', '[rel=tooltip]', function () { $(this).tooltip('show'); });
 	</script>
 </body>
 </html>
