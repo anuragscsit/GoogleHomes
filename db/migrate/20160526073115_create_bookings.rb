@@ -8,7 +8,7 @@ class CreateBookings < ActiveRecord::Migration
       t.string 		:bed_room_id
       t.string 		:booking_date
       t.string 		:move_in_date
-      t.integer   	:token_money
+      t.integer   :token_money
     end
   end
 end

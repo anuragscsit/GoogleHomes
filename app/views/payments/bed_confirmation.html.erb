@@ -119,7 +119,7 @@
 				<%= form_tag payments_confirmation_path, method: 'get' do %>
 				<%= hidden_field_tag :date, nil, id: 'move-in-date', value: params[:date] %>
 				<%= hidden_field_tag :house_id, nil, id: 'ghomes-house_id', value: params[:house_id] %>
-				<%#= hidden_field_tag :token, nil, id: 'token-amount', value: params[:token] %>
+				<%= hidden_field_tag :token, nil, id: 'token-amount', value: params[:token] %>
 				<%= hidden_field_tag :rent, nil, id: 'rent-amount', value: params[:rent] %>
 				<%= hidden_field_tag :month, nil, id: 'rent-month', value: params[:month] %>
 				<%= hidden_field_tag :bed_room, nil, id: 'bed-room', value: params[:bed_room] %>
@@ -192,11 +192,12 @@
 					$('.payment-widget-content').show("slide", {direction: "down" }, 500 );
 
 				}
+					$('#rent-amount').val(full_rent)
 					if(dateDay>15){
-						$('#rent-amount').val(full_rent/2)
+						$('#token-amount').val(full_rent/2)
 					}
 					else{
-						$('#rent-amount').val(full_rent)
+						$('#token-amount').val(full_rent)
 					}
 					// $('#token-amount').val($(this).val()/2);
 					// console.log($(this).val()/2)

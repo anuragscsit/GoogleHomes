@@ -8,7 +8,7 @@
 
 				<div>
 					<h3 style="color:#E73400">Total
-						<span style="text-align: right">₹ <%= @rent_amount %></span></h3>
+						<span style="text-align: right">₹ <%= @token_amount %></span></h3>
 						<h5>first month Room/House Rent</h5>
 					</div>
 					<%= form_tag charges_path do %>
@@ -20,7 +20,7 @@
 							<%= hidden_field_tag 'month',nil, value: params[:month] %>
 							<%= hidden_field_tag 'tenant',nil, value: current_user.id%>
 							<%= hidden_field_tag 'bed_room',nil, value: params[:bed_room] %>
-
+							<%= hidden_field_tag 'token', nil, value: params[:token] %>
 							<input type="hidden" value="<%= Time.now %>" name="booking_date">
 							<%= hidden_field_tag 'move_in_date',nil, value: params[:date] %>
 						</li>
@@ -34,7 +34,7 @@
 					</div>
 					<div class="row">
 						<div class="col-sm-6">
-							<input type="submit" value="Pay <%= @rent_amount %>" />
+							<input type="submit" value="Pay <%= @token_amount %>" />
 						</div>
 						<div class="col-sm-6">
 							<%= link_to 'Cancle', :back, class:'btn btn-lg btn-cancle'%>

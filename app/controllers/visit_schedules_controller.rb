@@ -16,7 +16,7 @@ class VisitSchedulesController < ApplicationController
   def new
     @visit_schedule = VisitSchedule.new
     @house = House.find(params[:id])
-    byebug
+
   end
 
   # GET /visit_schedules/1/edit

@@ -1,7 +1,15 @@
-<section>
-	<section>
-	<div class="container">
-	<h3>payment confirm</h3>
-	<a href="" class="btn">Go to dashboard</a>
-	</div>
-</section>
+<section class="pt20">
+		<div class="container">
+			<div class="row">
+				<div class="box">
+					<h4><%= current_user.first_name %> Your booking confirmed.</h4>
+					<h5>House: <span><%= @house.name %></span></h5>
+					<h5>House Location: <span><%= @house.location %></span></h5>
+					<h5>Token money: <span><%= @booking.token_money %></span></h5>
+					<h5>Booking in date : <span><%= @booking.booking_date %></span></h5>
+					<h5>Move in date : <span><%= @booking.move_in_date %></span></h5>
+				</div>
+			</div>
+			<%= link_to "Go to dashboard", dashboard_tenant_tenants_path%>
+		</div>
+	</section>
