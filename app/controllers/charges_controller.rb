@@ -34,7 +34,7 @@ class ChargesController < ApplicationController
 		redirect_to new_charge_path
 	else
 
-	  	booking = Booking.create(tenant_id: @tenant.id, house_id: params[:house_id], booking_date: params[:booking_date], move_in_date: params[:move_in_date],  bed_room_id: params[:bed_room], token_money: @token_amount,rent_amount: @token_amount)
+	  	booking = Booking.create(tenant_id: @tenant.id, house_id: params[:house_id], booking_date: params[:booking_date], move_in_date: params[:move_in_date],booking_month: @month,  bed_room_id: params[:bed_room], token_money: @token_amount,rent_amount: @rent_amount)
 		room_rent = RoomRent.create(tenant_id: @tenant.id, house_id: params[:house_id], rent_date: params[:booking_date],  bed_room_id: params[:bed_room],rent_amount: @token_amount,month: params[:month], status: 'paid')
 		redirect_to payment_path(booking)
 	end

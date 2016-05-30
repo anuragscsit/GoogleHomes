@@ -3,12 +3,20 @@
 		<h3 class="uppercase">My House</h3>
 	</div>
 	<div class="row">
+		<% unless @booking.blank? %>
 		<div class="col-sm-4">
 			<%=image_tag @house.house_image.first.url(:thumb), class:"img-responsive"%>
 		</div>	
 		<div class="col-sm-8">
 			<h5><%= @house.name %></h5>
 			<h5><%= @house.location %></h5>
+			<div class="alert alert-warning">
+				<h5>you have not pay your deposite please pay now.</h5>
+				<a href="">Rs <% 2*@deposite.to_f %></a>
+
+			</div>
 		</div>
+		<% end %>
+
 	</div>
 </div>

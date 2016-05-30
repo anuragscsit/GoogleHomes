@@ -5,8 +5,10 @@ class Tenant::TenantsController < ApplicationController
   def dashboard
   	
     @tenant = current_user
-    booking = Booking.where(tenant_id: current_user.id).first
-   @house = House.find(booking.house_id)
+    @booking = Booking.where(tenant_id: current_user.id).first
+    unless @booking.blank?
+      @house = House.find(@booking.house_id)
+    end
     if current_user.tenant_profile.nil?
       @tenant_profile = TenantProfile.new(tenant_id: current_user.id)
       @tenant_profile.save(validate: false)
@@ -22,12 +24,22 @@ class Tenant::TenantsController < ApplicationController
   
   def payments    
     @rent = RoomRent.all
+    @dues = 0
+    @rent.each do |rent|
+      if rent.status == 'dues'
+        @dues += rent.rent_amount 
+      end
+    end
+
   end
 
   def myhouse
     
-   booking = Booking.where(tenant_id: current_user.id).first
-   @house = House.find(booking.house_id)
+   @booking = Booking.where(tenant_id: current_user.id).first 
+   unless @booking.blank?
+     @house = House.find(@booking.house_id)
+     @deposite = @booking.rent_amount
+  end
   end
 
 end

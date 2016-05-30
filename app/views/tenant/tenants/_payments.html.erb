@@ -12,6 +12,7 @@
 				<td>Month</td>
 				<td>Date</td>
 				<td>Amount</td>
+				<td>Status</td>
 				<td>Reciept</td>
 			</tr>
 			<% @rent.each do |rent| %>
@@ -19,11 +20,16 @@
 			<td><%= rent.month %></td>
 			<td><%= rent.rent_date %></td>
 			<td><%= rent.rent_amount%></td>
+			<td><%= rent.status%></td>
+			<% if rent.status == 'paid' %>
 			<td><a href="">Get Reciept</a></td>
+			<% elsif rent.status == 'dues' %>
+			<td><a href="">Pay now</a></td>	
+			<% end %> 
 			</tr>
 			<% end %>
 		</table>
-		<h4>Total Amount to Pay: ₹ <span>0</span></h4>
+		<h4>Total Amount to Pay: ₹ <span><%= @dues %></span></h4>
 
 	</div>
 </div>
