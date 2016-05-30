@@ -5,7 +5,8 @@ class Tenant::TenantsController < ApplicationController
   def dashboard
   	
     @tenant = current_user
-    
+    booking = Booking.where(tenant_id: current_user.id).first
+   @house = House.find(booking.house_id)
     if current_user.tenant_profile.nil?
       @tenant_profile = TenantProfile.new(tenant_id: current_user.id)
       @tenant_profile.save(validate: false)

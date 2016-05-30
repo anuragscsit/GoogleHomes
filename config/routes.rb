@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'tenant/tenants/profile'
   get 'home/index'
   get 'home/owner'
+  get 'home/tenant'
   get 'home/map'
   get 'home/ghomeshouses'
    get 'home/home'
