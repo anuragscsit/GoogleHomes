@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160530110313) do
+ActiveRecord::Schema.define(version: 20160530123556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 20160530110313) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "tenant_id"
     t.integer  "house_id"
     t.string   "bed_room_id"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20160530110313) do
     t.string   "move_in_date"
     t.integer  "token_money"
     t.integer  "rent_amount"
+    t.integer  "booking_month"
   end
 
   create_table "cities", force: :cascade do |t|
