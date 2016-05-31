@@ -1,4 +1,16 @@
 class RoomRentsController < ApplicationController
+	before_filter :set_cache_buster
+	before_action :auth_tenant
+
+	def auth_tenant
+	    redirect_to  new_tenant_registration_url unless user_signed_in?
+	end
+
+	def set_cache_buster
+	   	response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+	    response.headers["Pragma"] = "no-cache"
+	    response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+	end
 	def new
 		
 	end

@@ -116,7 +116,7 @@
 				<div class="col-sm-6">
 					<a id="choose-move-date-close" href="" class="btn"> Cancel</a>
 				</div>
-				<%= form_tag payments_confirmation_path, method: 'get' do %>
+				<%= form_tag payments_confirmation_path do %>
 				<%= hidden_field_tag :date, nil, id: 'move-in-date', value: params[:date] %>
 				<%= hidden_field_tag :house_id, nil, id: 'ghomes-house_id', value: params[:house_id] %>
 				<%= hidden_field_tag :token, nil, id: 'token-amount', value: params[:token] %>

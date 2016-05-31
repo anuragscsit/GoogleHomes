@@ -3,7 +3,7 @@ class Tenant::TenantsController < ApplicationController
   respond_to :html, :js
 
   def dashboard    
-    @booking = Booking.where(tenant_id: current_user.id).first
+    @booking = BookedHouse.where(tenant_id: current_user.id).first
     unless @booking.blank?
       @house = House.find(@booking.house_id)
     end
@@ -32,7 +32,7 @@ class Tenant::TenantsController < ApplicationController
   end
   
   def myhouse    
-   @booking = Booking.where(tenant_id: current_user.id).first 
+   @booking = BookedHouse.where(tenant_id: current_user.id).first 
     unless @booking.blank?
       @house = House.find(@booking.house_id)
       @deposite = @booking.rent_amount
