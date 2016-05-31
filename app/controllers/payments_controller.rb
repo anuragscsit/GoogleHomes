@@ -10,8 +10,9 @@ class PaymentsController < ApplicationController
   		
 
   	def create
-
+  		
   	end
+
 	def bed_confirmation
 		house = params[:house_id]
 		@house = House.find(house)
@@ -32,19 +33,16 @@ class PaymentsController < ApplicationController
 		@month = params[:month]
 		@bed_room = params[:bed_room]
 		@tenant = current_user	
-
 	end
 
 	def show
 		@booking = Booking.find(params[:id])
-		@house =  House.find(@booking.house_id)
-		
+		@house =  House.find(@booking.house_id)		
 		@tenant = current_user
 	end
+
 	def booking
 		@user = current_user
 		UserMailer.booking_email(@user).deliver
-
 	end
-
 end

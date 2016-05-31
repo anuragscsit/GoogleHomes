@@ -2,9 +2,7 @@ class Tenant::TenantsController < ApplicationController
 	before_filter :authenticate_tenant!
   respond_to :html, :js
 
-  def dashboard
-  	
-    @tenant = current_user
+  def dashboard    
     @booking = Booking.where(tenant_id: current_user.id).first
     unless @booking.blank?
       @house = House.find(@booking.house_id)
@@ -30,16 +28,14 @@ class Tenant::TenantsController < ApplicationController
         @dues += rent.rent_amount 
       end
     end
-
+    @myhouse = BookedHouse.where(tenant_id: current_user.id).first
   end
-
-  def myhouse
-    
+  
+  def myhouse    
    @booking = Booking.where(tenant_id: current_user.id).first 
-   unless @booking.blank?
-     @house = House.find(@booking.house_id)
-     @deposite = @booking.rent_amount
+    unless @booking.blank?
+      @house = House.find(@booking.house_id)
+      @deposite = @booking.rent_amount
+    end
   end
-  end
-
 end

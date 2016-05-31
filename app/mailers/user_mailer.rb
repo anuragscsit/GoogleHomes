@@ -3,11 +3,11 @@ class UserMailer < ApplicationMailer
 	
 	def booking_email(user)
 	    @user = user
-	    mail(to: @user.email, subject: 'Sample Email')
+	    mail(to: @user.email, subject: 'GoogleHomes house booking')
 	end
 	def requirement_email(user)
 	    @user = user
-	    mail(to: @user.email, subject: 'Sample Email')
+	    mail(to: @user.email, subject: 'You Hose requirement')
 	end
 	def signup_mail(user)
     @user = user
@@ -17,6 +17,12 @@ class UserMailer < ApplicationMailer
   def monthly_rent_email(user,rent)
     @user = user
     @rent = rent
-    mail(:to => @user.email, :subject => "Your monthly room rent..")
+    mail(:to => @user.email, :subject => "Monthly room rent reminder..")
+  end
+
+  def room_rent_email(user,rent)
+  	@user = user
+    @rent = rent
+    mail(:to => @user.email, :subject => "Room rent payment")
   end
 end

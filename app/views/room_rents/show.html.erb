@@ -1,0 +1,15 @@
+<section class="pt20">
+		<div class="container">
+			<div class="row">
+				<div class="box">
+					<h4><%= current_user.first_name %> thank you for paying your rent.</h4>
+					<h5>House: <span><%= @house.name %></span></h5>
+					<h5>House Location: <span><%= @house.location %></span></h5>
+					<h5>Rent month: <span><%= @room_rent.month %></span></h5>
+					<h5>Rent amount: <span><%= @room_rent.rent_amount %></span></h5>
+					<h5>Rent date : <span><%= @room_rent.rent_date %></span></h5>
+				</div>
+			</div>
+			<%= link_to "Go to dashboard", dashboard_tenant_tenants_path%>
+		</div>
+	</section>

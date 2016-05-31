@@ -36,6 +36,8 @@ class ChargesController < ApplicationController
 
 	  	booking = Booking.create(tenant_id: @tenant.id, house_id: params[:house_id], booking_date: params[:booking_date], move_in_date: params[:move_in_date],booking_month: @month,  bed_room_id: params[:bed_room], token_money: @token_amount,rent_amount: @rent_amount)
 		room_rent = RoomRent.create(tenant_id: @tenant.id, house_id: params[:house_id], rent_date: params[:booking_date],  bed_room_id: params[:bed_room],rent_amount: @token_amount,month: params[:month], status: 'paid')
+		booked_house = BookedHouse.create(tenant_id: @tenant.id, house_id: params[:house_id], bed_room_id: params[:bed_room], rent: @rent_amount, live_in_start_date: params[:move_in_date], booking_date: Time.now)
+		UserMailer.booking_email(@tenant).deliver
 		redirect_to payment_path(booking)
 	end
 	

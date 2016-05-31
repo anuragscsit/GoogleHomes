@@ -17,15 +17,31 @@
 			</tr>
 			<% @rent.each do |rent| %>
 			<tr>
-			<td><%= rent.month %></td>
-			<td><%= rent.rent_date %></td>
-			<td><%= rent.rent_amount%></td>
-			<td><%= rent.status%></td>
-			<% if rent.status == 'paid' %>
-			<td><a href="">Get Reciept</a></td>
-			<% elsif rent.status == 'dues' %>
-			<td><a href="">Pay now</a></td>	
-			<% end %> 
+				<td><%= rent.month %></td>
+				<td><%= rent.rent_date %></td>
+				<td><%= rent.rent_amount%></td>
+				<td><%= rent.status%></td>
+				<% if rent.status == 'paid' %>
+					<td><a href="">Get Reciept</a></td>
+				<% elsif rent.status == 'dues' %>
+					<td>
+					<%= form_tag room_rents_path do %>
+						<%= hidden_field_tag 'id',nil, value: rent.id %>
+						<%= hidden_field_tag 'house_id',nil, value: rent.house_id %>
+						<%= hidden_field_tag 'rent',nil, value: rent.rent_amount.to_f%>
+						<%= hidden_field_tag 'month',nil, value: rent.month %>
+						<%= hidden_field_tag 'tenant',nil, value: current_user.id%>
+						<%= hidden_field_tag 'bed_room',nil, value: @myhouse.bed_room_id %>
+						
+						<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+						  	data-key="<%= Rails.configuration.stripe[:publishable_key] 	%>"
+						  	data-description="Pay Token money/first month rent" data-label = 'Pay Now'
+						  	data-amount="<% rent.rent_amount.to_f%>"
+						  	data-locale="auto">
+					  	</script>	
+					<% end %>
+					</td>
+				<% end %> 
 			</tr>
 			<% end %>
 		</table>
@@ -33,3 +49,13 @@
 
 	</div>
 </div>
+<style type="text/css">
+.stripe-button-el{
+	padding: 0px !important;
+	width:auto !important;
+	text-transform: none !important;
+	letter-spacing: 0px !important;
+	height: 30px !important;
+	border: none !important;
+}
+</style>

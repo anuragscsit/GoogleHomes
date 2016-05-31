@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-
+  
   private
   def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."
