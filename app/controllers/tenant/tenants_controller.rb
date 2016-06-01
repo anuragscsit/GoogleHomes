@@ -13,6 +13,7 @@ class Tenant::TenantsController < ApplicationController
     else
       @tenant_profile = current_user.tenant_profile
     end
+    
   end
 
   def show

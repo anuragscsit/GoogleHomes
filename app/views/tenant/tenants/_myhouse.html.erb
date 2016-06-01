@@ -20,3 +20,22 @@
 
 	</div>
 </div>
+<div class='pt20'>
+	<div class="row">		
+		<div class="col-md-3">
+			<p> Leave review </p>
+		</div>
+		<div class="col-md-6">
+			<%= form_for Review.new do |f|  %>
+			<div class="form-group row">
+				<%= f.text_area :message, class: 'form-control'%>
+			</div>
+			<%= f.hidden_field :tenant_id, value: current_user.id%>
+			<%= f.hidden_field :house_id, value: @house.id%>
+			<div class="form-group row">
+				<%= f.submit 'review', class: 'btn btn-sm btn-info pull-right'%>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>

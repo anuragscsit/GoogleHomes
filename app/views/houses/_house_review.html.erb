@@ -4,12 +4,14 @@
 		<ul>
 			<li>
 				<div class="row">
+					<% @review.each do |review|%>
 					<div class="col-xs-3">
-						<%= image_tag 'cover11.jpg'%>
+						
 					</div>
 					<div class="col-xs-9">
-						<p>Awsome house.</p>
+						<p><%= review.message %></p>
 					</div>
+					<% end %>
 				</div>
 			</li>
 		</ul>

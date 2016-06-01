@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  get 'reviews/new'
+
+  get 'reviews/create'
+
+  get 'reviews/show'
+
   get 'requirements/new'
   get 'requirements/create'
   get 'tenant/tenant_profile/edit'
@@ -31,6 +37,7 @@ Rails.application.routes.draw do
   resources :visit_schedules, only: [:new,:create,:edit, :show]
   resources :payments
   resources :room_rents, only:[:new,:create, :show]
+  resources :reviews, only: [:create]
 ############################################################################### 
   namespace :tenant do 
     resources :tenants do
