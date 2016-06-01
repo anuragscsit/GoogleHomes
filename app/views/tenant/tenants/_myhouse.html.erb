@@ -12,8 +12,8 @@
 			<h5><%= @house.location %></h5>
 			<div class="alert alert-warning">
 				<h5>you have not pay your deposite please pay now.</h5>
-				<a href="">Rs <% 2*@deposite.to_f %></a>
-
+				<a href="">Rs <%= 2* @booking.rent.to_f %></a>
+				
 			</div>
 		</div>
 		<% end %>

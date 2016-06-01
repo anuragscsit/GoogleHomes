@@ -1,4 +1,4 @@
-class HousesController < ApplicationController
+  class HousesController < ApplicationController
   before_action :set_house, only: [:show, :edit, :update, :destroy]
    before_action :auth_owner, except: [:show]
   def auth_owner
@@ -18,7 +18,7 @@ class HousesController < ApplicationController
      @house = House.find(params[:id])
      @visit_schedule=VisitSchedule.new
      @owner_fullname= User.find(@house.house_owner_id).full_name
-
+     @visits = VisitSchedule.group(:house_id).where(house_id: @house.id).count
      @house_owner_image= HouseOwnerProfile.find(@house.house_owner_id).image
   end
 

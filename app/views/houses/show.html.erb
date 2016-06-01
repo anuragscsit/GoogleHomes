@@ -77,7 +77,7 @@
 									<div align="center"><%= link_to 'book', payments_bed_confirmation_path(house_id: @house.id), class:'btn'%></div>
 									<div>
 										<div class="col-sm-3 visit-count" align="center">
-											<p class="uppercase"><span><%=@house.visit_count%></span> Visits</p>
+											<p class="uppercase"><span><%=@visits[@house.id]%></span> Visits</p>
 										</div>
 										<div class="col-sm-9">
 											<span><strong>Already Scheduled</strong></span>
