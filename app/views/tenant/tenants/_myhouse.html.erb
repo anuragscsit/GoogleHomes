@@ -16,10 +16,16 @@
 				
 			</div>
 		</div>
+		<% else %>
+		<div align="center">
+			<h5>You have'nt book any house.</h5>
+			<a href="#" class="btn">Explore houses</a>
+		</div>
 		<% end %>
 
 	</div>
 </div>
+<% unless @booking.blank? %>
 <div class='pt20'>
 	<div class="row">		
 		<div class="col-md-3">
@@ -39,3 +45,4 @@
 		</div>
 	</div>
 </div>
+<% end %>

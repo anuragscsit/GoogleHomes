@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   # #mount_uploader :avatar, LogoUploader
 
   after_create :send_signup_mail
+  
     def send_signup_mail
       UserMailer.signup_mail(self).deliver
     end

@@ -22,7 +22,7 @@ class Tenant::TenantsController < ApplicationController
   end
   
   def payments    
-    @rent = RoomRent.all
+    @rent = RoomRent.where(tenant_id: current_user.id).all
     @dues = 0
     @rent.each do |rent|
       if rent.status == 'dues'
@@ -36,7 +36,7 @@ class Tenant::TenantsController < ApplicationController
    @booking = BookedHouse.where(tenant_id: current_user.id).first 
     unless @booking.blank?
       @house = House.find(@booking.house_id)
-      @deposite = @booking.rent_amount
+      @deposite = @booking.rent
     end
   end
 end

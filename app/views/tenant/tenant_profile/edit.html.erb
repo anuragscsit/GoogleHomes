@@ -123,7 +123,7 @@
 					
 							</div>
 							<div class="emergency-details">		
-								<p>occupation</p>
+								<p class="lead">Emergency details</p>
 									<div class="input-with-label text-left">
 										<label>emergency_person_name</label>
 										<%= f.text_field :emergency_person_name, placeholder: 'emergency_person_name' %>
@@ -133,15 +133,15 @@
 										<%= f.text_field :emergency_person_contact, placeholder: 'emergency_person_contact' %>
 									</div><div class="input-with-label text-left">
 										<label>emergency_person_relationship</label>
-										<%= f.text_field :emergency_person_relationship, placeholder: 'emergency_person_relationship' %>
+										<%= f.text_field :emergency_person_relationship, placeholder: 'emergency person relationship' %>
 									</div>
 									<div class="input-with-label text-left">
 										<label>emergency_person_address</label>
-										<%= f.text_field :emergency_person_address, placeholder: 'emergency_person_address' %>
+										<%= f.text_field :emergency_person_address, placeholder: 'emergency person address' %>
 									</div>
 							</div>
 							<div class="employment-details">
-									<p>occupation</p>
+									<p class="lead">occupation</p>
 									<div class="input-with-label text-left">
 										<label>Occupation</label>
 										<%= f.text_field :occupation, placeholder: 'occupation' %>
@@ -152,11 +152,11 @@
 									</div>
 									<div class="input-with-label text-left">
 										<label>office email</label>
-										<%= f.email_field :office_email, placeholder: 'office_email' %>
+										<%= f.email_field :office_email, placeholder: 'office email' %>
 									</div>
 									<div class="input-with-label text-left">
 										<label>years of employement</label>
-										<%= f.text_field :years_of_employement, placeholder: 'years_of_employement' %>
+										<%= f.text_field :years_of_employement, placeholder: 'years of employement' %>
 									</div>
 									<div class="input-with-label text-left">
 										<%= image_tag @tenant_profile.employment_proof.url(:thumb) if @tenant_profile.employment_proof.present?%>

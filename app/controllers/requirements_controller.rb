@@ -8,7 +8,7 @@ class RequirementsController < ApplicationController
     @requirement = Requirement.new(requirement_params)
     
     @requirement.save
-    UserMailer.requirement_email(@requirement).deliver
+    UserMailer.requirement_email(@requirement).deliver_now
     if current_user.class.name=='Tenant'
     	redirect_to dashboard_tenant_tenants_path 
   	else
