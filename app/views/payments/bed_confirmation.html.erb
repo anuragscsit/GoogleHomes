@@ -146,8 +146,9 @@
 				$('.rent-option').hide("slide", {direction: "down" }, 500);
 				$('.chosen-move-in-date').hide("slide", {direction: "down" }, 500);
 				$('#movein-popup').show("slide", {direction: "up" }, 500 );
+				});
 				$('.choose-bed-widget input[type=radio]').on('change', function() {
-				 	
+				 $(this).prop("checked", true);
 					full_rent = $(this).val();
 					var id= $(this).attr('id');
 					$('#bed-room').val(id);
@@ -156,7 +157,7 @@
 					// $('#token-amount').val($(this).val()/2);
 					// console.log($(this).val()/2)
 				
-				});
+				
 				
 				event.preventDefault();
 			});
