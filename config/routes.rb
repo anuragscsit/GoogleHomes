@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'reviews/new'
-
-  get 'reviews/create'
-
-  get 'reviews/show'
 
   get 'requirements/new'
   get 'requirements/create'
@@ -18,10 +13,10 @@ Rails.application.routes.draw do
   get 'home/tenant'
   get 'home/map'
   get 'home/ghomeshouses'
-   get 'home/home'
-   get 'payments/bed_confirmation'
-   post 'payments/confirmation'
-   get 'payments/booking'
+  get 'home/home'
+  get 'payments/bed_confirmation'
+  post 'payments/confirmation'
+  get 'payments/booking'
   devise_for :tenants, skip: [:sessions]
   devise_for :house_owners, skip: [:sessions]
   devise_for :users, skip: :registrations
@@ -38,7 +33,7 @@ Rails.application.routes.draw do
   resources :payments
   resources :room_rents, only:[:new,:create, :show]
   resources :reviews, only: [:create]
-  resources :deposites, only: [:create]
+  resources :deposites, only: [:create,:show]
 ############################################################################### 
   namespace :tenant do 
     resources :tenants do

@@ -30,7 +30,7 @@ class Tenant::TenantsController < ApplicationController
       end
     end
     @myhouse = BookedHouse.where(tenant_id: current_user.id).first
-    @deposite = Deposite.where(tenant_id: current_user.id, house_id: @myhouse.house_id).first
+    
   end
   
   def myhouse    
@@ -39,6 +39,6 @@ class Tenant::TenantsController < ApplicationController
       @house = House.find(@booking.house_id)
       @deposite = @booking.rent
     end
-    
+
   end
 end
