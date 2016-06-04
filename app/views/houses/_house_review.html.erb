@@ -3,16 +3,19 @@
 	<div class="well">
 		<ul>
 			<li>
+			<% @review.each do |review|%>
 				<div class="row">
-					<% @review.each do |review|%>
+					
 					<div class="col-xs-3">
-						
+						<% tenant = TenantProfile.where(tenant_id: review.tenant_id).first %>
+						<%= image_tag tenant.image.url(:thumb)%>
 					</div>
 					<div class="col-xs-9">
 						<p><%= review.message %></p>
 					</div>
-					<% end %>
+					
 				</div>
+				<% end %>
 			</li>
 		</ul>
 	</div>
