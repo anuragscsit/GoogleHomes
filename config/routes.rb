@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'home/map'
   get 'home/ghomeshouses'
   get 'home/home'
+  get 'home/error'
   get 'payments/bed_confirmation'
   post 'payments/confirmation'
   get 'payments/booking'
