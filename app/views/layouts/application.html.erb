@@ -27,7 +27,9 @@
 
 	<%= yield %>  <!-- Current Page -->
 
+	<% unless params[:controller] == 'home' && params[:action] == 'error' %>
 	<%= render 'layouts/footer'%> <!-- Footer -->
+	<% end %>
 	<script type="text/javascript">
 		$('document').ready(function() {
 			setTimeout(function() {

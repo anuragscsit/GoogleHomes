@@ -5,15 +5,9 @@ class HomeController < ApplicationController
     @owners= HouseOwnerProfile.all.sample(2)
     
   end
-  def map
-  	
-  end
 
   def ghomeshouses
   	@house = House.all
-    
-  end
-  def home
     
   end
 

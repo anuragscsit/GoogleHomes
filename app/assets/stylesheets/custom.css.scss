@@ -405,5 +405,11 @@ background-size: cover !important;background-attachment: scroll !important;backg
 .token-widget,.details-widget{padding: 5px 15px;background-color: #ffffff;border-radius: 1px;box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);box-sizing: border-box; margin-top: 7px;}
 .token-widget h2, .token-widget h5,.token-widget p{margin:0 5px;}
 
-/***************Mailer**************/
+/***************Error-page**************/
+#error_page{
+    background: asset_url("home-2-4.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center center;
+  }
 

@@ -11,9 +11,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/owner'
   get 'home/tenant'
-  get 'home/map'
   get 'home/ghomeshouses'
-  get 'home/home'
   get 'home/error'
   get 'payments/bed_confirmation'
   post 'payments/confirmation'
@@ -26,7 +24,6 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'home#index'
-    get 'profile', :to => "profile#edit"
   resources :search, only: [:new, :index]
   resources :requirements , only: [:create]
   resources :houses, except: [:index,:destroy]
@@ -43,8 +40,8 @@ Rails.application.routes.draw do
         get :dashboard
         get :myhouse
       end
-      resources :tenant_profile
-      
+      resources :tenant_profile, path: :profile
+        
     end
   end
   resources :charges 
