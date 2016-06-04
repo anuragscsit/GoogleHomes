@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   resources :payments
   resources :room_rents, only:[:new,:create, :show]
   resources :reviews, only: [:create]
+  resources :deposites, only: [:create]
 ############################################################################### 
   namespace :tenant do 
     resources :tenants do

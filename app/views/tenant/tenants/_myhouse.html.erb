@@ -10,11 +10,26 @@
 		<div class="col-sm-8">
 			<h5><%= @house.name %></h5>
 			<h5><%= @house.location %></h5>
+			<% my_deposite = DepositeRent.where(tenant_id: current_user.id, house_id: @booking.house_id).first %>
+			<% if my_deposite.blank? %>
 			<div class="alert alert-warning">
 				<h5>you have not pay your deposite please pay now.</h5>
-				<a href="">Rs <%= 2* @booking.rent.to_f %></a>
+				<%= form_tag deposites_path do %>
+						<%= hidden_field_tag 'house_id',nil, value: @booking.house_id %>
+						<%= hidden_field_tag 'deposite',nil, value: @booking.rent.to_f*2 %>
+						<%= hidden_field_tag 'tenant',nil, value: current_user.id%>
+						<%= hidden_field_tag 'bed_room',nil, value: @booking.bed_room_id %>
+						
+						<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+						  	data-key="<%= Rails.configuration.stripe[:publishable_key] 	%>"
+						  	data-description="Pay Token money/first month rent" data-label = 'Pay Now'
+						  	data-amount="<% @booking.rent.to_f %>"
+						  	data-locale="auto">
+					  	</script>	
+					<% end %>
 				
 			</div>
+			<% end %>
 		</div>
 		<% else %>
 		<div align="center">
