@@ -58,7 +58,6 @@ Rails.application.routes.draw do
       end
     resources :house_owner_profile
     resources :visit_schedules, only: [:index,:show]
-    #resources :houses,except:[:destroy]
   end
  ############################################################################ 
 end 
