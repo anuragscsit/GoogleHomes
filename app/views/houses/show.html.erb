@@ -58,6 +58,7 @@
 						</a>
 					</div>
 				</div>
+				<% if current_user.class == Tenant || user_signed_in? == false %>
 				<div class="col-sm-4 house-details-right">
 					<div class="house-right-tabs">
 						<!-- Nav tabs -->
@@ -88,6 +89,7 @@
 						</div>
 					</div>
 				</div>
+				<% end %>
 			</div>   <!-- end of row -->
 		</div>
 	</div>	
