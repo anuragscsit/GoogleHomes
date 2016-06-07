@@ -1,5 +1,6 @@
 class HouseOwnerProfile < ActiveRecord::Base
 	belongs_to :house_owner
+	
 	def full_permamnent_address
 		l = ''
 		l << p_address if p_address && !p_address.blank?
