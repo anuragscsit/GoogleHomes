@@ -3,8 +3,7 @@ class House < ActiveRecord::Base
 	has_many :bookings
 	has_many :deposite_rents
 	has_many :room_rents
-	has_many :tenants
-	has_many :reviews
+	has_many :tenants 
 	has_many :visit_schedules
 	has_many :booked_houses
 	validates :house_image, :city, :location, :latitude, :longitude, presence: true

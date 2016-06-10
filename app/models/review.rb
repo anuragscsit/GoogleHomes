@@ -1,4 +1,2 @@
-class Review < ActiveRecord::Base
-	belongs_to :house
-	belongs to :tenant
+class Review < ActiveRecord::Base 
 end
