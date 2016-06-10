@@ -1,6 +1,11 @@
 class VisitSchedulesController < ApplicationController
   before_action :set_visit_schedule, only: [:show, :edit, :update, :destroy]
-
+  before_action :auth_tenant
+  def auth_tenant
+   unless current_user.class == 'Tenant'
+     redirect_to  new_tenant_registration_url , notice: 'Please register before schedule a visit'
+    end
+  end
   # GET /visit_schedules
   # GET /visit_schedules.json
   def index

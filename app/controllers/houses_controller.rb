@@ -20,7 +20,7 @@
      @owner_fullname= User.find(@house.house_owner_id).full_name
      @visits = VisitSchedule.group(:house_id).where(house_id: @house.id).count
      @house_owner_image= HouseOwnerProfile.find(@house.house_owner_id).image
-     @review = Review.where(house_id: @house.id).all
+     @review = Review.where(house_id: @house.id).all.limit(3)
      
   end
 
