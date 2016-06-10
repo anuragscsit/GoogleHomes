@@ -23,6 +23,7 @@ class Owner::HouseOwnersController < ApplicationController
 
   end
   def my_payments
+    @payments = OwnerPayment.where(house_owner_id: current_user.id)
   end
   def my_credits
   end

@@ -7,22 +7,25 @@
 	<div>
 		<table class="table table-responsive">
 			<tr>
-				<td>House</td>
+				<td>House id </td>
+				<td>Tenant id </td>
 				<td>Month</td>
+				<td>Year</td>
 				<td>Amount</td>
-				<td>Dues</td>
+				<td>date</td>
 				
 			</tr>
+			<%@payments.each do |payment|%>
 			<tr>
-				<td>1</td>
-				<td>January</td>
-				<td>5000</td>
-				<td>0</td>
-			
+				<td><%= payment.house_id %></td>
+				<td><%= payment.tenant_id %></td>
+				<td><%= payment.month %></td>
+				<td><%= payment.year %></td>
+				<td><%= payment.amount %></td>
+				<td><%= payment.date %></td>
 			</tr>
-
+			<% end %>
 		</table>
-		<h4>Total Amount Dues: ₹ <span>0</span></h4>
 
 	</div>
 </div>
