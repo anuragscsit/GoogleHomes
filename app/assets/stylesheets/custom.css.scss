@@ -98,10 +98,10 @@ background-size: cover !important;background-attachment: scroll !important;backg
 }
 
 /*Houses*/
-.house-form input[type="text"],.house-form  input[type="email"],.house-form  input[type="file"],.house-form  input[type="number"],.house-form #house_food_preference , #house-form #house_house_type,#house-form #house_city, #house-form .house_house_for
+.house-form input[type="text"],.house-form  input[type="email"],.house-form  input[type="file"],.house-form  input[type="number"],.house-form #house_food_preference , .house-form #house_house_type,.house-form #house_city, .house-form #house_house_for
 {
     background: #f5f5f5 none repeat scroll 0 0;
-    border: 1px #eee solid;
+    border: 1px #ccc solid;
     border-radius: 0;
     font-weight: 500;
     height: 40px ;

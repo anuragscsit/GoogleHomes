@@ -21,10 +21,12 @@ class PaymentsController < ApplicationController
 		@rent_amount = params[:rent].to_f
 		@month = params[:month]
 		@bed_room = params[:bed_room]
-		@tenant = current_user	
-		if BookedHouse.where(tenant_id: @tenant).first!
+		@tenant = current_user
+			
+		if BookedHouse.where(tenant_id: @tenant).first != nil
 			redirect_to :back, alert: 'You have already booked a house'
 		end
+		
 	end
 
 	def confirmation

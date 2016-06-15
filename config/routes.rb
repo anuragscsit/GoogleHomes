@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'requirements/new'
   get 'requirements/create'
   get 'tenant/tenant_profile/edit'

@@ -22,7 +22,11 @@
 			<div class=" pt-1  boxed">
 				<h5 class="uppercase">Personal info</h5>
 				<p>name: <span><%=@tenant.full_name%></span> </p>
-				<p>Gender: <span><%=@tenant_profile.sex%></span> </p>
+				<p>Gender: <span>
+					<%="Male" if @tenant_profile.sex == "true" %>
+					<%="Female" if @tenant_profile.sex == "false"  %>
+					</span> 
+				</p>
 				<p>Birth date: <span><%=@tenant_profile.DOB%></span> </p>
 				<p>email:<span><%=@tenant.email%></p>
 				<p>About me: <span><%=@tenant_profile.bio%></span> </p>

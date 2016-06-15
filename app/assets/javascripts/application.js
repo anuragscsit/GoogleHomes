@@ -31,5 +31,5 @@
  //= require char-count
  //= require twitterfetcher.min
  //= require parallax
- //= ytplayer.min
+ //= require ytplayer.min
 

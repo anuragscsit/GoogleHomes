@@ -7,7 +7,7 @@ class Tenant < User
   has_many :bookings
   has_many :room_rents
   has_many :deposite_rents 
-  
+  belongs_to :house
   def full_name
     "#{first_name} #{last_name}"
   end
