@@ -15,12 +15,21 @@ class SearchController < ApplicationController
 				marker.lng house.longitude
 			end
     	else
-			@houses = House.where(city: city, house_for: gender )
-			@hash = Gmaps4rails.build_markers(@houses) do |house, marker|
-				marker.infowindow render_to_string(:partial => "house_markerinfo", :locals => { :object => house})
-				marker.lat house.latitude
-				marker.lng house.longitude
-			end
+    		unless params[:gender].blank?
+				@houses = House.where(city: city, house_for: gender )
+				@hash = Gmaps4rails.build_markers(@houses) do |house, marker|
+					marker.infowindow render_to_string(:partial => "house_markerinfo", :locals => { :object => house})
+					marker.lat house.latitude
+					marker.lng house.longitude
+				end
+			else
+				@houses = House.where(city: city)
+				@hash = Gmaps4rails.build_markers(@houses) do |house, marker|
+					marker.infowindow render_to_string(:partial => "house_markerinfo", :locals => { :object => house})
+					marker.lat house.latitude
+					marker.lng house.longitude
+				end	
+			end	
 		end
 	end
 end

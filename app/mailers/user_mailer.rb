@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
 	end
 	def requirement_email(user)
 	    @user = user
-	    mail(to: @user.email, subject: 'You Hose requirement')
+	    mail(to: @user.email, subject: 'Your House requirement')
 	end
 	def signup_mail(user)
     @user = user
